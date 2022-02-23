@@ -1,0 +1,179 @@
+import { Meta } from '@storybook/addon-docs';
+import IconList from '../../ui/IconList';
+
+<Meta title="Generator" />
+
+# Generator
+Some of the components are assisted by the `generator` from the [styled-gen](https://github.com/psoaresbj/styled-gen) lib.
+
+You can check if each component have a `namedProps`, `variableProps` and `spaceProps` on *controls* and play with it.
+
+## What is this?
+This is an helper function that adds the hability to handle props dynamically into styled components in order to write less redundant styling.
+
+Some components that have generated props are the layout (ex: `Box` or `Grid`) or element (ex: `Text` or `Button`) components.
+
+## How it works?
+Basically, there are three different prop kinds created by this helper: `namedProps`, `variableProps` and `spaceProps`.
+
+#### Named Props
+
+These props are passed like boolean props:
+
+```jsx
+// This will create a text element with text-align centered and p500 color.
+
+<Text center p500>
+    My text content...
+<Text />
+```
+
+If a Prefix is passed when adding the [generator config](?path=/docs/generator--page#generator-config), the key will be prefixed with camelcase.
+
+```jsx
+//this will create a div with a g200 background-color
+
+<Box bgG200>
+
+    {/* this will create a text element with text-align right and g700 color. */}
+    <Text right g700>
+        My text content...
+    <Text />
+</Box>
+```
+
+
+#### Variable Props
+
+These props are key/value props where the value is converted as final final string to `css` props.
+
+We can use `string` (a simple string to fill the css prop or a string that fills as arguments in an helper function declared in the [generator config](?path=/docs/generator--page#generator-config)), `number` (this will apply a default unit registered in the [generator config](?path=/docs/generator--page#generator-config)) or an object with media-breakpoint keys (`lg`, `md`, `sm` and `xs`).
+
+```tsx
+/*
+ * For sake of simplicity, we describe the type bellow as TS type
+ *
+ * the string may be
+ *  - a direct string that will be applyed in the css prop. ex: 'left'
+ *  - arguments for an helper function configured in the generator. ex: '5 2'
+ */
+type VariableProp = { [key: 'lg' | 'md' | 'sm' | 'xs']: string | number } | string | number;
+
+// NOTE:
+// all thes values that may be converted to number (even those in strings), if in the generator config
+// we have set a `units` key, those values will be appended by what we've set there.
+// In our system, we have all units set as `rem` so all the numerical values will be translated like:
+// '1 2' => '1rem 2rem' | 1 => '1rem'
+
+// Usage example
+
+<Text alpha={0.5} bgG200 radius={2} tAlign={{ md: 'left', xs: 'center' }}>
+    This text will:
+      - have a g200 background color
+      - a 2rem border-radius
+      - an opacity of 0.5
+    and it will be:
+     - center aligned from mobile up to tablet landscape
+     - left aligned from tablet landscape to larger resolutions
+</Text>
+
+// an example with helper functions
+// margin and padding are helper functions imported from polished lib that where set in the generator config.
+
+<Text g500 margin={2} padding={{ sm: '2 1', xs: '20px 5 10px' }}>
+    This text will:
+      - have a g500 color
+      - a margin of 2rem
+    and:
+      - a padding top of 20px, a 5rem horizontal padding and a 10px bottom padding up to tablet portrait
+      - a 2rem vertical padding and 1rem horizontal padding from tablet portrait to larger resolutions
+</Text>
+```
+
+
+#### Space props
+
+The space props works exactely like a `variableProp` described above.
+
+The only particular thing is that we only config a `prop` as `string` and the `units` in the [generator config](?path=/docs/generator--page#generator-config).
+
+The generator will extract the first letter of the `prop` (usually, `margin` and `padding`) and merge with the first letter of a direction (`top`, `right`, `bottom`, `left`).
+
+```jsx
+<Text pt={1} mb={{ sm: 5, xs: '10px' }}>
+    This text will:
+      - have a padding top of 5rem
+    and:
+      - a margin-bottom of 10 px up to tablet portrait
+      - a margin-bottom of 5rem from tablet portrait to larger resolutions
+<Text />
+```
+
+## Generator config
+
+For all this to work, we need a _generator_ object that must be passed to the styled-components `ThemeProvider`, then just import the `generateProps` function from the `styled-gen` lib and use when styling your styled-component.
+
+Our design system already have a generator located in `./theme/generator.ts` which is passed in the `theme` object to `DesignSystemProvider`, so there's no need to do extra stuff here - just for you to understand how it works...
+
+`generator` config object example
+
+```javascript
+// generator.ts
+
+import { colors } from './colors'; // colors from theme
+import { margin, padding } from 'polished'; // helper functions
+
+export const generator = {
+    // will generate bool props
+    // ex: <Text p200>My text</Text>
+    namedProps: [
+        { list: colors, cssProp: 'color' },
+        { list: ['center', 'left', 'right'].reduce((result, val) => ({...result, [val]: val }), {}), cssProp: 'text-align' },
+    ],
+
+    // Will generate variable props
+    // <Text alpha={0.5} tAlign={{ md: 'left', xs: 'center' }}>content</Text>
+    variableProps: [
+        { name: 'alpha', cssProp: 'opacity' },
+        { name: 'tAlign', cssProp: 'text-align' },
+        { name: 'radius', cssProp: 'border-radius', units: 'rem' },
+
+        // Helper functions
+        { name: 'margin', helperFn: margin, units: 'rem' },
+        { name: 'padding', helperFn: padding, units: 'rem' }
+    ],
+
+    // Will generate spacing shorthanded props
+    // <Text pt={1} mb={{ md 1, xs: 2 }} >content</Text>
+    spaceProps: [
+        { prop: 'padding', units: 'rem' },
+        { prop: 'margin', units: 'rem' }
+    ]
+};
+```
+
+Now, add the generateProps to your styled-component and use it.
+
+```jsx
+import { generateProps } from 'styled-gen';
+import React from 'react';
+import styled from 'styled-components';
+
+const MyComponent = styled.div`
+    box-shadow: 0 0 1rem 'pink';
+
+    ${generateProps};
+`;
+
+<App>
+    <MyComponent mt={1} p600 padding={{ sm: '2 3' , xs: 1 }}>
+        my content will have:
+          - a margin-top of 1rem
+          - p600 color
+        and:
+          - a padding of 1rem up to tablet portrait
+          - a vertical padding of 2rem and an horizontal padding of 3rem from tablet portrait to larger resolutions
+    </MyComponent>
+</App>
+
+```

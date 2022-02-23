@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Intro" />
+
+# impactMarket design system
+
+Welcome to our design system. This guide will help you to understand how to use visual components in **impactMarket** apps.
+
+## Get started
+1. First step is to add add the lib to project
+```bash
+yarn add @impact-market/ui
+```
+2. Then you must add the provider on the very top of the apps
+```jsx
+// _app.js
+import { DesignSystemProvider } from "@impact-market/ui";
+
+<App>
+    <DesignSystemProvider>
+        {/* your app content here */}
+    </DesignSystemProvider>
+</App>
+```
+
+## Index
+**Variables**
+- [Colors](?path=/story/colors--page)
+- [Icons](?path=/story/icons--page)
+
+**Components**
+- [Display](?path=/story/components-typography-display--display)
+- [Text](?path=/story/components-typography-text--text)

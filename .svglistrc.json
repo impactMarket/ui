@@ -1,0 +1,5 @@
+{
+    "dest": "src/icons",
+    "passAllAttributes": true,
+    "src": "raw-icons"
+}
