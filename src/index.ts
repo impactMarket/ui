@@ -1,10 +1,20 @@
 import { colors } from './theme/colors';
 
+// Types
+export * from './types';
+
+// Variables
 export { colors };
 
-export * from './components/Box';
+// Get started
 export * from './components/DesignSystemProvider';
-export * from './components/Icon';
+
+// Layout
+export * from './components/Box';
+export * from './components/Grid';
+
+// Typography
 export * from './components/Typography';
 
-export * from './types';
+// Elements
+export * from './components/Icon';
