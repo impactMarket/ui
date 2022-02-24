@@ -11,7 +11,15 @@ Welcome to our design system. This guide will help you to understand how to use 
 ```bash
 yarn add @impact-market/ui
 ```
-2. Then you must add the provider on the very top of the apps
+
+2. Add Link tags in your app add
+```jsx
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+```
+
+3. Then you must add the provider on the very top of the apps
 ```jsx
 // _app.js
 import { DesignSystemProvider } from "@impact-market/ui";
@@ -38,5 +46,6 @@ import { DesignSystemProvider } from "@impact-market/ui";
     - [Text](?path=/story/components-typography-text--text)
 - **Layout**
     - [Box](?path=/story/components-layout-box--box)
+    - [Grid](?path=/story/components-layout-grid--grid)
 - **Icons**
     - [Icon](?path=/story/components-icons-icon--icon)
