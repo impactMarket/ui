@@ -16,11 +16,12 @@ const prepend: any = (type?: string) => {
     return type;
 };
 
-const propShorts = ['start', 'end', 'around', 'between', 'evenly', 'stretch', 'unset'] as const;
+const propShorts = ['center', 'start', 'end', 'around', 'between', 'evenly', 'stretch', 'unset'] as const;
 
 type FlexPropsShort = typeof propShorts[number];
 
 export type FlexLayoutType =
+    | 'null center'
     | 'null start'
     | 'null end'
     | 'null around'
@@ -29,6 +30,7 @@ export type FlexLayoutType =
     | 'null stretch'
     | 'null unset'
     | 'start null'
+    | 'start center'
     | 'start'
     | 'start end'
     | 'start around'
@@ -37,6 +39,7 @@ export type FlexLayoutType =
     | 'start stretch'
     | 'start unset'
     | 'end null'
+    | 'end center'
     | 'end start'
     | 'end'
     | 'end around'
@@ -45,6 +48,7 @@ export type FlexLayoutType =
     | 'end stretch'
     | 'end unset'
     | 'around null'
+    | 'around center'
     | 'around start'
     | 'around end'
     | 'around'
@@ -53,6 +57,7 @@ export type FlexLayoutType =
     | 'around stretch'
     | 'around unset'
     | 'between null'
+    | 'between center'
     | 'between start'
     | 'between end'
     | 'between around'
@@ -61,6 +66,7 @@ export type FlexLayoutType =
     | 'between stretch'
     | 'between unset'
     | 'evenly null'
+    | 'evenly center'
     | 'evenly start'
     | 'evenly end'
     | 'evenly around'
@@ -69,6 +75,7 @@ export type FlexLayoutType =
     | 'evenly stretch'
     | 'evenly unset'
     | 'stretch null'
+    | 'stretch center'
     | 'stretch start'
     | 'stretch end'
     | 'stretch around'
@@ -77,20 +84,30 @@ export type FlexLayoutType =
     | 'stretch'
     | 'stretch unset'
     | 'unset null'
+    | 'unset center'
     | 'unset start'
     | 'unset end'
     | 'unset around'
     | 'unset between'
     | 'unset evenly'
     | 'unset stretch'
-    | 'unset';
+    | 'unset'
+    | 'center null'
+    | 'center unset'
+    | 'center start'
+    | 'center end'
+    | 'center around'
+    | 'center between'
+    | 'center evenly'
+    | 'center stretch'
+    | 'center';
 
 // eslint-disable-next-line no-unused-vars
-type FlexLayout = (vertical: FlexPropsShort, horizontal: FlexPropsShort) => FlattenSimpleInterpolation;
+type FlexLayout = (vertical: FlexPropsShort, horizontal?: FlexPropsShort) => FlattenSimpleInterpolation;
 
-export const flexLayout: FlexLayout = (vertical = 'start', horizontal = 'start') => {
+export const flexLayout: FlexLayout = (vertical = 'start', horizontal) => {
     return css`
         align-items: ${prepend(vertical)};
-        justify-content: ${prepend(horizontal)};
+        justify-content: ${prepend(horizontal || vertical)};
     `;
 };
