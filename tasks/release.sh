@@ -32,13 +32,13 @@ release() {
     yarn generate:changelog
 
     # Create a branch for the release
-    #git checkout -b release/${version}
+    git checkout -b release/${version}
 
     # Adds modified files
-    #git add package.json CHANGELOG.md src/icons
+    git add package.json CHANGELOG.md src/icons
 
     # Comit release
-    #git commit -m "Release ${version}"
+    git commit -m "Release ${version}"
 
     echo ${version} successfully created! push it:
     echo "git push origin release/${version}"

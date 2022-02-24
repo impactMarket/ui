@@ -7,8 +7,10 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
+    "generate:changelog": "auto-changelog -p",
     "generate:icons": "yarn svglist generate",
     "lint": "eslint .",
+    "release": "tasks/release.sh",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
