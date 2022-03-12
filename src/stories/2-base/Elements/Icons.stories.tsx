@@ -1,10 +1,10 @@
 /* eslint-disable sort-keys */
-import { Icon as BaseIcon } from '../../components/Icon';
+import { Icon as BaseIcon } from '../../../components/Icon';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { getGeneratedPropArgs, setGeneratedPropArgs } from '../../helpers/generatedPropArgs';
+import { getGeneratedPropArgs, setGeneratedPropArgs } from '../../../helpers/generatedPropArgs';
 import React from 'react';
 import base from 'paths.macro';
-import icons from '../../icons/ui';
+import icons from '../../../icons/ui';
 
 export default {
     argTypes: {
@@ -20,7 +20,7 @@ export default {
     parameters: {
         generator: true
     },
-    title: `Components/${base.replace('/src/stories/', '')}Icon`
+    title: `Components/${base.replace('/src/stories/2-base/', '')}Icon`
 } as ComponentMeta<any>;
 
 const Template: ComponentStory<any> = args => {

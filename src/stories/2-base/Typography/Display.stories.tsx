@@ -1,11 +1,11 @@
 /* eslint-disable sort-keys */
-import { Display as BaseDisplay, DisplayProps } from '../../components/Typography';
+import { Display as BaseDisplay, DisplayProps } from '../../../components/Typography';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { getGeneratedPropArgs, setGeneratedPropArgs } from '../../helpers/generatedPropArgs';
-import { typography } from '../../theme';
+import { getGeneratedPropArgs, setGeneratedPropArgs } from '../../../helpers/generatedPropArgs';
+import { typography } from '../../../theme';
 import React from 'react';
 import base from 'paths.macro';
-import getTypographyArgTypes from '../../helpers/getTypographyArgTypes';
+import getTypographyArgTypes from '../../../helpers/getTypographyArgTypes';
 
 export default {
     argTypes: {
@@ -15,7 +15,7 @@ export default {
     parameters: {
         generator: true
     },
-    title: `Components/${base.replace('/src/stories/', '')}Display`
+    title: `Components/${base.replace('/src/stories/2-base/', '')}Display`
 } as ComponentMeta<any>;
 
 const Template: ComponentStory<any> = args => {

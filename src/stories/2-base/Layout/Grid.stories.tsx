@@ -1,9 +1,10 @@
 /* eslint-disable sort-keys */
-import { Grid as BaseGrid } from '../../components/Grid';
-import { Box } from '../../components/Box';
+import { Grid as BaseGrid } from '../../../components/Grid';
+import { Box } from '../../../components/Box';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Text } from '../../components/Typography';
-import { getGeneratedPropArgs, setGeneratedPropArgs } from '../../helpers/generatedPropArgs';
+import { Display, Text } from '../../../components/Typography';
+import { Divider } from '../../../components/Divider';
+import { getGeneratedPropArgs, setGeneratedPropArgs } from '../../../helpers/generatedPropArgs';
 import React from 'react';
 import base from 'paths.macro';
 
@@ -29,7 +30,7 @@ export default {
     parameters: {
         generator: true
     },
-    title: `Components/${base.replace('/src/stories/', '')}Grid`
+    title: `Components/${base.replace('/src/stories/2-base/', '')}Grid`
 } as ComponentMeta<any>;
 
 const Template: ComponentStory<any> = args => {
@@ -39,6 +40,10 @@ const Template: ComponentStory<any> = args => {
 
     return (
         <>
+            <Display>Grid</Display>
+            <Divider />
+            <Text>Automatic grid where we can set the amount of columns</Text>
+            <Divider />
             <BaseGrid {...getGeneratedPropArgs(forGenerated)}>
                 {itemsArr?.map((_, index) => (
                     <Box bgG100 fLayout="center" flex key={index} padding={3} radius={1}>

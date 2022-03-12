@@ -7,7 +7,7 @@ type Props = {
     children: any;
 };
 
-export const DesignSystemProvider = (props: Props) => {
+export const DesignSystemProvider: React.FC<Props> = props => {
     const { children } = props;
 
     return (
