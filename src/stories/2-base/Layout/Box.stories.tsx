@@ -1,8 +1,8 @@
 /* eslint-disable sort-keys */
-import { Box as BaseBox } from '../../components/Box';
+import { Box as BaseBox } from '../../../components/Box';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Text } from '../../components/Typography';
-import { getGeneratedPropArgs, setGeneratedPropArgs } from '../../helpers/generatedPropArgs';
+import { Text } from '../../../components/Typography';
+import { getGeneratedPropArgs, setGeneratedPropArgs } from '../../../helpers/generatedPropArgs';
 import React from 'react';
 import base from 'paths.macro';
 
@@ -11,7 +11,7 @@ export default {
     parameters: {
         generator: true
     },
-    title: `Components/${base.replace('/src/stories/', '')}Box`
+    title: `Components/${base.replace('/src/stories/2-base/', '')}Box`
 } as ComponentMeta<any>;
 
 const Template: ComponentStory<any> = args => {

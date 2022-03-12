@@ -19,7 +19,7 @@ export const colors = {
     // Primary
     p25: '#F0F2F7',
     p50: '#DFE7F8',
-    p100: '#F4EBFF',
+    p100: '#DFE7F8',
     p200: '#D3DFFE',
     p300: '#A7C0FE',
     p400: '#7BA1FD',
@@ -30,16 +30,21 @@ export const colors = {
     p900: '#0D2C77',
 
     // Error
+    e25: '#FDA29B',
+    e100: '#FEE4E2',
     e300: '#FDA29B',
     e600: '#D92D20',
     e700: '#B42318',
 
     // Warning
+    w25: '#FFFCF5',
+    w100: '#FEF0C7',
     w300: '#FEC84B',
     w600: '#DC6803',
     w700: '#B54708',
 
     // Success
+    s100: '#D1FADF',
     s300: '#6CE9A6',
     s600: '#039855',
     s700: '#027A48'

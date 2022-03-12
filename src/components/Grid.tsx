@@ -14,7 +14,7 @@ type Props = {
 
 const units = 'rem';
 
-const Wrapper = styled.div<Props & GeneratedPropTypes>`
+const Wrapper = styled.div<{ auto?: boolean } & Props & GeneratedPropTypes>`
     display: flex;
     flex-wrap: wrap;
 
@@ -40,15 +40,21 @@ const Wrapper = styled.div<Props & GeneratedPropTypes>`
             `
         )}
 
-    & > * {
-        ${({ cols, colSpan }) => css`
-            ${applyMqProps(
-                cols,
-                (value: number) => css`
-                    width: ${!!value && `${100 / value}%`};
-                `
-            )};
+    ${({ auto, cols }) =>
+        auto &&
+        css`
+            & > * {
+                ${applyMqProps(
+                    cols,
+                    (value: number) => css`
+                        width: ${!!value && `${100 / value}%`};
+                    `
+                )};
+            }
+        `}
 
+    & > * {
+        ${({ colSpan }) => css`
             ${applyMqProps(
                 colSpan as MqProp<number | number[]>,
                 (value: number) => css`
@@ -73,7 +79,7 @@ export const Grid: React.FC<Props> = props => {
     const { children, colProps, ...forwardProps } = props;
 
     return (
-        <Wrapper {...forwardProps}>
+        <Wrapper {...forwardProps} auto>
             {React.Children.toArray(children).map((child, index) => (
                 <Col {...colProps} key={index}>
                     {child}

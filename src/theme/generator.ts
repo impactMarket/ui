@@ -40,6 +40,8 @@ export const generator = {
         { name: 'tAlign', cssProp: 'text-align' },
         { name: 'radius', cssProp: 'border-radius', units: 'rem' },
         { name: 'fDirection', cssProp: 'flex-direction' },
+        { name: 'mWidth', cssProp: 'max-width', units: 'rem' },
+        { name: 'mHeight', cssProp: 'max-height', units: 'rem' },
         { name: 'show', cssProp: 'display' },
 
         // Helper functions

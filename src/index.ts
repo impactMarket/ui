@@ -17,4 +17,13 @@ export * from './components/Grid';
 export * from './components/Typography';
 
 // Elements
+export * from './components/AppContainer';
+export * from './components/Avatar';
+export * from './components/Button';
+export * from './components/CircledIcon';
+export * from './components/Divider';
 export * from './components/Icon';
+export * from './components/ProgressBar';
+export * from './components/Sidebar';
+export * from './components/Spinner';
+export * from './components/ViewContent';

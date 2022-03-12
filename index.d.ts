@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import * as styled_components from 'styled-components';
 import { margin, padding } from 'polished';
 import React from 'react';
@@ -18,7 +17,7 @@ declare const colors: {
     readonly g900: "#101828";
     readonly p25: "#F0F2F7";
     readonly p50: "#DFE7F8";
-    readonly p100: "#F4EBFF";
+    readonly p100: "#DFE7F8";
     readonly p200: "#D3DFFE";
     readonly p300: "#A7C0FE";
     readonly p400: "#7BA1FD";
@@ -27,12 +26,17 @@ declare const colors: {
     readonly p700: "#1C54DB";
     readonly p800: "#1A4ABE";
     readonly p900: "#0D2C77";
+    readonly e25: "#FDA29B";
+    readonly e100: "#FEE4E2";
     readonly e300: "#FDA29B";
     readonly e600: "#D92D20";
     readonly e700: "#B42318";
+    readonly w25: "#FFFCF5";
+    readonly w100: "#FEF0C7";
     readonly w300: "#FEC84B";
     readonly w600: "#DC6803";
     readonly w700: "#B54708";
+    readonly s100: "#D1FADF";
     readonly s300: "#6CE9A6";
     readonly s600: "#039855";
     readonly s700: "#027A48";
@@ -70,7 +74,7 @@ declare const generator: {
             readonly g900: "#101828";
             readonly p25: "#F0F2F7";
             readonly p50: "#DFE7F8";
-            readonly p100: "#F4EBFF";
+            readonly p100: "#DFE7F8";
             readonly p200: "#D3DFFE";
             readonly p300: "#A7C0FE";
             readonly p400: "#7BA1FD";
@@ -79,12 +83,17 @@ declare const generator: {
             readonly p700: "#1C54DB";
             readonly p800: "#1A4ABE";
             readonly p900: "#0D2C77";
+            readonly e25: "#FDA29B";
+            readonly e100: "#FEE4E2";
             readonly e300: "#FDA29B";
             readonly e600: "#D92D20";
             readonly e700: "#B42318";
+            readonly w25: "#FFFCF5";
+            readonly w100: "#FEF0C7";
             readonly w300: "#FEC84B";
             readonly w600: "#DC6803";
             readonly w700: "#B54708";
+            readonly s100: "#D1FADF";
             readonly s300: "#6CE9A6";
             readonly s600: "#039855";
             readonly s700: "#027A48";
@@ -106,7 +115,7 @@ declare const generator: {
             readonly g900: "#101828";
             readonly p25: "#F0F2F7";
             readonly p50: "#DFE7F8";
-            readonly p100: "#F4EBFF";
+            readonly p100: "#DFE7F8";
             readonly p200: "#D3DFFE";
             readonly p300: "#A7C0FE";
             readonly p400: "#7BA1FD";
@@ -115,12 +124,17 @@ declare const generator: {
             readonly p700: "#1C54DB";
             readonly p800: "#1A4ABE";
             readonly p900: "#0D2C77";
+            readonly e25: "#FDA29B";
+            readonly e100: "#FEE4E2";
             readonly e300: "#FDA29B";
             readonly e600: "#D92D20";
             readonly e700: "#B42318";
+            readonly w25: "#FFFCF5";
+            readonly w100: "#FEF0C7";
             readonly w300: "#FEC84B";
             readonly w600: "#DC6803";
             readonly w700: "#B54708";
+            readonly s100: "#D1FADF";
             readonly s300: "#6CE9A6";
             readonly s600: "#039855";
             readonly s700: "#027A48";
@@ -166,6 +180,14 @@ declare const generator: {
     }, {
         readonly name: "fDirection";
         readonly cssProp: "flex-direction";
+    }, {
+        readonly name: "mWidth";
+        readonly cssProp: "max-width";
+        readonly units: "rem";
+    }, {
+        readonly name: "mHeight";
+        readonly cssProp: "max-height";
+        readonly units: "rem";
     }, {
         readonly name: "show";
         readonly cssProp: "display";
@@ -267,7 +289,7 @@ declare type GeneratedPropTypes = NamedProps & SpaceProps & VariableProps & Help
 declare type Props$1 = {
     children: any;
 };
-declare const DesignSystemProvider: (props: Props$1) => JSX.Element;
+declare const DesignSystemProvider: React.FC<Props$1>;
 
 declare const Box: styled_components.StyledComponent<"div", any, {
     n01?: boolean | undefined;
@@ -293,12 +315,17 @@ declare const Box: styled_components.StyledComponent<"div", any, {
     p700?: boolean | undefined;
     p800?: boolean | undefined;
     p900?: boolean | undefined;
+    e25?: boolean | undefined;
+    e100?: boolean | undefined;
     e300?: boolean | undefined;
     e600?: boolean | undefined;
     e700?: boolean | undefined;
+    w25?: boolean | undefined;
+    w100?: boolean | undefined;
     w300?: boolean | undefined;
     w600?: boolean | undefined;
     w700?: boolean | undefined;
+    s100?: boolean | undefined;
     s300?: boolean | undefined;
     s600?: boolean | undefined;
     s700?: boolean | undefined;
@@ -333,12 +360,17 @@ declare const Box: styled_components.StyledComponent<"div", any, {
     bgP700?: boolean | undefined;
     bgP800?: boolean | undefined;
     bgP900?: boolean | undefined;
+    bgE25?: boolean | undefined;
+    bgE100?: boolean | undefined;
     bgE300?: boolean | undefined;
     bgE600?: boolean | undefined;
     bgE700?: boolean | undefined;
+    bgW25?: boolean | undefined;
+    bgW100?: boolean | undefined;
     bgW300?: boolean | undefined;
     bgW600?: boolean | undefined;
     bgW700?: boolean | undefined;
+    bgS100?: boolean | undefined;
     bgS300?: boolean | undefined;
     bgS600?: boolean | undefined;
     bgS700?: boolean | undefined;
@@ -347,6 +379,8 @@ declare const Box: styled_components.StyledComponent<"div", any, {
     tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    mWidth?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    mHeight?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
@@ -362,10 +396,11 @@ declare type Props = {
 };
 declare const Grid: React.FC<Props>;
 
-declare const overflowVariations: {
+declare const miscVariations: {
     ellipsis: styled_components.FlattenSimpleInterpolation;
+    uppercase: styled_components.FlattenSimpleInterpolation;
 };
-declare type CommonProps = GeneratedPropTypes & BoolProps<typeof overflowVariations> & BoolProps<typeof fonts.weights>;
+declare type CommonProps = GeneratedPropTypes & BoolProps<typeof miscVariations> & BoolProps<typeof fonts.weights>;
 declare type DisplayProps = CommonProps & BoolProps<typeof typography.display>;
 declare const Display: styled_components.StyledComponent<"h1", any, {
     n01?: boolean | undefined;
@@ -391,12 +426,17 @@ declare const Display: styled_components.StyledComponent<"h1", any, {
     p700?: boolean | undefined;
     p800?: boolean | undefined;
     p900?: boolean | undefined;
+    e25?: boolean | undefined;
+    e100?: boolean | undefined;
     e300?: boolean | undefined;
     e600?: boolean | undefined;
     e700?: boolean | undefined;
+    w25?: boolean | undefined;
+    w100?: boolean | undefined;
     w300?: boolean | undefined;
     w600?: boolean | undefined;
     w700?: boolean | undefined;
+    s100?: boolean | undefined;
     s300?: boolean | undefined;
     s600?: boolean | undefined;
     s700?: boolean | undefined;
@@ -431,12 +471,17 @@ declare const Display: styled_components.StyledComponent<"h1", any, {
     bgP700?: boolean | undefined;
     bgP800?: boolean | undefined;
     bgP900?: boolean | undefined;
+    bgE25?: boolean | undefined;
+    bgE100?: boolean | undefined;
     bgE300?: boolean | undefined;
     bgE600?: boolean | undefined;
     bgE700?: boolean | undefined;
+    bgW25?: boolean | undefined;
+    bgW100?: boolean | undefined;
     bgW300?: boolean | undefined;
     bgW600?: boolean | undefined;
     bgW700?: boolean | undefined;
+    bgS100?: boolean | undefined;
     bgS300?: boolean | undefined;
     bgS600?: boolean | undefined;
     bgS700?: boolean | undefined;
@@ -445,12 +490,14 @@ declare const Display: styled_components.StyledComponent<"h1", any, {
     tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    mWidth?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    mHeight?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
     padding?: MqProp<string | number> | undefined;
-} & Partial<Record<"ellipsis", boolean | "true" | "false">> & Partial<Record<"bold" | "regular" | "medium" | "semibold", boolean | "true" | "false">> & Partial<Record<"small", boolean | "true" | "false">>, never>;
+} & Partial<Record<"ellipsis" | "uppercase", boolean | "true" | "false">> & Partial<Record<"bold" | "regular" | "medium" | "semibold", boolean | "true" | "false">> & Partial<Record<"small", boolean | "true" | "false">>, never>;
 declare type TextProps = CommonProps & BoolProps<typeof typography.text>;
 declare const Text: styled_components.StyledComponent<"p", any, {
     n01?: boolean | undefined;
@@ -476,12 +523,17 @@ declare const Text: styled_components.StyledComponent<"p", any, {
     p700?: boolean | undefined;
     p800?: boolean | undefined;
     p900?: boolean | undefined;
+    e25?: boolean | undefined;
+    e100?: boolean | undefined;
     e300?: boolean | undefined;
     e600?: boolean | undefined;
     e700?: boolean | undefined;
+    w25?: boolean | undefined;
+    w100?: boolean | undefined;
     w300?: boolean | undefined;
     w600?: boolean | undefined;
     w700?: boolean | undefined;
+    s100?: boolean | undefined;
     s300?: boolean | undefined;
     s600?: boolean | undefined;
     s700?: boolean | undefined;
@@ -516,12 +568,17 @@ declare const Text: styled_components.StyledComponent<"p", any, {
     bgP700?: boolean | undefined;
     bgP800?: boolean | undefined;
     bgP900?: boolean | undefined;
+    bgE25?: boolean | undefined;
+    bgE100?: boolean | undefined;
     bgE300?: boolean | undefined;
     bgE600?: boolean | undefined;
     bgE700?: boolean | undefined;
+    bgW25?: boolean | undefined;
+    bgW100?: boolean | undefined;
     bgW300?: boolean | undefined;
     bgW600?: boolean | undefined;
     bgW700?: boolean | undefined;
+    bgS100?: boolean | undefined;
     bgS300?: boolean | undefined;
     bgS600?: boolean | undefined;
     bgS700?: boolean | undefined;
@@ -530,22 +587,400 @@ declare const Text: styled_components.StyledComponent<"p", any, {
     tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    mWidth?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    mHeight?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
     padding?: MqProp<string | number> | undefined;
-} & Partial<Record<"ellipsis", boolean | "true" | "false">> & Partial<Record<"bold" | "regular" | "medium" | "semibold", boolean | "true" | "false">> & Partial<Record<"base" | "small" | "extralarge" | "large" | "extrasmall", boolean | "true" | "false">>, never>;
+} & Partial<Record<"ellipsis" | "uppercase", boolean | "true" | "false">> & Partial<Record<"bold" | "regular" | "medium" | "semibold", boolean | "true" | "false">> & Partial<Record<"base" | "small" | "extralarge" | "large" | "extrasmall", boolean | "true" | "false">>, never>;
+
+declare const AppContainer: styled_components.StyledComponent<"div", any, {}, never>;
+
+declare const avatarSizeVariations: {
+    default: styled_components.FlattenSimpleInterpolation;
+    large: styled_components.FlattenSimpleInterpolation;
+    small: styled_components.FlattenSimpleInterpolation;
+};
+declare type AvatarProps = {
+    url?: string;
+} & GeneratedPropTypes & BoolProps<typeof avatarSizeVariations>;
+declare const Avatar: styled_components.StyledComponent<"div", any, {
+    url?: string | undefined;
+} & {
+    n01?: boolean | undefined;
+    g25?: boolean | undefined;
+    g50?: boolean | undefined;
+    g100?: boolean | undefined;
+    g200?: boolean | undefined;
+    g300?: boolean | undefined;
+    g400?: boolean | undefined;
+    g500?: boolean | undefined;
+    g600?: boolean | undefined;
+    g700?: boolean | undefined;
+    g800?: boolean | undefined;
+    g900?: boolean | undefined;
+    p25?: boolean | undefined;
+    p50?: boolean | undefined;
+    p100?: boolean | undefined;
+    p200?: boolean | undefined;
+    p300?: boolean | undefined;
+    p400?: boolean | undefined;
+    p500?: boolean | undefined;
+    p600?: boolean | undefined;
+    p700?: boolean | undefined;
+    p800?: boolean | undefined;
+    p900?: boolean | undefined;
+    e25?: boolean | undefined;
+    e100?: boolean | undefined;
+    e300?: boolean | undefined;
+    e600?: boolean | undefined;
+    e700?: boolean | undefined;
+    w25?: boolean | undefined;
+    w100?: boolean | undefined;
+    w300?: boolean | undefined;
+    w600?: boolean | undefined;
+    w700?: boolean | undefined;
+    s100?: boolean | undefined;
+    s300?: boolean | undefined;
+    s600?: boolean | undefined;
+    s700?: boolean | undefined;
+    center?: boolean | undefined;
+    left?: boolean | undefined;
+    right?: boolean | undefined;
+    flex?: boolean | undefined;
+    inlineFlex?: boolean | undefined;
+    row?: boolean | undefined;
+    column?: boolean | undefined;
+} & {
+    bgN01?: boolean | undefined;
+    bgG25?: boolean | undefined;
+    bgG50?: boolean | undefined;
+    bgG100?: boolean | undefined;
+    bgG200?: boolean | undefined;
+    bgG300?: boolean | undefined;
+    bgG400?: boolean | undefined;
+    bgG500?: boolean | undefined;
+    bgG600?: boolean | undefined;
+    bgG700?: boolean | undefined;
+    bgG800?: boolean | undefined;
+    bgG900?: boolean | undefined;
+    bgP25?: boolean | undefined;
+    bgP50?: boolean | undefined;
+    bgP100?: boolean | undefined;
+    bgP200?: boolean | undefined;
+    bgP300?: boolean | undefined;
+    bgP400?: boolean | undefined;
+    bgP500?: boolean | undefined;
+    bgP600?: boolean | undefined;
+    bgP700?: boolean | undefined;
+    bgP800?: boolean | undefined;
+    bgP900?: boolean | undefined;
+    bgE25?: boolean | undefined;
+    bgE100?: boolean | undefined;
+    bgE300?: boolean | undefined;
+    bgE600?: boolean | undefined;
+    bgE700?: boolean | undefined;
+    bgW25?: boolean | undefined;
+    bgW100?: boolean | undefined;
+    bgW300?: boolean | undefined;
+    bgW600?: boolean | undefined;
+    bgW700?: boolean | undefined;
+    bgS100?: boolean | undefined;
+    bgS300?: boolean | undefined;
+    bgS600?: boolean | undefined;
+    bgS700?: boolean | undefined;
+} & Partial<Record<"mb" | "ml" | "mr" | "mt" | "pb" | "pl" | "pr" | "pt", MqProp<string | number>>> & {
+    alpha?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    mWidth?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    mHeight?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+} & {
+    fLayout?: MqProp<FlexLayoutType> | undefined;
+    margin?: MqProp<string | number> | undefined;
+    padding?: MqProp<string | number> | undefined;
+} & Partial<Record<"small" | "default" | "large", boolean | "true" | "false">>, never>;
+
+declare const buttonColorVariations: {
+    default: styled_components.FlattenInterpolation<styled_components.ThemeProps<any>>;
+    gray: styled_components.FlattenInterpolation<styled_components.ThemeProps<any>>;
+    secondary: styled_components.FlattenInterpolation<styled_components.ThemeProps<any>>;
+};
+declare const buttonSizeVariations: {
+    default: styled_components.FlattenSimpleInterpolation;
+    large: styled_components.FlattenSimpleInterpolation;
+};
+declare type ButtonBaseProps = {
+    as?: any;
+    className?: string;
+    children?: any | any[];
+    disabled?: boolean;
+    href?: string;
+    icon?: string;
+    fluid?: Breakpoint;
+    onClick?: (e: Event) => void;
+    reverse?: boolean;
+    isLoading?: boolean;
+    title?: string;
+};
+declare type ButtonColorVariations = BoolProps<typeof buttonColorVariations>;
+declare type ButtonSizeVariations = BoolProps<typeof buttonSizeVariations>;
+declare type ButtonProps = GeneratedPropTypes & ButtonBaseProps & ButtonColorVariations & ButtonSizeVariations;
+declare const Button: React.FC<ButtonProps>;
+
+declare const stateTypes: readonly ["error", "info", "success", "warning"];
+declare type StateTypes = typeof stateTypes[number];
+
+declare const circledIconSizeVariations: {
+    default: styled_components.FlattenSimpleInterpolation;
+    large: styled_components.FlattenSimpleInterpolation;
+};
+declare type CircledIconProps = {
+    icon: string;
+} & BoolProps<typeof circledIconSizeVariations> & BoolProps<StateTypes> & GeneratedPropTypes;
+declare const CircledIcon: React.FC<CircledIconProps>;
+
+declare const Divider: styled_components.StyledComponent<"div", any, {
+    n01?: boolean | undefined;
+    g25?: boolean | undefined;
+    g50?: boolean | undefined;
+    g100?: boolean | undefined;
+    g200?: boolean | undefined;
+    g300?: boolean | undefined;
+    g400?: boolean | undefined;
+    g500?: boolean | undefined;
+    g600?: boolean | undefined;
+    g700?: boolean | undefined;
+    g800?: boolean | undefined;
+    g900?: boolean | undefined;
+    p25?: boolean | undefined;
+    p50?: boolean | undefined;
+    p100?: boolean | undefined;
+    p200?: boolean | undefined;
+    p300?: boolean | undefined;
+    p400?: boolean | undefined;
+    p500?: boolean | undefined;
+    p600?: boolean | undefined;
+    p700?: boolean | undefined;
+    p800?: boolean | undefined;
+    p900?: boolean | undefined;
+    e25?: boolean | undefined;
+    e100?: boolean | undefined;
+    e300?: boolean | undefined;
+    e600?: boolean | undefined;
+    e700?: boolean | undefined;
+    w25?: boolean | undefined;
+    w100?: boolean | undefined;
+    w300?: boolean | undefined;
+    w600?: boolean | undefined;
+    w700?: boolean | undefined;
+    s100?: boolean | undefined;
+    s300?: boolean | undefined;
+    s600?: boolean | undefined;
+    s700?: boolean | undefined;
+    center?: boolean | undefined;
+    left?: boolean | undefined;
+    right?: boolean | undefined;
+    flex?: boolean | undefined;
+    inlineFlex?: boolean | undefined;
+    row?: boolean | undefined;
+    column?: boolean | undefined;
+} & {
+    bgN01?: boolean | undefined;
+    bgG25?: boolean | undefined;
+    bgG50?: boolean | undefined;
+    bgG100?: boolean | undefined;
+    bgG200?: boolean | undefined;
+    bgG300?: boolean | undefined;
+    bgG400?: boolean | undefined;
+    bgG500?: boolean | undefined;
+    bgG600?: boolean | undefined;
+    bgG700?: boolean | undefined;
+    bgG800?: boolean | undefined;
+    bgG900?: boolean | undefined;
+    bgP25?: boolean | undefined;
+    bgP50?: boolean | undefined;
+    bgP100?: boolean | undefined;
+    bgP200?: boolean | undefined;
+    bgP300?: boolean | undefined;
+    bgP400?: boolean | undefined;
+    bgP500?: boolean | undefined;
+    bgP600?: boolean | undefined;
+    bgP700?: boolean | undefined;
+    bgP800?: boolean | undefined;
+    bgP900?: boolean | undefined;
+    bgE25?: boolean | undefined;
+    bgE100?: boolean | undefined;
+    bgE300?: boolean | undefined;
+    bgE600?: boolean | undefined;
+    bgE700?: boolean | undefined;
+    bgW25?: boolean | undefined;
+    bgW100?: boolean | undefined;
+    bgW300?: boolean | undefined;
+    bgW600?: boolean | undefined;
+    bgW700?: boolean | undefined;
+    bgS100?: boolean | undefined;
+    bgS300?: boolean | undefined;
+    bgS600?: boolean | undefined;
+    bgS700?: boolean | undefined;
+} & Partial<Record<"mb" | "ml" | "mr" | "mt" | "pb" | "pl" | "pr" | "pt", MqProp<string | number>>> & {
+    alpha?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    mWidth?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    mHeight?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+} & {
+    fLayout?: MqProp<FlexLayoutType> | undefined;
+    margin?: MqProp<string | number> | undefined;
+    padding?: MqProp<string | number> | undefined;
+}, never>;
 
 declare type IconProps = {
     icon: string;
     size?: number | number[];
 } & GeneratedPropTypes;
-declare const Icon: {
-    (props: IconProps): any;
-    defaultProps: {
-        size: number;
-    };
+declare const Icon: React.FC<IconProps>;
+
+declare type ProgressBarProps = {
+    progress: number | string;
+} & GeneratedPropTypes;
+declare const ProgressBar: styled_components.StyledComponent<"div", any, {
+    progress: number | string;
+} & {
+    n01?: boolean | undefined;
+    g25?: boolean | undefined;
+    g50?: boolean | undefined;
+    g100?: boolean | undefined;
+    g200?: boolean | undefined;
+    g300?: boolean | undefined;
+    g400?: boolean | undefined;
+    g500?: boolean | undefined;
+    g600?: boolean | undefined;
+    g700?: boolean | undefined;
+    g800?: boolean | undefined;
+    g900?: boolean | undefined;
+    p25?: boolean | undefined;
+    p50?: boolean | undefined;
+    p100?: boolean | undefined;
+    p200?: boolean | undefined;
+    p300?: boolean | undefined;
+    p400?: boolean | undefined;
+    p500?: boolean | undefined;
+    p600?: boolean | undefined;
+    p700?: boolean | undefined;
+    p800?: boolean | undefined;
+    p900?: boolean | undefined;
+    e25?: boolean | undefined;
+    e100?: boolean | undefined;
+    e300?: boolean | undefined;
+    e600?: boolean | undefined;
+    e700?: boolean | undefined;
+    w25?: boolean | undefined;
+    w100?: boolean | undefined;
+    w300?: boolean | undefined;
+    w600?: boolean | undefined;
+    w700?: boolean | undefined;
+    s100?: boolean | undefined;
+    s300?: boolean | undefined;
+    s600?: boolean | undefined;
+    s700?: boolean | undefined;
+    center?: boolean | undefined;
+    left?: boolean | undefined;
+    right?: boolean | undefined;
+    flex?: boolean | undefined;
+    inlineFlex?: boolean | undefined;
+    row?: boolean | undefined;
+    column?: boolean | undefined;
+} & {
+    bgN01?: boolean | undefined;
+    bgG25?: boolean | undefined;
+    bgG50?: boolean | undefined;
+    bgG100?: boolean | undefined;
+    bgG200?: boolean | undefined;
+    bgG300?: boolean | undefined;
+    bgG400?: boolean | undefined;
+    bgG500?: boolean | undefined;
+    bgG600?: boolean | undefined;
+    bgG700?: boolean | undefined;
+    bgG800?: boolean | undefined;
+    bgG900?: boolean | undefined;
+    bgP25?: boolean | undefined;
+    bgP50?: boolean | undefined;
+    bgP100?: boolean | undefined;
+    bgP200?: boolean | undefined;
+    bgP300?: boolean | undefined;
+    bgP400?: boolean | undefined;
+    bgP500?: boolean | undefined;
+    bgP600?: boolean | undefined;
+    bgP700?: boolean | undefined;
+    bgP800?: boolean | undefined;
+    bgP900?: boolean | undefined;
+    bgE25?: boolean | undefined;
+    bgE100?: boolean | undefined;
+    bgE300?: boolean | undefined;
+    bgE600?: boolean | undefined;
+    bgE700?: boolean | undefined;
+    bgW25?: boolean | undefined;
+    bgW100?: boolean | undefined;
+    bgW300?: boolean | undefined;
+    bgW600?: boolean | undefined;
+    bgW700?: boolean | undefined;
+    bgS100?: boolean | undefined;
+    bgS300?: boolean | undefined;
+    bgS600?: boolean | undefined;
+    bgS700?: boolean | undefined;
+} & Partial<Record<"mb" | "ml" | "mr" | "mt" | "pb" | "pl" | "pr" | "pt", MqProp<string | number>>> & {
+    alpha?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    mWidth?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    mHeight?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+} & {
+    fLayout?: MqProp<FlexLayoutType> | undefined;
+    margin?: MqProp<string | number> | undefined;
+    padding?: MqProp<string | number> | undefined;
+}, never>;
+
+declare type MenuItemProps = {
+    action?: any;
+    flag?: string;
+    isActive?: boolean;
+    icon?: string;
+    label?: string;
+    Wrapper?: React.FC<any>;
 };
 
-export { BoolProps, BoolPropsFromArray, Box, Breakpoint, DesignSystemProvider, Display, DisplayProps, GeneratedPropTypes, Grid, Icon, MqProp, StringProps, Text, TextProps, breakpoints, colors, spaceNames };
+declare type SidebarProps = {
+    commonMenu?: MenuItemProps[];
+    menus?: MenuItemProps[][];
+    footerMenu?: MenuItemProps[];
+    userButton?: {
+        address: string;
+        isActive?: boolean;
+        action: any;
+        currency?: string;
+        photo?: {
+            url?: string;
+        };
+        name?: string;
+    };
+};
+declare const Sidebar: React.FC<SidebarProps>;
+
+declare type SpinnerProps = {
+    isActive?: boolean;
+    size?: number;
+} & GeneratedPropTypes;
+declare const Spinner: React.FC<SpinnerProps>;
+
+declare const ViewContent: styled_components.StyledComponent<"div", any, {}, never>;
+
+export { AppContainer, Avatar, AvatarProps, BoolProps, BoolPropsFromArray, Box, Breakpoint, Button, ButtonProps, CircledIcon, CircledIconProps, DesignSystemProvider, Display, DisplayProps, Divider, GeneratedPropTypes, Grid, Icon, MqProp, ProgressBar, ProgressBarProps, Sidebar, SidebarProps, Spinner, SpinnerProps, StringProps, Text, TextProps, ViewContent, avatarSizeVariations, breakpoints, buttonColorVariations, buttonSizeVariations, circledIconSizeVariations, colors, spaceNames };

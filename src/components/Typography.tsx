@@ -4,24 +4,28 @@ import { generateProps, variations } from 'styled-gen';
 import { setSizeVariations, setWeightVariations } from '../utils/typographyHelpers';
 import styled, { css } from 'styled-components';
 
-const overflowVariations = {
+const miscVariations = {
     ellipsis: css`
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+    `,
+
+    uppercase: css`
+        text-transform: uppercase;
     `
 };
 
 const commonStyle = css`
     font-family: ${fonts.families.sans};
 
-    ${variations(overflowVariations)};
+    ${variations(miscVariations)};
     ${variations(setWeightVariations(fonts.weights))};
 
     ${generateProps};
 `;
 
-type CommonProps = GeneratedPropTypes & BoolProps<typeof overflowVariations> & BoolProps<typeof fonts.weights>;
+type CommonProps = GeneratedPropTypes & BoolProps<typeof miscVariations> & BoolProps<typeof fonts.weights>;
 
 /*
  * Display

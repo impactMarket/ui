@@ -38,7 +38,7 @@ const IconSvg = styled.svg<any>`
     ${generateProps};
 `;
 
-export const Icon = (props: IconProps): any => {
+export const Icon: React.FC<IconProps> = props => {
     const { icon, ...otherProps } = props;
     const selectedIcon = icons[icon] as any;
 
@@ -49,7 +49,9 @@ export const Icon = (props: IconProps): any => {
     }
 
     if (!selectedIcon.viewbox) {
-        return console.log(`Viewbox issue with the icon: ${icon}`);
+        console.log(`Viewbox issue with the icon: ${icon}`);
+
+        return null;
     }
 
     return (
