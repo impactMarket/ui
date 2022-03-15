@@ -1,4 +1,4 @@
-import { BoolProps, GeneratedPropTypes } from '../types';
+import { BoolProps, BoolPropsFromArray, GeneratedPropTypes } from '../types';
 import { Icon } from './Icon';
 import { StateTypes, applyStateColor, stateTypes } from '../helpers/applyStateColor';
 import { generateProps, variations } from 'styled-gen';
@@ -44,7 +44,7 @@ const Wrapper = styled.div<{ state?: StateTypes } & GeneratedPropTypes>`
 export type CircledIconProps = {
     icon: string;
 } & BoolProps<typeof circledIconSizeVariations> &
-    BoolProps<StateTypes> &
+    BoolPropsFromArray<typeof stateTypes> &
     GeneratedPropTypes;
 
 export const CircledIcon: React.FC<CircledIconProps> = props => {

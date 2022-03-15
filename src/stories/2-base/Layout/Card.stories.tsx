@@ -28,6 +28,4 @@ const Template: ComponentStory<any> = args => {
 };
 
 export const Card = Template.bind({});
-Card.args = {
-    namedProps: 'column'
-};
+Card.args = {};

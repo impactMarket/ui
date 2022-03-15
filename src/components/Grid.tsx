@@ -5,16 +5,16 @@ import React from 'react';
 import applyMqProps from '../utils/applyMqProps';
 import styled, { css } from 'styled-components';
 
-type Props = {
-    colSpan: MqProp<number | number[]>;
+type RowProps = {
+    colSpan?: MqProp<number | number[]>;
     colProps?: GeneratedPropTypes;
-    cols: MqProp<number>;
+    cols?: MqProp<number>;
     reverse?: Breakpoint;
 };
 
 const units = 'rem';
 
-const Wrapper = styled.div<{ auto?: boolean } & Props & GeneratedPropTypes>`
+export const Row = styled.div<{ auto?: boolean } & RowProps & GeneratedPropTypes>`
     display: flex;
     flex-wrap: wrap;
 
@@ -27,7 +27,7 @@ const Wrapper = styled.div<{ auto?: boolean } & Props & GeneratedPropTypes>`
             `
         )}
 
-    ${({ colSpan }) =>
+    ${({ colSpan = 2 }) =>
         typeof colSpan !== undefined &&
         applyMqProps(
             colSpan as MqProp<number | number[]>,
@@ -43,7 +43,7 @@ const Wrapper = styled.div<{ auto?: boolean } & Props & GeneratedPropTypes>`
     ${({ auto, cols }) =>
         auto &&
         css`
-            & > * {
+            & > .grid-col {
                 ${applyMqProps(
                     cols,
                     (value: number) => css`
@@ -54,7 +54,7 @@ const Wrapper = styled.div<{ auto?: boolean } & Props & GeneratedPropTypes>`
         `}
 
     & > * {
-        ${({ colSpan }) => css`
+        ${({ colSpan = 2 }) => css`
             ${applyMqProps(
                 colSpan as MqProp<number | number[]>,
                 (value: number) => css`
@@ -69,23 +69,39 @@ const Wrapper = styled.div<{ auto?: boolean } & Props & GeneratedPropTypes>`
     ${generateProps}
 `;
 
-const Col = styled.div<GeneratedPropTypes>`
+const GridCol = styled.div<GeneratedPropTypes>`
     flex-shrink: 0;
 
     ${generateProps}
 `;
 
-export const Grid: React.FC<Props> = props => {
+export const Col = styled.div<{ colSize?: MqProp<number | boolean | string> } & GeneratedPropTypes>`
+    flex-shrink: 0;
+
+    ${({ colSize }) => css`
+        ${applyMqProps(
+            colSize as MqProp<number>,
+            (value: number) => css`
+                display: ${typeof value === 'boolean' && !value && 'none'};
+                width: ${typeof value === 'number' ? `${(value / 12) * 100}%` : value};
+            `
+        )};
+    `};
+
+    ${generateProps}
+`;
+
+export const Grid: React.FC<RowProps> = props => {
     const { children, colProps, ...forwardProps } = props;
 
     return (
-        <Wrapper {...forwardProps} auto>
+        <Row {...forwardProps} auto>
             {React.Children.toArray(children).map((child, index) => (
-                <Col {...colProps} key={index}>
+                <GridCol className="grid-col" {...colProps} key={index}>
                     {child}
-                </Col>
+                </GridCol>
             ))}
-        </Wrapper>
+        </Row>
     );
 };
 

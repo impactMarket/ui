@@ -9,9 +9,8 @@ export const Card = styled.div<GeneratedPropTypes>`
 
     background-color: ${colors.n01};
     border-radius: 0.5rem;
-    display: inline-flex;
+    display: block;
     padding: 1rem;
-    width: 100%;
 
     ${generateProps};
 `;
