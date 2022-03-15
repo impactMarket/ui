@@ -11,15 +11,18 @@ export const ViewContainerWrapper = styled.div`
     overflow-y: auto;
     position: relative;
     width: 100%;
-
-    ${mq.tabletLandscape(css`
-        padding: 2rem;
-    `)};
+    display: flex;
 `;
 
 const ViewContainerContent = styled.div`
     padding: 1.5rem 1rem;
     width: 100%;
+    margin: 0 auto;
+
+    ${mq.tabletLandscape(css`
+        max-width: 70.5rem;
+        padding: 2rem;
+    `)};
 `;
 
 const ViewContainerLoading = styled.div<{ isActive?: boolean }>`

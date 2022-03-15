@@ -2,11 +2,21 @@ import { Icon } from '../Icon';
 import { Text } from '../Typography';
 import { colors } from '../../theme/colors';
 import { mq } from 'styled-gen';
+import { rgba } from 'polished';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
 const Flag = styled.div`
+    align-items: center;
+    background-color: ${rgba(colors.p500, 0.15)};
+    border-radius: 1rem;
+    color: ${colors.p800};
+    display: inline-flex;
+    flex-shrink: 0;
+    justify-content: center;
     margin-left: auto;
+    min-height: 1.5rem;
+    padding: 0 0.625rem;
 `;
 
 const Item = styled.a<{ isActive?: boolean }>`

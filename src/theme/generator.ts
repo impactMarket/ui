@@ -40,9 +40,13 @@ export const generator = {
         { name: 'tAlign', cssProp: 'text-align' },
         { name: 'radius', cssProp: 'border-radius', units: 'rem' },
         { name: 'fDirection', cssProp: 'flex-direction' },
-        { name: 'mWidth', cssProp: 'max-width', units: 'rem' },
-        { name: 'mHeight', cssProp: 'max-height', units: 'rem' },
+        { name: 'maxH', cssProp: 'max-height', units: 'rem' },
+        { name: 'maxW', cssProp: 'max-width', units: 'rem' },
+        { name: 'minH', cssProp: 'min-height', units: 'rem' },
+        { name: 'minW', cssProp: 'min-width', units: 'rem' },
         { name: 'show', cssProp: 'display' },
+        { name: 'h', cssProp: 'height', units: 'rem' },
+        { name: 'w', cssProp: 'width', units: 'rem' },
 
         // Helper functions
         { name: 'fLayout', helperFn: flexLayout },
