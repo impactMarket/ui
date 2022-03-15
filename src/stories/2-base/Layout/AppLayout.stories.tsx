@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Display, Text } from '../../../components/Typography';
 import { Divider } from '../../../components/Divider';
 import { Sidebar, SidebarProps } from '../../../components/Sidebar';
-import { ViewContent } from '../../../components/ViewContent';
+import { ViewContainer } from '../../../components/ViewContainer';
 import React from 'react';
 import base from 'paths.macro';
 
@@ -29,7 +29,7 @@ const sidebarProps = {
         { icon: 'bell', label: 'Notifications' }
     ],
     userButton: {
-        action: () => console.log('User button clicked'),
+        action: 'function',
         address: '0x43D2...34f7',
         currency: 'Celo',
         photo: {
@@ -39,27 +39,30 @@ const sidebarProps = {
     }
 } as SidebarProps;
 
-// ·
-
 export default {
     title: `Components/${base.replace('/src/stories/2-base/', '')}App Layout`
 } as ComponentMeta<any>;
 
-const Template: ComponentStory<any> = () => {
+const Template: ComponentStory<any> = args => {
+    const { sidebarProps, viewContainerIsLoading } = args;
+
     return (
         <AppContainer>
             <Sidebar {...sidebarProps} />
-            <ViewContent>
+            <ViewContainer isLoading={viewContainerIsLoading}>
                 <Display>App Layout components</Display>
                 <Divider />
                 <Text g500>
-                    This is composed by `AppContainer`, `Sidebar` and `ViewContent` components. Check the structure
+                    This is composed by `AppContainer`, `Sidebar` and `ViewContainer` components. Check the structure
                     using the tab 'Docs' then click in 'Show code'.
                 </Text>
-            </ViewContent>
+            </ViewContainer>
         </AppContainer>
     );
 };
 
 export const AppLayout = Template.bind({});
-AppLayout.args = {};
+AppLayout.args = {
+    sidebarProps,
+    viewContainerIsLoading: false
+};

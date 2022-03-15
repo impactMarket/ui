@@ -17,12 +17,12 @@ export default {
             control: { type: 'select' },
             options: Object.keys(icons)
         },
-        size: {
+        state: {
             control: { type: 'radio' },
             description: 'Pass as bool prop',
             options: stateTypes
         },
-        state: {
+        size: {
             control: { type: 'radio' },
             description: 'Pass as bool prop',
             options: Object.keys(circledIconSizeVariations)
