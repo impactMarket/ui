@@ -11,6 +11,7 @@ import { Sidebar, SidebarProps } from '../../../components/Sidebar';
 import { ViewContainer } from '../../../components/ViewContainer';
 import React from 'react';
 import base from 'paths.macro';
+import { Countdown } from '../../../components/Countdown';
 
 const sidebarProps = {
     commonMenu: [
@@ -75,7 +76,9 @@ const Template: ComponentStory<any> = args => {
                                             Income (UBI) of ~R$10.5.
                                         </Text>
                                     </Box>
-                                    <div>timer ^^</div>
+                                    <Box margin="0 auto" maxW={22}>
+                                        <Countdown date="2022-06-01" />
+                                    </Box>
                                 </Grid>
                             </Box>
                         </Col>

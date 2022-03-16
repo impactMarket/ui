@@ -6,7 +6,7 @@ import { useCountDown } from '../hooks/useCountdown';
 import React from 'react';
 
 export type CountdownProps = {
-    date?: Date;
+    date?: Date | string;
     labels?: {
         days?: string;
         hours?: string;
@@ -65,5 +65,8 @@ export const Countdown: React.FC<CountdownProps & GeneratedPropTypes> = props =>
 };
 
 Countdown.defaultProps = {
-    date: undefined
+    date: undefined,
+    labels: defaultLabels,
+    onEnd: undefined,
+    withDays: false
 };
