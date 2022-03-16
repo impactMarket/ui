@@ -14,6 +14,7 @@ export * from './components/DesignSystemProvider';
 
 // Layout
 export * from './components/Box';
+export * from './components/Card';
 export * from './components/Grid';
 
 // Typography
