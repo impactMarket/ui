@@ -5,12 +5,12 @@ import React from 'react';
 import applyMqProps from '../utils/applyMqProps';
 import styled, { css } from 'styled-components';
 
-type RowProps = {
+export type RowProps = {
     colSpan?: MqProp<number | number[]>;
     colProps?: GeneratedPropTypes;
     cols?: MqProp<number>;
     reverse?: Breakpoint;
-};
+} & GeneratedPropTypes;
 
 const units = 'rem';
 
