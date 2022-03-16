@@ -5,13 +5,13 @@ import { Card } from '../../../components/Card';
 import { CircledIcon } from '../../../components/CircledIcon';
 import { Col, Grid, Row } from '../../../components/Grid';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Countdown } from '../../../components/Countdown';
 import { Display, Text } from '../../../components/Typography';
 import { Divider } from '../../../components/Divider';
 import { Sidebar, SidebarProps } from '../../../components/Sidebar';
 import { ViewContainer } from '../../../components/ViewContainer';
 import React from 'react';
 import base from 'paths.macro';
-import { Countdown } from '../../../components/Countdown';
 
 const sidebarProps = {
     commonMenu: [

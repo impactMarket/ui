@@ -33,4 +33,5 @@ export * from './components/Spinner';
 export * from './components/ViewContainer';
 
 // Compositions
+export * from './components/Accordion';
 export * from './components/Sidebar';
