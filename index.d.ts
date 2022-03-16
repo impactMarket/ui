@@ -1079,7 +1079,7 @@ declare type ButtonProps = GeneratedPropTypes & ButtonBaseProps & ButtonColorVar
 declare const Button: React.FC<ButtonProps>;
 
 declare type CountdownProps = {
-    date?: Date;
+    date?: Date | string;
     labels?: {
         days?: string;
         hours?: string;
@@ -1326,6 +1326,18 @@ declare const ViewContainer: React.FC<{
     isLoading?: boolean;
 }>;
 
+declare type AccordionItemProps = {
+    children: any;
+    handleItemClick?: any;
+    isActive?: boolean;
+    title: string;
+};
+declare const AccordionItem: React.FC<AccordionItemProps>;
+declare type AccordionProps = {
+    children: React.ReactNode | React.ReactNode[];
+} & GeneratedPropTypes;
+declare const Accordion: React.FC<AccordionProps>;
+
 declare type MenuItemProps = {
     action?: any;
     flag?: string;
@@ -1352,4 +1364,4 @@ declare type SidebarProps = {
 };
 declare const Sidebar: React.FC<SidebarProps>;
 
-export { AppContainer, Avatar, AvatarProps, BoolProps, BoolPropsFromArray, Box, Breakpoint, Button, ButtonProps, Card, CircledIcon, CircledIconProps, Col, Countdown, CountdownProps, DesignSystemProvider, Display, DisplayProps, Divider, GeneratedPropTypes, Grid, Icon, MqProp, ProgressBar, ProgressBarProps, Row, RowProps, Sidebar, SidebarProps, Spinner, SpinnerProps, StringProps, Text, TextProps, ViewContainer, ViewContainerWrapper, avatarSizeVariations, breakpoints, buttonColorVariations, buttonSizeVariations, circledIconSizeVariations, colors, spaceNames, useCountDown };
+export { Accordion, AccordionItem, AccordionItemProps, AccordionProps, AppContainer, Avatar, AvatarProps, BoolProps, BoolPropsFromArray, Box, Breakpoint, Button, ButtonProps, Card, CircledIcon, CircledIconProps, Col, Countdown, CountdownProps, DesignSystemProvider, Display, DisplayProps, Divider, GeneratedPropTypes, Grid, Icon, MqProp, ProgressBar, ProgressBarProps, Row, RowProps, Sidebar, SidebarProps, Spinner, SpinnerProps, StringProps, Text, TextProps, ViewContainer, ViewContainerWrapper, avatarSizeVariations, breakpoints, buttonColorVariations, buttonSizeVariations, circledIconSizeVariations, colors, spaceNames, useCountDown };
