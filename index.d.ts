@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import * as styled_components from 'styled-components';
 import { margin, padding } from 'polished';
 import React from 'react';
@@ -1067,8 +1068,8 @@ declare type ButtonBaseProps = {
     disabled?: boolean;
     href?: string;
     icon?: string;
-    fluid?: Breakpoint;
-    onClick?: (e: Event) => void;
+    fluid?: Breakpoint | boolean;
+    onClick?: any;
     reverse?: boolean;
     isLoading?: boolean;
     title?: string;
@@ -1076,7 +1077,7 @@ declare type ButtonBaseProps = {
 declare type ButtonColorVariations = BoolProps<typeof buttonColorVariations>;
 declare type ButtonSizeVariations = BoolProps<typeof buttonSizeVariations>;
 declare type ButtonProps = GeneratedPropTypes & ButtonBaseProps & ButtonColorVariations & ButtonSizeVariations;
-declare const Button: React.FC<ButtonProps>;
+declare const Button: (props: ButtonProps) => JSX.Element;
 
 declare type CountdownProps = {
     date?: Date | string;
@@ -1349,6 +1350,8 @@ declare type MenuItemProps = {
 
 declare type SidebarProps = {
     commonMenu?: MenuItemProps[];
+    connectLabel?: string;
+    handleConnectClick?: Function;
     menus?: MenuItemProps[][];
     footerMenu?: MenuItemProps[];
     userButton?: {
