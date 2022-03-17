@@ -14,6 +14,7 @@ module.exports = {
                 tabWidth: 4,
                 trailingComma: 'none'
             }
-        ]
+        ],
+        'react/require-default-props': 0
     }
 };
