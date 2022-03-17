@@ -123,9 +123,9 @@ type ButtonBaseProps = {
     disabled?: boolean;
     href?: string;
     icon?: string;
-    fluid?: Breakpoint;
+    fluid?: Breakpoint | boolean;
     // eslint-disable-next-line no-unused-vars
-    onClick?: (e: Event) => void;
+    onClick?: any;
     reverse?: boolean;
     isLoading?: boolean;
     title?: string;
@@ -176,13 +176,17 @@ const ButtonWrapper = styled.button<ButtonProps>`
     }
 
     ${({ fluid }) =>
-        fluid &&
-        mq.upTo(
-            fluid,
-            css`
-                width: 100%;
-            `
-        )}
+        (typeof fluid === 'boolean' && fluid) || fluid === 'xs'
+            ? css`
+                  width: 100%;
+              `
+            : fluid &&
+              mq.upTo(
+                  fluid,
+                  css`
+                      width: 100%;
+                  `
+              )}
 
     ${variations(buttonColorVariations)};
     ${variations(buttonSizeVariations)};
@@ -190,7 +194,7 @@ const ButtonWrapper = styled.button<ButtonProps>`
     ${generateProps}
 `;
 
-export const Button: React.FC<ButtonProps> = props => {
+export const Button = (props: ButtonProps) => {
     const { children, href, icon, isLoading, reverse, ...forwardProps } = props;
 
     return (

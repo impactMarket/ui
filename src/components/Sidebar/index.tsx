@@ -1,5 +1,6 @@
 import { Avatar } from '../Avatar';
 import { Box } from '../Box';
+import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { Logo } from './Logo';
 import { MenuItem, MenuItemProps } from './MenuItem';
@@ -128,6 +129,8 @@ const SidebarFooterButton = styled.a<{ isActive?: boolean }>`
 
 export type SidebarProps = {
     commonMenu?: MenuItemProps[];
+    connectLabel?: string;
+    handleConnectClick?: Function;
     menus?: MenuItemProps[][];
     footerMenu?: MenuItemProps[];
     userButton?: {
@@ -143,7 +146,14 @@ export type SidebarProps = {
 };
 
 export const Sidebar: React.FC<SidebarProps> = props => {
-    const { commonMenu, footerMenu, menus, userButton } = props;
+    const {
+        commonMenu,
+        footerMenu,
+        handleConnectClick = () => console.log('Missing connect action!'),
+        menus,
+        connectLabel,
+        userButton
+    } = props;
 
     const [commonMenuIsExpanded, setCommonMenuIsExpanded] = useState(false);
 
@@ -203,8 +213,8 @@ export const Sidebar: React.FC<SidebarProps> = props => {
                     </SidebarContentMenu>
                 )}
             </SidebarContent>
-            {!!userButton?.address && !!userButton?.action && (
-                <SidebarFooter>
+            <SidebarFooter>
+                {!!userButton?.address && !!userButton?.action ? (
                     <SidebarFooterButton isActive={userButton?.isActive} onClick={userButton?.action}>
                         <Avatar url={userButton?.photo?.url} />
                         <Box ml={1}>
@@ -220,8 +230,13 @@ export const Sidebar: React.FC<SidebarProps> = props => {
                         </Box>
                         <Icon g400 icon="chevronRight" ml="auto" size={1.5} />
                     </SidebarFooterButton>
-                </SidebarFooter>
-            )}
+                ) : (
+                    <Button fluid="xs" onClick={handleConnectClick} secondary>
+                        <Icon icon="coins" mr={0.5} />
+                        {connectLabel}
+                    </Button>
+                )}
+            </SidebarFooter>
         </SidebarWrapper>
     );
 };
