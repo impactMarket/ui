@@ -15,3 +15,13 @@ export const applyStateColor = (type: StateTypes) => {
         background-color: ${colors[`${typePrefix}100` as Color]};
     `;
 };
+
+export const applyAlertStateColor = (type: StateTypes) => {
+    const typePrefix = type === 'info' ? 'p' : type.charAt(0);
+
+    return css`
+        color: ${colors[`${typePrefix}700` as Color]};
+        background-color: ${colors[`${typePrefix}25` as Color]};
+        border-color: ${colors[`${typePrefix}300` as Color]};
+    `;
+};
