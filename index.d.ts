@@ -1349,9 +1349,8 @@ declare type MenuItemProps = {
 };
 
 declare type SidebarProps = {
+    ConnectButton?: any;
     commonMenu?: MenuItemProps[];
-    connectLabel?: string;
-    handleConnectClick?: Function;
     menus?: MenuItemProps[][];
     footerMenu?: MenuItemProps[];
     userButton?: {
