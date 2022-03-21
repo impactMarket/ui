@@ -13,6 +13,7 @@ const renderPaths = (icon: { paths: any }) =>
 type IconProps = {
     icon: string;
     size?: number | number[];
+    onClick?: any;
 } & GeneratedPropTypes;
 
 const setSize = (size: number | number[]) => {

@@ -1,14 +1,11 @@
+import { BoolPropsFromArray, GeneratedPropTypes } from '../types';
 import { Box } from './Box';
-import { BoolProps, BoolPropsFromArray, GeneratedPropTypes } from '../types';
 import { Icon } from './Icon';
-import { Text } from './Typography';
 import { StateTypes, applyAlertStateColor, stateTypes } from '../helpers/applyStateColor';
+import { Text } from './Typography';
 import { generateProps, variations } from 'styled-gen';
-import { colors } from '../theme';
-import { ease, mq, transitions } from 'styled-gen';
-import { position } from 'polished';
-import React, { useRef, useState } from 'react';
-import styled, { css } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 
 // #region ====== style ===
 const alertColorVariations = stateTypes.reduce(
@@ -43,18 +40,19 @@ export type AlertProps = {
     allowClose: boolean;
     icon: string;
     children: any | any[];
+    onClick?: any;
 } & BoolPropsFromArray<typeof stateTypes> &
     GeneratedPropTypes;
 
 export const Alert: React.FC<AlertProps> = props => {
-    const { allowClose, icon, children, ...forwardProps } = props;
+    const { allowClose, icon, children, onClick, ...forwardProps } = props;
 
     return (
         <Box w="100%">
             <AlertWrapper {...forwardProps}>
                 <AlertIconsWrapper>
                     <Icon icon={icon} />
-                    { allowClose && <Icon icon={'close'} /> }
+                    {allowClose && <Icon icon="close" onClick={onClick} />}
                 </AlertIconsWrapper>
                 <Text mt={0.875}>{children}</Text>
             </AlertWrapper>
