@@ -37,22 +37,21 @@ const AlertIconsWrapper = styled.div`
 // #endregion === style ===
 
 export type AlertProps = {
-    allowClose: boolean;
     icon: string;
     children: any | any[];
-    onClick?: any;
+    handleClose?: any;
 } & BoolPropsFromArray<typeof stateTypes> &
     GeneratedPropTypes;
 
 export const Alert: React.FC<AlertProps> = props => {
-    const { allowClose, icon, children, onClick, ...forwardProps } = props;
+    const { icon, children, handleClose, ...forwardProps } = props;
 
     return (
         <Box w="100%">
             <AlertWrapper {...forwardProps}>
                 <AlertIconsWrapper>
                     <Icon icon={icon} />
-                    {allowClose && <Icon icon="close" onClick={onClick} />}
+                    {typeof handleClose === 'function' && <Icon handleClose={handleClose} icon="close" />}
                 </AlertIconsWrapper>
                 <Text mt={0.875}>{children}</Text>
             </AlertWrapper>

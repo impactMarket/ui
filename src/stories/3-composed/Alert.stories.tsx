@@ -10,10 +10,6 @@ import icons from '../../icons/ui';
 
 export default {
     argTypes: {
-        allowClose: {
-            control: { type: 'boolean' },
-            description: 'Pass as bool prop'
-        },
         icon: {
             control: { type: 'select' },
             options: Object.keys(icons)
@@ -50,7 +46,6 @@ const Template: ComponentStory<any> = args => {
 
 export const Alert = Template.bind({});
 Alert.args = {
-    allowClose: true,
     icon: 'alertTriangle',
     message: 'Community funds will run out in 3 days. You will not be able to claim until funds will be restored.'
 };
