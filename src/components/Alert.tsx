@@ -14,16 +14,16 @@ const alertColorVariations = stateTypes.reduce(
 );
 
 const AlertWrapper = styled.div<{ state?: StateTypes } & GeneratedPropTypes>`
-    padding: 1rem;
-    width: 100%;
-    box-sizing: border-box;
+    align-items: flex-start;
     border-radius: 8px;
-    border-width: 1px;
     border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    padding: 1rem;
+    width: 100%;
 
     ${variations(alertColorVariations)};
     ${generateProps};
@@ -51,7 +51,11 @@ export const Alert: React.FC<AlertProps> = props => {
             <AlertWrapper {...forwardProps}>
                 <AlertIconsWrapper>
                     <Icon icon={icon} />
-                    {typeof handleClose === 'function' && <Icon handleClose={handleClose} icon="close" />}
+                    {typeof handleClose === 'function' && (
+                        <a onClick={handleClose}>
+                            <Icon icon="close" />
+                        </a>
+                    )}
                 </AlertIconsWrapper>
                 <Text mt={0.875}>{children}</Text>
             </AlertWrapper>
