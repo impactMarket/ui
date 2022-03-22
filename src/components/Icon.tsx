@@ -13,7 +13,7 @@ const renderPaths = (icon: { paths: any }) =>
 type IconProps = {
     icon: string;
     size?: number | number[];
-    onClick?: any;
+    handleClose?: any;
 } & GeneratedPropTypes;
 
 const setSize = (size: number | number[]) => {
@@ -40,7 +40,7 @@ const IconSvg = styled.svg<any>`
 `;
 
 export const Icon: React.FC<IconProps> = props => {
-    const { icon, ...otherProps } = props;
+    const { icon, handleClose, ...otherProps } = props;
     const selectedIcon = icons[icon] as any;
 
     if (!selectedIcon) {
@@ -55,10 +55,14 @@ export const Icon: React.FC<IconProps> = props => {
         return null;
     }
 
+    const Wrapper = typeof handleClose === 'function' ? 'a' : (React.Fragment as any);
+
     return (
-        <IconSvg role="img" viewBox={selectedIcon.viewbox} {...otherProps}>
-            {renderPaths(selectedIcon)}
-        </IconSvg>
+        <Wrapper onClick={handleClose}>
+            <IconSvg role="img" viewBox={selectedIcon.viewbox} {...otherProps}>
+                {renderPaths(selectedIcon)}
+            </IconSvg>
+        </Wrapper>
     );
 };
 

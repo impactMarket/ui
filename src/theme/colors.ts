@@ -30,7 +30,7 @@ export const colors = {
     p900: '#0D2C77',
 
     // Error
-    e25: '#FDA29B',
+    e25: '#FFFBFA',
     e100: '#FEE4E2',
     e300: '#FDA29B',
     e600: '#D92D20',
