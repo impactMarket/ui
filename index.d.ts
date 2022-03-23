@@ -27,7 +27,7 @@ declare const colors: {
     readonly p700: "#1C54DB";
     readonly p800: "#1A4ABE";
     readonly p900: "#0D2C77";
-    readonly e25: "#FDA29B";
+    readonly e25: "#FFFBFA";
     readonly e100: "#FEE4E2";
     readonly e300: "#FDA29B";
     readonly e600: "#D92D20";
@@ -84,7 +84,7 @@ declare const generator: {
             readonly p700: "#1C54DB";
             readonly p800: "#1A4ABE";
             readonly p900: "#0D2C77";
-            readonly e25: "#FDA29B";
+            readonly e25: "#FFFBFA";
             readonly e100: "#FEE4E2";
             readonly e300: "#FDA29B";
             readonly e600: "#D92D20";
@@ -125,7 +125,7 @@ declare const generator: {
             readonly p700: "#1C54DB";
             readonly p800: "#1A4ABE";
             readonly p900: "#0D2C77";
-            readonly e25: "#FDA29B";
+            readonly e25: "#FFFBFA";
             readonly e100: "#FEE4E2";
             readonly e300: "#FDA29B";
             readonly e600: "#D92D20";
@@ -309,6 +309,19 @@ declare type Props = {
     children: any;
 };
 declare const DesignSystemProvider: React.FC<Props>;
+
+declare type ModalManagerProps = {
+    modals: {
+        [key: string]: Function | React.FC | JSX.Element;
+    };
+};
+declare type ModalProps = {
+    isActive: boolean;
+    handleClose: Function;
+};
+declare const openModal: (type: string, props?: {}, options?: {}) => boolean;
+declare const closeModal: (callback: Function, options?: {}) => boolean;
+declare const ModalManager: React.FC<ModalManagerProps>;
 
 declare const Box: styled_components.StyledComponent<"div", any, {
     bgImg?: string | undefined;
@@ -1366,4 +1379,4 @@ declare type SidebarProps = {
 };
 declare const Sidebar: React.FC<SidebarProps>;
 
-export { Accordion, AccordionItem, AccordionItemProps, AccordionProps, AppContainer, Avatar, AvatarProps, BoolProps, BoolPropsFromArray, Box, Breakpoint, Button, ButtonProps, Card, CircledIcon, CircledIconProps, Col, Countdown, CountdownProps, DesignSystemProvider, Display, DisplayProps, Divider, GeneratedPropTypes, Grid, Icon, MqProp, ProgressBar, ProgressBarProps, Row, RowProps, Sidebar, SidebarProps, Spinner, SpinnerProps, StringProps, Text, TextProps, ViewContainer, ViewContainerWrapper, avatarSizeVariations, breakpoints, buttonColorVariations, buttonSizeVariations, circledIconSizeVariations, colors, spaceNames, useCountDown };
+export { Accordion, AccordionItem, AccordionItemProps, AccordionProps, AppContainer, Avatar, AvatarProps, BoolProps, BoolPropsFromArray, Box, Breakpoint, Button, ButtonProps, Card, CircledIcon, CircledIconProps, Col, Countdown, CountdownProps, DesignSystemProvider, Display, DisplayProps, Divider, GeneratedPropTypes, Grid, Icon, ModalManager, ModalManagerProps, ModalProps, MqProp, ProgressBar, ProgressBarProps, Row, RowProps, Sidebar, SidebarProps, Spinner, SpinnerProps, StringProps, Text, TextProps, ViewContainer, ViewContainerWrapper, avatarSizeVariations, breakpoints, buttonColorVariations, buttonSizeVariations, circledIconSizeVariations, closeModal, colors, openModal, spaceNames, useCountDown };
