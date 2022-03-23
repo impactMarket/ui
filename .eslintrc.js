@@ -1,5 +1,8 @@
 module.exports = {
     extends: ['eslint-config-impact-market/web', 'plugin:storybook/recommended'],
+    globals: {
+        JSX: true
+    },
     rules: {
         'no-undef': 'error',
         'no-unused-vars': 'error',

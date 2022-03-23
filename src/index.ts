@@ -11,6 +11,7 @@ export * from './hooks/useCountdown';
 
 // Get started
 export * from './components/DesignSystemProvider';
+export * from './components/ModalManager';
 
 // Layout
 export * from './components/Box';
