@@ -1,0 +1,75 @@
+import { Meta } from '@storybook/addon-docs';
+import ModalsExample from '../../ui/ModalsExample';
+
+<Meta title="Modals" />
+
+# Modals
+This document covers how to use our system modals.
+
+## How it works?
+1. Create your modal components. Each component will be populated with `ModalProps`.
+
+```jsx
+// /modals/index.ts
+import { openModal } from '@impact-market/ui';
+
+export const Modal = (props: ModalProps & { date: string }) => {
+    const { handleClose, date } = props;
+
+    return (
+        <Box column maxW={20} padding={1.5}>
+            <Text large>This is an example alert modal opened at {date.toString()}!</Text>
+            <Button fluid mt={1.5} onClick={() => handleClose(() => openModal('secondModal'))}>
+                Close Modal
+            </Button>
+        </Box>
+    );
+};
+
+export const Modal2 = (props: ModalProps & { date: string }) => {
+    const { handleClose } = props;
+
+    return (
+        <Box column maxW={20} padding={1.5}>
+            <Text large>And another modal</Text>
+            <Button fluid mt={1.5} onClick={() => handleClose()}>
+                Close Modal
+            </Button>
+        </Box>
+    );
+};
+```
+
+2. Add the `ModalManager` with an object with the modals
+```jsx
+// _app.ts
+import { ModalManager } from "@impact-market/ui";
+import { Modal, Modal2 } from './modals';
+
+const modals = {
+    example: Modal,
+    exampleTwo: Modal2
+}
+
+// ...
+
+<App>
+    {/* ... */}
+    <ModalManager modals={modals} />
+    {/* ... */}
+</App>
+```
+
+2. Import the `openModal` function and use it as you like. More props can be passed as second argument.
+
+```jsx
+// Some component
+import { openModal } from '@impact-market/ui';
+
+<>
+    <Button onClick={() => openModal('example', { date: new Date() })}>Open modal</Button>
+</>
+```
+
+## Try it
+<ModalsExample />
