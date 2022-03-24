@@ -1,6 +1,8 @@
-import { colors, shadowXl } from '../../theme';
-import { ease, mq, transitions } from 'styled-gen';
+import { GeneratedPropTypes } from '../types';
+import { colors, shadowXl } from '../theme';
+import { ease, generateProps, mq, transitions } from 'styled-gen';
 import { position, rgba } from 'polished';
+import { useModal } from './ModalManager';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
@@ -31,6 +33,8 @@ const ModalContent = styled.div<{ isActive?: boolean }>`
         `};
 
     ${shadowXl};
+
+    ${generateProps};
 `;
 
 const Wrapper = styled.div`
@@ -54,11 +58,12 @@ const Wrapper = styled.div`
 
 type ModalProps = {
     isActive?: boolean;
-    children?: React.FC | JSX.Element;
-};
+    children?: React.FC | JSX.Element | React.FC[] | JSX.Element[];
+} & GeneratedPropTypes;
 
-const ModalWrapper: React.FC<ModalProps> = props => {
-    const { children, isActive } = props;
+export const ModalWrapper: React.FC<ModalProps> = props => {
+    const { children, ...forwardProps } = props;
+    const { isActive } = useModal();
 
     if (!children) {
         return null;
@@ -67,9 +72,9 @@ const ModalWrapper: React.FC<ModalProps> = props => {
     return (
         <Wrapper>
             <Backdrop isActive={isActive} />
-            <ModalContent isActive={isActive}>{children}</ModalContent>
+            <ModalContent isActive={isActive} {...forwardProps}>
+                {children}
+            </ModalContent>
         </Wrapper>
     );
 };
-
-export default ModalWrapper;

@@ -1,7 +1,6 @@
 import { actions, eventManager } from './eventManager';
 import { createPortal } from 'react-dom';
-import ModalWrapper from './ModalWrapper';
-import React, { useCallback, useEffect, useLayoutEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useLayoutEffect, useState } from 'react';
 
 export type ModalManagerProps = {
     modals: {
@@ -9,15 +8,25 @@ export type ModalManagerProps = {
     };
 };
 
-export type ModalProps = {
-    isActive: boolean;
-    handleClose: Function;
-};
-
 export const openModal = (type: string, props = {}, options = {}) =>
     eventManager.emit(actions.OPEN, type, props, options);
 
 export const closeModal = (callback: Function, options = {}) => eventManager.emit(actions.CLOSE, callback, options);
+
+export type ModalContextType = {
+    isActive: boolean;
+    handleClose: Function;
+} & {
+    [key: string]: any | any[] | undefined;
+};
+
+const ModalContext = React.createContext<ModalContextType>({ handleClose: () => {}, isActive: false });
+
+export const useModal = () => {
+    const context = useContext(ModalContext);
+
+    return context;
+};
 
 export const ModalManager: React.FC<ModalManagerProps> = props => {
     const { modals } = props;
@@ -35,7 +44,7 @@ export const ModalManager: React.FC<ModalManagerProps> = props => {
 
     const [activeModal, setActiveModal] = useState<{
         Modal?: React.FC | JSX.Element | Function | null;
-        isActive?: boolean;
+        isActive: boolean;
     }>({
         Modal: null,
         isActive: false
@@ -99,9 +108,9 @@ export const ModalManager: React.FC<ModalManagerProps> = props => {
     const Component = Modal as any;
 
     return createPortal(
-        <ModalWrapper isActive={isActive}>
-            <Component {...forwardProps} handleClose={handleClose} />
-        </ModalWrapper>,
+        <ModalContext.Provider value={{ ...forwardProps, handleClose, isActive }}>
+            <Component />
+        </ModalContext.Provider>,
         document.getElementById('modal-wrapper') as HTMLElement
     );
 };

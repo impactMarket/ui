@@ -29,6 +29,7 @@ export * from './components/Countdown';
 export * from './components/CircledIcon';
 export * from './components/Divider';
 export * from './components/Icon';
+export * from './components/ModalWrapper';
 export * from './components/ProgressBar';
 export * from './components/Spinner';
 export * from './components/ViewContainer';
