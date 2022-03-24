@@ -8,7 +8,7 @@ import styled, { css } from 'styled-components';
 
 // #region ====== style ===
 const Backdrop = styled.div<{ isActive?: boolean }>`
-    ${position('absolute', 0)};
+    ${position('fixed', 0)};
     ${transitions('opacity', 200, 'linear')};
 
     background-color: ${rgba(colors.g700, 0.6)};
@@ -21,6 +21,7 @@ const ModalContent = styled.div<{ isActive?: boolean }>`
 
     background-color: ${colors.n01};
     border-radius: 0.75rem;
+    margin: auto;
     opacity: 0;
     transform: translateY(2rem);
     z-index: 1;
@@ -40,10 +41,8 @@ const ModalContent = styled.div<{ isActive?: boolean }>`
 const Wrapper = styled.div`
     ${position('fixed', 0)};
 
-    align-items: center;
     display: flex;
     height: 100vh;
-    justify-content: center;
     overflow: auto;
     padding: 1rem;
     position: fixed;
