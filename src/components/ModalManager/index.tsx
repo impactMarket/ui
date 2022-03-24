@@ -1,6 +1,6 @@
 import { actions, eventManager } from './eventManager';
 import { createPortal } from 'react-dom';
-import React, { useCallback, useContext, useEffect, useLayoutEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 
 export type ModalManagerProps = {
     modals: {
@@ -31,7 +31,7 @@ export const useModal = () => {
 export const ModalManager: React.FC<ModalManagerProps> = props => {
     const { modals } = props;
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const wrapper = document?.createElement('div');
 
         wrapper.id = 'modal-wrapper';
