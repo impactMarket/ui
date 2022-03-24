@@ -7,35 +7,35 @@ import ModalsExample from '../../ui/ModalsExample';
 This document covers how to use our system modals.
 
 ## How it works?
-1. Create your modal components. Each component will be populated with `ModalProps`.
+1. Create your modal components. Don't forget to wrap each with the `ModalWrapper` for default style and animation - You can pass generated props to the wrapper. Use the hook `useModal` to access the modal props.
 
 ```jsx
 // /modals/index.ts
-import { openModal } from '@impact-market/ui';
+import { Button, ModalWrapper, Text, openModal, useModal } from '@impact-market/ui';
 
-export const Modal = (props: ModalProps & { date: string }) => {
-    const { handleClose, date } = props;
+export const Modal = () => {
+    const { handleClose, date } = useModal();
 
     return (
-        <Box column maxW={20} padding={1.5}>
+        <ModalWrapper maxW={20} padding={1.5}>
             <Text large>This is an example alert modal opened at {date.toString()}!</Text>
             <Button fluid mt={1.5} onClick={() => handleClose(() => openModal('secondModal'))}>
                 Close Modal
             </Button>
-        </Box>
+        </ModalWrapper>
     );
 };
 
-export const Modal2 = (props: ModalProps & { date: string }) => {
-    const { handleClose } = props;
+export const Modal2 = () => {
+    const { handleClose } = useModal();
 
     return (
-        <Box column maxW={20} padding={1.5}>
+        <ModalWrapper maxW={20} padding={1.5}>
             <Text large>And another modal</Text>
             <Button fluid mt={1.5} onClick={() => handleClose()}>
                 Close Modal
             </Button>
-        </Box>
+        </ModalWrapper>
     );
 };
 ```
@@ -60,7 +60,7 @@ const modals = {
 </App>
 ```
 
-2. Import the `openModal` function and use it as you like. More props can be passed as second argument.
+2. Import the `openModal` function and use it as you like. You can pass an object as props as second argument then extract those using `useModal` hook.
 
 ```jsx
 // Some component

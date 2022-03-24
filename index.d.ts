@@ -315,12 +315,15 @@ declare type ModalManagerProps = {
         [key: string]: Function | React.FC | JSX.Element;
     };
 };
-declare type ModalProps = {
-    isActive: boolean;
-    handleClose: Function;
-};
 declare const openModal: (type: string, props?: {}, options?: {}) => boolean;
 declare const closeModal: (callback: Function, options?: {}) => boolean;
+declare type ModalContextType = {
+    isActive: boolean;
+    handleClose: Function;
+} & {
+    [key: string]: any | any[] | undefined;
+};
+declare const useModal: () => ModalContextType;
 declare const ModalManager: React.FC<ModalManagerProps>;
 
 declare const Box: styled_components.StyledComponent<"div", any, {
@@ -1223,6 +1226,12 @@ declare type IconProps = {
 } & GeneratedPropTypes;
 declare const Icon: React.FC<IconProps>;
 
+declare type ModalProps = {
+    isActive?: boolean;
+    children?: React.FC | JSX.Element | React.FC[] | JSX.Element[];
+} & GeneratedPropTypes;
+declare const ModalWrapper: React.FC<ModalProps>;
+
 declare type ProgressBarProps = {
     progress: number | string;
 } & GeneratedPropTypes;
@@ -1379,4 +1388,4 @@ declare type SidebarProps = {
 };
 declare const Sidebar: React.FC<SidebarProps>;
 
-export { Accordion, AccordionItem, AccordionItemProps, AccordionProps, AppContainer, Avatar, AvatarProps, BoolProps, BoolPropsFromArray, Box, Breakpoint, Button, ButtonProps, Card, CircledIcon, CircledIconProps, Col, Countdown, CountdownProps, DesignSystemProvider, Display, DisplayProps, Divider, GeneratedPropTypes, Grid, Icon, ModalManager, ModalManagerProps, ModalProps, MqProp, ProgressBar, ProgressBarProps, Row, RowProps, Sidebar, SidebarProps, Spinner, SpinnerProps, StringProps, Text, TextProps, ViewContainer, ViewContainerWrapper, avatarSizeVariations, breakpoints, buttonColorVariations, buttonSizeVariations, circledIconSizeVariations, closeModal, colors, openModal, spaceNames, useCountDown };
+export { Accordion, AccordionItem, AccordionItemProps, AccordionProps, AppContainer, Avatar, AvatarProps, BoolProps, BoolPropsFromArray, Box, Breakpoint, Button, ButtonProps, Card, CircledIcon, CircledIconProps, Col, Countdown, CountdownProps, DesignSystemProvider, Display, DisplayProps, Divider, GeneratedPropTypes, Grid, Icon, ModalContextType, ModalManager, ModalManagerProps, ModalWrapper, MqProp, ProgressBar, ProgressBarProps, Row, RowProps, Sidebar, SidebarProps, Spinner, SpinnerProps, StringProps, Text, TextProps, ViewContainer, ViewContainerWrapper, avatarSizeVariations, breakpoints, buttonColorVariations, buttonSizeVariations, circledIconSizeVariations, closeModal, colors, openModal, spaceNames, useCountDown, useModal };
