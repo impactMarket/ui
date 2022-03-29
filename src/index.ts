@@ -33,7 +33,9 @@ export * from './components/ModalWrapper';
 export * from './components/ProgressBar';
 export * from './components/Spinner';
 export * from './components/ViewContainer';
+export * from './components/Toaster';
 
 // Compositions
 export * from './components/Accordion';
 export * from './components/Sidebar';
+export * from './components/Alert';

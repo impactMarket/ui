@@ -1,8 +1,8 @@
+import { colors, fonts, typography } from '../theme';
 import { createGlobalStyle, css } from 'styled-components';
 import { mq } from 'styled-gen';
+import { rgba } from 'polished';
 import reset from 'styled-reset';
-
-import { colors, fonts, typography } from '../theme';
 
 export const GlobalStyle = createGlobalStyle`
   ${reset};
@@ -76,5 +76,28 @@ export const GlobalStyle = createGlobalStyle`
     ::placeholder {
       color: ${colors.g500};
     }
+  }
+
+  .Toastify__progress-bar {
+    &--error {
+      background-color: ${colors.e600};
+    }
+
+    &--info {
+      background-color: ${colors.p600};
+    }
+
+    &--success {
+      background-color: ${colors.s600};
+    }
+
+    &--warning {
+      background-color: ${colors.w300};
+    }
+  }
+
+  .Toastify__toast {
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1.5rem ${rgba(colors.g600, 0.08)};
   }
 `;
