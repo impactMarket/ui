@@ -47,6 +47,7 @@ export const generator = {
         { name: 'show', cssProp: 'display' },
         { name: 'h', cssProp: 'height', units: 'rem' },
         { name: 'w', cssProp: 'width', units: 'rem' },
+        { name: 'sColor', list: colors, cssProp: 'color' },
 
         // Helper functions
         { name: 'fLayout', helperFn: flexLayout },
