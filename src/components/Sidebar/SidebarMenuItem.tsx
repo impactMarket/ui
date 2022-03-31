@@ -43,31 +43,29 @@ const Item = styled.a<{ isActive?: boolean }>`
         `}
 `;
 
-export type MenuItemProps = {
-    action?: any;
-    flag?: string;
-    isActive?: boolean;
+export type SidebarMenuItemProps = {
+    children?: React.ReactNode;
+    flag?: string | number | React.ReactNode;
     icon?: string;
-    label?: string;
-    Wrapper?: React.FC<any>;
-};
+    isActive?: boolean;
+    label?: string | React.ReactNode;
+} & React.HTMLAttributes<HTMLAnchorElement>;
 
-export const MenuItem: React.FC<MenuItemProps> = props => {
-    const { Wrapper = React.Fragment, action = () => {}, flag, icon, isActive, label } = props;
+export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = props => {
+    const { children, flag, icon, label, ...forwardProps } = props;
 
     return (
-        <Wrapper>
-            <Item isActive={isActive} onClick={action}>
-                {!!icon && <Icon icon={icon} mr={0.75} size={1.5} />}
-                {!!label && <Text medium>{label}</Text>}
-                {!!flag && (
-                    <Flag>
-                        <Text medium small>
-                            {flag}
-                        </Text>
-                    </Flag>
-                )}
-            </Item>
-        </Wrapper>
+        <Item {...forwardProps}>
+            {!!icon && <Icon icon={icon} mr={0.75} size={1.5} />}
+            {!!label && <Text medium>{label}</Text>}
+            {children}
+            {!!flag && (
+                <Flag>
+                    <Text medium small>
+                        {flag}
+                    </Text>
+                </Flag>
+            )}
+        </Item>
     );
 };

@@ -1,6 +1,8 @@
 /* eslint-disable sort-keys */
 import { AppContainer } from '../../../components/AppContainer';
+import { Avatar } from '../../../components/Avatar';
 import { Box } from '../../../components/Box';
+import { Button } from '../../../components/Button';
 import { Card } from '../../../components/Card';
 import { CircledIcon } from '../../../components/CircledIcon';
 import { Col, Grid, Row } from '../../../components/Grid';
@@ -8,52 +10,110 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Countdown } from '../../../components/Countdown';
 import { Display, Text } from '../../../components/Typography';
 import { Divider } from '../../../components/Divider';
-import { Sidebar, SidebarProps } from '../../../components/Sidebar';
+import {
+    Sidebar,
+    SidebarMenuGroup,
+    SidebarMenuItem,
+    SidebarMenuItemProps,
+    SidebarUserButton
+} from '../../../components/Sidebar';
 import { ViewContainer } from '../../../components/ViewContainer';
 import React from 'react';
 import base from 'paths.macro';
 
-const sidebarProps = {
-    commonMenu: [
-        { icon: 'users', label: 'Communities' },
-        { icon: 'tray', label: 'Governance' },
-        { icon: 'barChart2', label: 'Global Dashboard' },
-        { icon: 'impactMarket', label: 'About Us' }
-    ],
-    menus: [
-        [
-            { flag: 'Claim', icon: 'coins', isActive: true, label: 'UBI' },
-            { icon: 'bookOpen', label: 'Learn & Earn' },
-            { icon: 'flash', label: 'Stories', flag: 4 }
-        ]
-    ],
-    footerMenu: [
-        { icon: 'help', label: 'Help' },
-        { icon: 'settings', label: 'Settings' },
-        { icon: 'flag', label: 'Report Suspicious Activity' },
-        { icon: 'bell', label: 'Notifications' }
-    ],
-    userButton: {
-        action: 'function',
-        address: '0x43D2...34f7',
-        currency: 'Celo',
-        photo: {
-            url: 'https://picsum.photos/40'
-        },
-        name: 'Olivia Rhye'
+const commonMenu = [
+    { icon: 'users', label: 'Communities' },
+    { icon: 'tray', label: 'Governance' },
+    { icon: 'barChart2', label: 'Global Dashboard' },
+    { icon: 'impactMarket', label: 'About Us' }
+] as SidebarMenuItemProps[];
+
+const menus = [
+    [
+        { flag: 'Claim', icon: 'coins', isActive: true, label: 'UBI' },
+        { icon: 'bookOpen', label: 'Learn & Earn' },
+        { icon: 'flash', label: 'Stories', flag: 4 }
+    ]
+] as SidebarMenuItemProps[][];
+
+const footerMenu = [
+    { icon: 'help', label: 'Help' },
+    { icon: 'settings', label: 'Settings' },
+    { icon: 'flag', label: 'Report Suspicious Activity' },
+    { icon: 'bell', label: 'Notifications' }
+];
+
+const SidebarFooter = (props: { withButton?: boolean }) => {
+    const { withButton } = props;
+
+    if (withButton) {
+        return (
+            <Button fluid icon="coins" onClick={() => console.log('Connecting wallet action')} secondary>
+                Connect Wallet
+            </Button>
+        );
     }
-} as SidebarProps;
+
+    return (
+        <SidebarUserButton
+            address="0x43D2...34f7"
+            currency="Celo"
+            name="Olivia Rhye"
+            onClick={() => console.log('User button action')}
+            photo={{ url: 'https://picsum.photos/40' }}
+        />
+    );
+};
+
+const MobileActions = (props: { withButton?: boolean }) => {
+    const { withButton } = props;
+
+    if (withButton) {
+        return (
+            <Button fluid icon="coins" onClick={() => console.log('Connecting wallet action')} secondary>
+                Connect Wallet
+            </Button>
+        );
+    }
+
+    return <Avatar url="https://picsum.photos/40" />;
+};
 
 export default {
     title: `Components/${base.replace('/src/stories/2-base/', '')}App Layout`
 } as ComponentMeta<any>;
 
 const Template: ComponentStory<any> = args => {
-    const { sidebarProps, viewContainerIsLoading } = args;
+    const { notLoggedIn, sidebarIsLoading, viewContainerIsLoading } = args;
 
     return (
         <AppContainer>
-            <Sidebar {...sidebarProps} />
+            <Sidebar
+                footer={<SidebarFooter withButton={notLoggedIn} />}
+                isLoading={sidebarIsLoading}
+                mobileActions={<MobileActions withButton={notLoggedIn} />}
+            >
+                {!notLoggedIn &&
+                    menus.map((group, index) => (
+                        <SidebarMenuGroup key={index}>
+                            {group.map((item, groupIndex) => (
+                                <SidebarMenuItem {...item} key={groupIndex} onClick={() => console.log(item)} />
+                            ))}
+                        </SidebarMenuGroup>
+                    ))}
+                <SidebarMenuGroup isCollapsible={!notLoggedIn} title={!notLoggedIn ? 'impactMarket' : undefined}>
+                    {commonMenu.map((item, index) => (
+                        <SidebarMenuItem {...item} key={index} onClick={() => console.log(item)} />
+                    ))}
+                </SidebarMenuGroup>
+                {!notLoggedIn && (
+                    <SidebarMenuGroup mt="auto">
+                        {footerMenu.map((item, index) => (
+                            <SidebarMenuItem {...item} key={index} onClick={() => console.log(item)} />
+                        ))}
+                    </SidebarMenuGroup>
+                )}
+            </Sidebar>
             <ViewContainer isLoading={viewContainerIsLoading}>
                 <Display>App Layout components</Display>
                 <Divider />
@@ -94,6 +154,7 @@ const Template: ComponentStory<any> = args => {
 
 export const AppLayout = Template.bind({});
 AppLayout.args = {
-    sidebarProps,
+    notLoggedIn: false,
+    sidebarIsLoading: false,
     viewContainerIsLoading: false
 };
