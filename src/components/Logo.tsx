@@ -1,5 +1,5 @@
-import { GeneratedPropTypes } from '../../types';
-import { colors } from '../../theme/colors';
+import { GeneratedPropTypes } from '../types';
+import { colors } from '../theme/colors';
 import { generateProps, mq } from 'styled-gen';
 import React from 'react';
 import styled, { css } from 'styled-components';
