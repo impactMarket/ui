@@ -3,6 +3,7 @@ import { Text } from '../Typography';
 import { colors } from '../../theme/colors';
 import { mq } from 'styled-gen';
 import { rgba } from 'polished';
+import { useSidebarMobile } from './Sidebar';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
@@ -52,10 +53,20 @@ export type SidebarMenuItemProps = {
 } & React.HTMLAttributes<HTMLAnchorElement>;
 
 export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = props => {
-    const { children, flag, icon, label, ...forwardProps } = props;
+    const { children, flag, icon, label, onClick, ...forwardProps } = props;
+
+    const { setIsActive } = useSidebarMobile();
+
+    const handleClick = (event: any) => {
+        setIsActive(false);
+
+        if (typeof onClick === 'function') {
+            return onClick(event);
+        }
+    };
 
     return (
-        <Item {...forwardProps}>
+        <Item {...forwardProps} onClick={handleClick}>
             {!!icon && <Icon icon={icon} mr={0.75} size={1.5} />}
             {!!label && <Text medium>{label}</Text>}
             {children}

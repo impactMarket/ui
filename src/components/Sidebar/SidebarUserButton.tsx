@@ -4,6 +4,7 @@ import { Icon } from '../Icon';
 import { Text } from '../Typography';
 import { colors } from '../../theme';
 import { mq } from 'styled-gen';
+import { useSidebarMobile } from './Sidebar';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
@@ -39,10 +40,20 @@ export type SidebarUserButtonProps = {
 } & React.HTMLAttributes<HTMLAnchorElement>;
 
 export const SidebarUserButton: React.FC<SidebarUserButtonProps> = props => {
-    const { address, isActive, currency, photo, name, ...forwardProps } = props;
+    const { address, isActive, currency, photo, name, onClick, ...forwardProps } = props;
+
+    const { setIsActive } = useSidebarMobile();
+
+    const handleClick = (event: any) => {
+        setIsActive(false);
+
+        if (typeof onClick === 'function') {
+            return onClick(event);
+        }
+    };
 
     return (
-        <SidebarUserButtonWrapper isActive={isActive} {...forwardProps}>
+        <SidebarUserButtonWrapper isActive={isActive} {...forwardProps} onClick={handleClick}>
             <Avatar url={photo?.url} />
             <Box ml={1}>
                 {!!name && (
