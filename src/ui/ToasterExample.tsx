@@ -1,8 +1,8 @@
 import { Box } from '../components/Box';
 import { Button } from '../components/Button';
 import { DesignSystemProvider } from '../components/DesignSystemProvider';
+import { Toaster, toast } from '../components/Toaster';
 import React from 'react';
-import Toaster, { toast } from '../components/Toaster';
 
 const Example = () => (
     <DesignSystemProvider>
