@@ -53,6 +53,4 @@ export const toast: { [key in TypeOptions]: (content: string | ReactElement) => 
     {}
 );
 
-const Toaster = () => <ToastContainer closeButton={false} icon={false} />;
-
-export default Toaster;
+export const Toaster = () => <ToastContainer closeButton={false} icon={false} />;
