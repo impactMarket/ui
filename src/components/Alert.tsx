@@ -1,5 +1,7 @@
+/* eslint-disable no-nested-ternary */
 import { BoolPropsFromArray, GeneratedPropTypes } from '../types';
 import { Box } from './Box';
+import { Col, Row } from './Grid';
 import { Icon } from './Icon';
 import { StateTypes, applyAlertStateColor, stateTypes } from '../helpers/applyStateColor';
 import { Text } from './Typography';
@@ -14,50 +16,72 @@ const alertColorVariations = stateTypes.reduce(
 );
 
 const AlertWrapper = styled.div<{ state?: StateTypes } & GeneratedPropTypes>`
-    align-items: flex-start;
     border-radius: 8px;
     border-style: solid;
     border-width: 1px;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     padding: 1rem;
+    position: relative;
     width: 100%;
 
     ${variations(alertColorVariations)};
     ${generateProps};
 `;
 
-const AlertIconsWrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+const AlertCloseWrapper = styled.div`
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
 `;
 // #endregion === style ===
 
 export type AlertProps = {
+    button?: any;
     icon: string;
-    children: any | any[];
+    title?: string;
+    message?: string;
     handleClose?: any;
 } & BoolPropsFromArray<typeof stateTypes> &
     GeneratedPropTypes;
 
 export const Alert: React.FC<AlertProps> = props => {
-    const { icon, children, handleClose, ...forwardProps } = props;
+    const { button, icon, title, message, handleClose, ...forwardProps } = props;
+
+    const hasButton = !!button;
+    const hasClose = !hasButton && typeof handleClose === 'function';
 
     return (
         <Box w="100%">
             <AlertWrapper {...forwardProps}>
-                <AlertIconsWrapper>
-                    <Icon icon={icon} />
-                    {typeof handleClose === 'function' && (
+                <Row fLayout="center start">
+                    <Col colSize={{ sm: 1, xs: 12 }} minW={2} pb={{ sm: 1, xs: 0.75 }}>
+                        <Icon icon={icon} />
+                    </Col>
+                    <Col
+                        colSize={{ sm: hasButton ? 8 : hasClose ? 10 : 11, xs: 12 }}
+                        pb={{ sm: 1, xs: 0 }}
+                        pt={{ sm: 1, xs: 0 }}
+                    >
+                        {title && (
+                            <Text mb={0.25} semibold small>
+                                {title}
+                            </Text>
+                        )}
+                        {message && <Text small>{message}</Text>}
+                    </Col>
+                    {hasButton && (
+                        <Col colSize={{ sm: 3, xs: 12 }} pt={{ sm: 1, xs: 0.75 }} tAlign={{ sm: 'right', xs: 'left' }}>
+                            {button}
+                        </Col>
+                    )}
+                </Row>
+                {hasClose && (
+                    <AlertCloseWrapper>
                         <a onClick={handleClose}>
                             <Icon icon="close" />
                         </a>
-                    )}
-                </AlertIconsWrapper>
-                <Text mt={0.875}>{children}</Text>
+                    </AlertCloseWrapper>
+                )}
             </AlertWrapper>
         </Box>
     );

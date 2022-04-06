@@ -1,7 +1,8 @@
+/* eslint-disable no-alert */
 /* eslint-disable sort-keys */
 import { AlertProps, Alert as BaseAlert } from '../../components/Alert';
+import { Button } from '../../components/Button';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Text } from '../../components/Typography';
 import { getGeneratedPropArgs, setGeneratedPropArgs } from '../../helpers/generatedPropArgs';
 import { stateTypes } from '../../helpers/applyStateColor';
 import React from 'react';
@@ -28,24 +29,36 @@ export default {
 } as ComponentMeta<any>;
 
 const Template: ComponentStory<any> = args => {
-    const { message, ...otherProps } = args;
+    const { showExampleButton, ...otherProps } = args;
 
-    const props = Object.values(otherProps).reduce(
+    let alertProps = otherProps;
+
+    if (showExampleButton) {
+        alertProps = {
+            ...alertProps,
+            button: (
+                <Button icon="alertCircle" onClick={() => alert('You clicked the button!')}>
+                    Test Button
+                </Button>
+            )
+        };
+    }
+
+    const props = Object.values(alertProps).reduce(
         (results, prop) => ({ ...(results as any), [prop as string]: true }),
         {
-            ...getGeneratedPropArgs(otherProps)
+            ...getGeneratedPropArgs(alertProps)
         }
     ) as AlertProps;
 
-    return (
-        <BaseAlert {...props}>
-            <Text>{message}</Text>
-        </BaseAlert>
-    );
+    return <BaseAlert {...props} />;
 };
 
 export const Alert = Template.bind({});
 Alert.args = {
+    showExampleButton: true,
     icon: 'alertTriangle',
-    message: 'Community funds will run out in 3 days. You will not be able to claim until funds will be restored.'
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    message:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec sodales tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris ut sodales ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis ut nisi metus. Nunc dapibus nec lectus et rutrum.'
 };

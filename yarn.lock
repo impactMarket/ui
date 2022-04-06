@@ -1452,7 +1452,7 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.4.tgz#d8c7b8db9226d2d7664553a0741ad7d0397ee503"
   integrity sha512-q/ytXxO5NKvyT37pmisQAItCFqA7FD/vNb8dgaJy3/630Fsc+Mz9/9f2SziBoIZ30TJooXyTwZmhi1zjXmObYg==
 
-"@psoares/svg-list@^1.1.10":
+"@psoares/svg-list@^1.1.20":
   version "1.1.10"
   resolved "https://registry.yarnpkg.com/@psoares/svg-list/-/svg-list-1.1.10.tgz#f5008933e04265c4304b06d4f628a5c23daa8b7c"
   integrity sha512-0wywYA+7iHWxdSvijccUSLJVNZ/DitWT79Yzrrdp7e9NiGSHODD+zFNE28t5Ot3rmJKumeblUE378f4lHqFCgw==
