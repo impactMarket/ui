@@ -2,6 +2,7 @@
 import { ProgressBar as BaseProgressBar, ProgressBarProps } from '../../../components/ProgressBar';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { getGeneratedPropArgs, setGeneratedPropArgs } from '../../../helpers/generatedPropArgs';
+import { stateTypes } from '../../../helpers/applyStateColor';
 import React from 'react';
 import base from 'paths.macro';
 
@@ -10,6 +11,11 @@ export default {
         progress: {
             control: { type: 'number' },
             description: 'Up to 100'
+        },
+        state: {
+            control: { type: 'radio' },
+            description: 'Pass as bool prop',
+            options: stateTypes
         },
         ...setGeneratedPropArgs()
     },

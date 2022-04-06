@@ -1,13 +1,20 @@
 /* eslint-disable no-nested-ternary */
-import { GeneratedPropTypes } from '../types';
+import { BoolPropsFromArray, GeneratedPropTypes } from '../types';
+import { applyProgressBarStateColor, stateTypes } from '../helpers/applyStateColor';
 import { colors } from '../theme/colors';
-import { ease, generateProps, transitions } from 'styled-gen';
+import { ease, generateProps, transitions, variations } from 'styled-gen';
 import { position } from 'polished';
 import styled from 'styled-components';
 
+const alertColorVariations = stateTypes.reduce(
+    (results, type) => ({ ...results, [type === 'info' ? 'default' : type]: applyProgressBarStateColor(type) }),
+    {}
+);
+
 export type ProgressBarProps = {
     progress: number | string;
-} & GeneratedPropTypes;
+} & BoolPropsFromArray<typeof stateTypes> &
+    GeneratedPropTypes;
 
 export const ProgressBar = styled.div<ProgressBarProps>`
     background-color: ${colors.p50};
@@ -19,8 +26,8 @@ export const ProgressBar = styled.div<ProgressBarProps>`
     &::before {
         ${position('absolute', 0, null, 0, 0)};
         ${transitions('width', 250, ease.inOutCirc)};
+        ${variations(alertColorVariations)};
 
-        background-color: ${colors.p400};
         border-radius: 0.25rem;
         content: '';
         height: 100%;

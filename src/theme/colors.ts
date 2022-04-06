@@ -44,6 +44,7 @@ export const colors = {
     w700: '#B54708',
 
     // Success
+    s25: '#F6FEF9',
     s100: '#D1FADF',
     s300: '#6CE9A6',
     s600: '#039855',
