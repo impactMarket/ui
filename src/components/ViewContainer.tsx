@@ -36,10 +36,10 @@ const ViewContainerLoading = styled.div<{ isActive?: boolean }>`
 `;
 
 export const ViewContainer: React.FC<{ isLoading?: boolean }> = props => {
-    const { children, isLoading } = props;
+    const { children, isLoading, ...forwardProps } = props;
 
     return (
-        <ViewContainerWrapper className="view-container">
+        <ViewContainerWrapper className="view-container" {...forwardProps}>
             {isLoading ? (
                 <ViewContainerLoading isActive={isLoading}>
                     <Spinner g400 isActive />
