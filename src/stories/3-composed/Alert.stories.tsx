@@ -37,7 +37,7 @@ const Template: ComponentStory<any> = args => {
         alertProps = {
             ...alertProps,
             button: (
-                <Button icon="alertCircle" onClick={() => alert('You clicked the button!')}>
+                <Button icon="alertCircle" onClick={() => alert('You clicked the button!!!')}>
                     Test Button
                 </Button>
             )
