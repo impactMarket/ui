@@ -36,6 +36,7 @@ export * from './components/SkeletonElement';
 export * from './components/Spinner';
 export * from './components/ViewContainer';
 export * from './components/Toaster';
+export * from './components/Label';
 
 // Compositions
 export * from './components/Accordion';

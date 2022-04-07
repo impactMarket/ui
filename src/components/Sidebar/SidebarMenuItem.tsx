@@ -1,24 +1,11 @@
 import { Icon } from '../Icon';
+import { Label } from '../Label';
 import { Text } from '../Typography';
 import { colors } from '../../theme/colors';
 import { mq } from 'styled-gen';
-import { rgba } from 'polished';
 import { useSidebarMobile } from './Sidebar';
 import React from 'react';
 import styled, { css } from 'styled-components';
-
-const Flag = styled.div`
-    align-items: center;
-    background-color: ${rgba(colors.p500, 0.15)};
-    border-radius: 1rem;
-    color: ${colors.p800};
-    display: inline-flex;
-    flex-shrink: 0;
-    justify-content: center;
-    margin-left: auto;
-    min-height: 1.5rem;
-    padding: 0 0.625rem;
-`;
 
 const Item = styled.a<{ isActive?: boolean }>`
     align-items: center;
@@ -46,7 +33,7 @@ const Item = styled.a<{ isActive?: boolean }>`
 
 export type SidebarMenuItemProps = {
     children?: React.ReactNode;
-    flag?: string | number | React.ReactNode;
+    flag?: string | number;
     icon?: string;
     isActive?: boolean;
     label?: string | React.ReactNode;
@@ -70,13 +57,7 @@ export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = props => {
             {!!icon && <Icon icon={icon} mr={0.75} size={1.5} />}
             {!!label && <Text medium>{label}</Text>}
             {children}
-            {!!flag && (
-                <Flag>
-                    <Text medium small>
-                        {flag}
-                    </Text>
-                </Flag>
-            )}
+            {!!flag && <Label content={flag} />}
         </Item>
     );
 };

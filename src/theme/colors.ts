@@ -31,6 +31,7 @@ export const colors = {
 
     // Error
     e25: '#FFFBFA',
+    e50: '#FEF3F2',
     e100: '#FEE4E2',
     e300: '#FDA29B',
     e600: '#D92D20',
@@ -38,6 +39,7 @@ export const colors = {
 
     // Warning
     w25: '#FFFCF5',
+    w50: '#FFFAEB',
     w100: '#FEF0C7',
     w300: '#FEC84B',
     w600: '#DC6803',
@@ -45,6 +47,7 @@ export const colors = {
 
     // Success
     s25: '#F6FEF9',
+    s50: '#ECFDF3',
     s100: '#D1FADF',
     s300: '#6CE9A6',
     s600: '#039855',

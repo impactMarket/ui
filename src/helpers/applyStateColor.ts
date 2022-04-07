@@ -39,3 +39,12 @@ export const applyProgressBarStateColor = (type: StateTypes) => {
         background-color: ${colors[`${typePrefix}${colorCode}` as Color]};
     `;
 };
+
+export const applyLabelStateColor = (type: StateTypes) => {
+    const typePrefix = getTypePrefix(type);
+
+    return css`
+        color: ${colors[`${typePrefix}700` as Color]};
+        background-color: ${colors[`${typePrefix}50` as Color]};
+    `;
+};
