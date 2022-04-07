@@ -100,4 +100,8 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 0.5rem;
     box-shadow: 0 0 1.5rem ${rgba(colors.g600, 0.08)};
   }
+
+  .ReactModal__Overlay {
+    z-index: 99999;
+  }
 `;

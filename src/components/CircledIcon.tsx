@@ -1,3 +1,4 @@
+/* eslint-disable sort-keys */
 import { BoolProps, BoolPropsFromArray, GeneratedPropTypes } from '../types';
 import { Icon } from './Icon';
 import { StateTypes, applyStateColor, stateTypes } from '../helpers/applyStateColor';
@@ -17,6 +18,14 @@ export const circledIconSizeVariations = {
 
         svg {
             ${size('1rem')};
+        }
+    `,
+
+    medium: css`
+        ${size('3rem')};
+
+        svg {
+            ${size('1.3rem')};
         }
     `,
 
