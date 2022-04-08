@@ -38,6 +38,7 @@ export * from './components/ViewContainer';
 export * from './components/Toaster';
 export * from './components/Label';
 export * from './components/Tabs';
+export * from './components/DropdownMenu';
 
 // Compositions
 export * from './components/Accordion';
