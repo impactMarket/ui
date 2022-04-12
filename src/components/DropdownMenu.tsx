@@ -4,6 +4,7 @@ import { Icon } from './Icon';
 import { Text } from './Typography';
 import { colors } from '../theme';
 import { ease, transitions } from 'styled-gen';
+import OutsideAlerter from '../hooks/outsideAlerter';
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 
@@ -11,6 +12,7 @@ import styled from 'styled-components';
 const DropdownMenuWrapper = styled.div`
     position: relative;
     z-index: 10;
+    display: flex;
 `;
 
 const LinkWrapper = styled.div`
@@ -77,26 +79,35 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = props => {
 
     const contentRef = useRef<any>();
 
+    const closeDropdownMenu = () => toggleContent(false);
+
+    const clickItem = (onClick: any) => {
+        closeDropdownMenu();
+        onClick();
+    };
+
     return (
-        <DropdownMenuWrapper {...forwardProps}>
-            <LinkWrapper onClick={() => toggleContent(!showContent)} ref={contentRef}>
-                <Text mr={0.5} p600>
-                    {title}
-                </Text>
-                <Icon icon={showContent ? 'chevronUp' : 'chevronDown'} p600 />
-            </LinkWrapper>
-            {items?.length > 0 && (
-                <ContentWrapper elHeight={contentRef?.current?.clientHeight} isActive={showContent}>
-                    <Card padding={0}>
-                        {items.map((item: any, index: number) => (
-                            <Item key={index} onClick={item.onClick}>
-                                <Icon g700 icon={item.icon} mr={0.75} />
-                                <Text g700>{item.title}</Text>
-                            </Item>
-                        ))}
-                    </Card>
-                </ContentWrapper>
-            )}
-        </DropdownMenuWrapper>
+        <OutsideAlerter onClose={closeDropdownMenu}>
+            <DropdownMenuWrapper {...forwardProps}>
+                <LinkWrapper onClick={() => toggleContent(!showContent)} ref={contentRef}>
+                    <Text mr={0.5} p600>
+                        {title}
+                    </Text>
+                    <Icon icon={showContent ? 'chevronUp' : 'chevronDown'} p600 />
+                </LinkWrapper>
+                {items?.length > 0 && (
+                    <ContentWrapper elHeight={contentRef?.current?.clientHeight} isActive={showContent}>
+                        <Card padding={0}>
+                            {items.map((item: any, index: number) => (
+                                <Item key={index} onClick={() => clickItem(item.onClick)}>
+                                    <Icon g700 icon={item.icon} mr={0.75} />
+                                    <Text g700>{item.title}</Text>
+                                </Item>
+                            ))}
+                        </Card>
+                    </ContentWrapper>
+                )}
+            </DropdownMenuWrapper>
+        </OutsideAlerter>
     );
 };
