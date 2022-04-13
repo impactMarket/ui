@@ -10,29 +10,66 @@ import DropdownMenuExample from '../../ui/DropdownMenuExample';
 import { DropdownMenu } from "@impact-market/ui";
 ```
 
-2. Add the component to the desired place and pass the 2 parameters: `title` and `items`
+2. Add the component to the desired place and pass the parameter `items`
 ```jsx
+const items = [
+    {
+        icon: 'eye',
+        onClick: () => alert('You clicked Item 1!'),
+        title: 'Item 1'
+    },
+    {
+        icon: 'key',
+        onClick: () => alert('You clicked Item 2!'),
+        title: 'Another Item 2'
+    },
+    {
+        icon: 'spaceship',
+        onClick: () => alert('You clicked Item 3!'),
+        title: 'Item 3'
+    }
+];
+
 <DropdownMenu
-    items={[
-        {
-            icon: 'eye',
-            onClick: () => alert('You clicked Item 1!'),
-            title: 'Item 1'
-        },
-        {
-            icon: 'key',
-            onClick: () => alert('You clicked Item 2!'),
-            title: 'Another Item 2'
-        },
-        {
-            icon: 'spaceship',
-            onClick: () => alert('You clicked Item 3!'),
-            title: 'Item 3'
-        }
-    ]}
+    items={items}
+/>
+
+<DropdownMenu
+    asButton
+    items={items}
+    rtl
+/>
+
+<DropdownMenu
+    items={items}
     title="Dropdown Test"
+    icon="chevronDown"
 />
 ```
 
+3. Optional parameters 
+`Important: At least a icon or title must be passed to the Dropdown Menu`
+
+Add title to the link/button
+```jsx
+title: string
+```
+
+Add icon to the link/button
+```jsx
+icon: string
+```
+
+Convert link to button format
+```jsx
+asButton: boolean
+```
+
+'rtl': aligns the content to the right of the dropdown link or button, default aligns to the left
+```jsx
+rtl: boolean
+```
+
 ## Try it
+
 <DropdownMenuExample />

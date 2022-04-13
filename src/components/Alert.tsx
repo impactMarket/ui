@@ -38,8 +38,8 @@ const AlertCloseWrapper = styled.div`
 export type AlertProps = {
     button?: any;
     icon: string;
-    title?: string;
-    message?: string;
+    title?: any;
+    message?: any;
     handleClose?: any;
 } & BoolPropsFromArray<typeof stateTypes> &
     GeneratedPropTypes;
@@ -57,11 +57,7 @@ export const Alert: React.FC<AlertProps> = props => {
                     <Col colSize={{ sm: 1, xs: 12 }} minW={2} pb={{ sm: 1, xs: 0.75 }}>
                         <Icon icon={icon} />
                     </Col>
-                    <Col
-                        colSize={{ sm: hasButton ? 8 : hasClose ? 10 : 11, xs: 12 }}
-                        pb={{ sm: 1, xs: 0 }}
-                        pt={{ sm: 1, xs: 0 }}
-                    >
+                    <Col colSize={{ sm: hasButton ? 8 : hasClose ? 10 : 11, xs: 12 }} pb={1} pt={{ sm: 1, xs: 0 }}>
                         {title && (
                             <Text mb={0.25} semibold small>
                                 {title}
@@ -70,7 +66,7 @@ export const Alert: React.FC<AlertProps> = props => {
                         {message && <Text small>{message}</Text>}
                     </Col>
                     {hasButton && (
-                        <Col colSize={{ sm: 3, xs: 12 }} pt={{ sm: 1, xs: 0.75 }} tAlign={{ sm: 'right', xs: 'left' }}>
+                        <Col colSize={{ sm: 3, xs: 12 }} pt={{ sm: 1, xs: 0 }} tAlign={{ sm: 'right', xs: 'left' }}>
                             {button}
                         </Col>
                     )}

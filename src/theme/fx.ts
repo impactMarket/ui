@@ -9,3 +9,7 @@ export const baseShadow = css`
 export const shadowXl = css`
     box-shadow: 0 0.5rem 0.5rem -0.25rem ${rgba(colors.g900, 0.4)}, 0 1.25rem 1.5rem -0.25rem ${rgba(colors.g900, 0.1)};
 `;
+
+export const dropdownMenuShadow = css`
+    box-shadow: 0 0.063rem 0.125rem ${rgba(colors.g900, 0.4)};
+`;
