@@ -1209,6 +1209,7 @@ declare type ButtonBaseProps = {
     reverse?: boolean;
     isLoading?: boolean;
     title?: string;
+    type?: string;
 };
 declare type ButtonColorVariations = BoolProps<typeof buttonColorVariations>;
 declare type ButtonSizeVariations = BoolProps<typeof buttonSizeVariations>;
