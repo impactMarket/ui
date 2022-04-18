@@ -94,14 +94,15 @@ TabList.tabsRole = 'TabList';
 
 // #region ====== Tab ===
 export type TabProps = {
-    title: string;
+    title: string | React.ReactNode;
     number?: number;
     tabsRole?: string;
+    onClick?: Function;
 };
 
-export const Tab = ({ title, number, ...forwardProps }: TabProps) => {
+export const Tab = ({ title, number, onClick, ...forwardProps }: TabProps) => {
     return (
-        <TabTitle {...forwardProps}>
+        <TabTitle onClick={onClick} {...forwardProps}>
             <TabTitleWrapper>
                 <Text g500 medium small>
                     {title}

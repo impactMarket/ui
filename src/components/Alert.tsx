@@ -38,9 +38,9 @@ const AlertCloseWrapper = styled.div`
 export type AlertProps = {
     button?: any;
     icon: string;
-    title?: any;
-    message?: any;
-    handleClose?: any;
+    title?: string | React.ReactNode;
+    message?: string | React.ReactNode;
+    handleClose?: Function;
 } & BoolPropsFromArray<typeof stateTypes> &
     GeneratedPropTypes;
 
