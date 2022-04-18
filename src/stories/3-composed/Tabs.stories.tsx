@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { Tabs as BaseTabs, Tab, TabList, TabPanel, TabsProps } from '../../components/Tabs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { getGeneratedPropArgs, setGeneratedPropArgs } from '../../helpers/generatedPropArgs';
@@ -24,7 +25,7 @@ const Template: ComponentStory<any> = args => {
             <TabList>
                 <Tab number={3} title="Tab 1" />
                 <Tab title="Tab 2" />
-                <Tab number={50} title="Tab 3" />
+                <Tab number={50} onClick={() => alert('You clicked Tab 3!')} title="Tab 3" />
             </TabList>
             <TabPanel>Content for Tab 1</TabPanel>
             <TabPanel>Content for Tab 2</TabPanel>

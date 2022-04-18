@@ -106,7 +106,7 @@ const Item = styled.div`
 // #endregion === style ===
 
 export type DropdownMenuProps = {
-    title?: string;
+    title?: string | React.ReactNode;
     icon?: string | undefined;
     items: React.ReactNode[];
     asButton?: boolean;

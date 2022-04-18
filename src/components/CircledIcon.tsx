@@ -35,6 +35,14 @@ export const circledIconSizeVariations = {
         svg {
             ${size('1.5rem')}
         }
+    `,
+
+    extralarge: css`
+        ${size('7.875rem')};
+
+        svg {
+            ${size('3rem')}
+        }
     `
 };
 
