@@ -39,6 +39,7 @@ export * from './components/Toaster';
 export * from './components/Label';
 export * from './components/Tabs';
 export * from './components/DropdownMenu';
+export * from './components/CountryFlag';
 
 // Compositions
 export * from './components/Accordion';
