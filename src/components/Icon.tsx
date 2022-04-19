@@ -1,9 +1,10 @@
 import { GeneratedPropTypes } from '../types';
+import { SizeType, setSize } from '../utils/setSize';
 import { generateProps } from 'styled-gen';
 import React from 'react';
 // @ts-ignore: generated file
 import icons from '../icons/ui';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const renderPaths = (icon: { paths: any }) =>
     icon.paths.map((path: any, index: number) => (
@@ -12,22 +13,8 @@ const renderPaths = (icon: { paths: any }) =>
 
 type IconProps = {
     icon: string;
-    size?: number | number[];
+    size?: SizeType;
 } & GeneratedPropTypes;
-
-const setSize = (size: number | number[]) => {
-    if (Array.isArray(size)) {
-        return css`
-            height: ${size?.[0]}rem;
-            width: ${size?.[1]}rem;
-        `;
-    }
-
-    return css`
-        height: ${size || 1}rem;
-        width: ${size || 1}rem;
-    `;
-};
 
 const IconSvg = styled.svg<any>`
     fill: currentColor;

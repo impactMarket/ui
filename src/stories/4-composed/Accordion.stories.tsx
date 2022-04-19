@@ -13,7 +13,7 @@ export default {
     parameters: {
         generator: true
     },
-    title: `Components/${base.replace('/src/stories/3-composed/', '')}Accordion`
+    title: `Components/${base.replace('/src/stories/4-composed/', '')}Accordion`
 } as ComponentMeta<any>;
 
 const Template: ComponentStory<any> = args => {

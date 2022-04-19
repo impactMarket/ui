@@ -41,8 +41,10 @@ export const colors = {
     w25: '#FFFCF5',
     w50: '#FFFAEB',
     w100: '#FEF0C7',
+    w200: '#FEDF89',
     w300: '#FEC84B',
     w600: '#DC6803',
+    w500: '#F79009',
     w700: '#B54708',
 
     // Success

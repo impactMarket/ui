@@ -13,7 +13,7 @@ import { margin, padding } from 'polished';
 // eslint-disable-next-line prettier/prettier
 const textAlignment = { center: 'center', left: 'left', right: 'right' };
 const flexDisplayList = { flex: 'flex', inlineFlex: 'inline-flex' };
-const flexDirectionList = { column: 'column', row: 'row' };
+const flexDirectionList = { column: 'column', columnReverse: 'column-reverse', row: 'row', rowReverse: 'row-reverse' };
 
 export const generator = {
     // will generate bool props
