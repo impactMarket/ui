@@ -21,6 +21,11 @@ export * from './components/Grid';
 // Typography
 export * from './components/Typography';
 
+// Forms
+export * from './components/Input';
+export * from './components/InputUpload';
+export * from './components/Toggle';
+
 // Elements
 export * from './components/AppContainer';
 export * from './components/Avatar';
@@ -31,6 +36,7 @@ export * from './components/Divider';
 export * from './components/Icon';
 export * from './components/Logo';
 export * from './components/ModalWrapper';
+export * from './components/PulseIcon';
 export * from './components/ProgressBar';
 export * from './components/SkeletonElement';
 export * from './components/Spinner';
