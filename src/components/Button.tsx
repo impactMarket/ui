@@ -60,6 +60,14 @@ export const buttonColorVariations = {
         }
     }),
 
+    error: setColorVariation({
+        backgroundColor: colors.e600,
+        color: colors.n01,
+        hover: {
+            backgroundColor: colors.e300
+        }
+    }),
+
     gray: setColorVariation({
         backgroundColor: colors.n01,
         borderColor: colors.g300,
@@ -69,11 +77,27 @@ export const buttonColorVariations = {
         }
     }),
 
+    info: setColorVariation({
+        backgroundColor: colors.p600,
+        color: colors.n01,
+        hover: {
+            backgroundColor: colors.p400
+        }
+    }),
+
     secondary: setColorVariation({
         backgroundColor: colors.p50,
         color: colors.p700,
         hover: {
             backgroundColor: colors.p200
+        }
+    }),
+
+    success: setColorVariation({
+        backgroundColor: colors.s400,
+        color: colors.n01,
+        hover: {
+            backgroundColor: colors.s300
         }
     })
 };
