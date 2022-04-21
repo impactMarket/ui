@@ -27,7 +27,7 @@ const InputBoxWrapper = styled.div<GeneratedPropTypes & { [key: string]: any }>`
     ${generateProps}
 `;
 
-export const Input: React.FC<InputProps> = props => {
+export const Input = React.forwardRef((props: InputProps, ref) => {
     const { icon, onFocus, onBlur, rows, withError, wrapperProps, ...inputProps } = props;
 
     const [isFocused, setIsFocused] = useState(false);
@@ -65,7 +65,15 @@ export const Input: React.FC<InputProps> = props => {
     return (
         <InputBoxWrapper {...wrapperProps} isFocused={isFocused} withError={withError}>
             {!!icon && <Icon g500 icon={icon} mr={0.5} size={1.25} />}
-            <InputElement {...(inputProps || {})} {...inputExtraProps} onBlur={handleBlur} onFocus={handleFocus} />
+            <InputElement
+                {...(inputProps || {})}
+                {...inputExtraProps}
+                onBlur={handleBlur}
+                onFocus={handleFocus}
+                ref={ref}
+            />
         </InputBoxWrapper>
     );
-};
+});
+
+Input.displayName = 'Input';
