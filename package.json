@@ -37,6 +37,7 @@
     "eslint": "^8.8.0",
     "eslint-config-impact-market": "impactMarket/eslint-config-impact-market",
     "eslint-plugin-storybook": "^0.5.7",
+    "flag-icons": "^6.2.0",
     "paths.macro": "^3.0.1",
     "postcss": "^8.4.12",
     "prettier": "^2.5.1",
@@ -63,7 +64,6 @@
     "styled-components": "^5.3.3"
   },
   "dependencies": {
-    "flag-icons": "^6.2.0",
     "polished": "^4.1.4",
     "react-tabs": "^4.2.0",
     "react-toastify": "^8.2.0",
