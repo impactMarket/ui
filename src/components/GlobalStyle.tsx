@@ -1,3 +1,4 @@
+import 'flag-icons/css/flag-icons.min.css';
 import { colors, fonts, typography } from '../theme';
 import { createGlobalStyle, css } from 'styled-components';
 import { mq } from 'styled-gen';
