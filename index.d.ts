@@ -1,6 +1,7 @@
 import * as styled_components from 'styled-components';
 import { margin, padding } from 'polished';
 import React, { ReactElement } from 'react';
+import * as react_dropzone from 'react-dropzone';
 import { DropzoneOptions } from 'react-dropzone';
 
 declare const colors: {
@@ -1140,21 +1141,58 @@ declare type InputProps = {
 } & {
     [key: string]: any;
 };
-declare const Input: React.FC<InputProps>;
+declare const Input: React.ForwardRefExoticComponent<Pick<{
+    as?: any;
+    icon?: string | undefined;
+    onBlur?: Function | undefined;
+    onFocus?: Function | undefined;
+    rows?: string | number | undefined;
+    withError?: boolean | undefined;
+    wrapperProps?: GeneratedPropTypes | undefined;
+} & {
+    [key: string]: any;
+}, string | number> & React.RefAttributes<unknown>>;
 
 declare type InputUploadProps = {
     children?: any;
     handleFiles: Function;
     wrapperProps?: GeneratedPropTypes;
 } & DropzoneOptions;
-declare const InputUpload: React.FC<InputUploadProps>;
+declare const InputUpload: React.ForwardRefExoticComponent<{
+    children?: any;
+    handleFiles: Function;
+    wrapperProps?: GeneratedPropTypes | undefined;
+} & Pick<React.HTMLProps<HTMLElement>, "onDragEnter" | "onDragLeave" | "onDragOver" | "multiple"> & {
+    accept?: string | string[] | undefined;
+    minSize?: number | undefined;
+    maxSize?: number | undefined;
+    maxFiles?: number | undefined;
+    preventDropOnDocument?: boolean | undefined;
+    noClick?: boolean | undefined;
+    noKeyboard?: boolean | undefined;
+    noDrag?: boolean | undefined;
+    noDragEventsBubbling?: boolean | undefined;
+    disabled?: boolean | undefined;
+    onDrop?: (<T extends File>(acceptedFiles: T[], fileRejections: react_dropzone.FileRejection[], event: react_dropzone.DropEvent) => void) | undefined;
+    onDropAccepted?: (<T_1 extends File>(files: T_1[], event: react_dropzone.DropEvent) => void) | undefined;
+    onDropRejected?: ((fileRejections: react_dropzone.FileRejection[], event: react_dropzone.DropEvent) => void) | undefined;
+    getFilesFromEvent?: ((event: react_dropzone.DropEvent) => Promise<(File | DataTransferItem)[]>) | undefined;
+    onFileDialogCancel?: (() => void) | undefined;
+    onFileDialogOpen?: (() => void) | undefined;
+    validator?: (<T_2 extends File>(file: T_2) => react_dropzone.FileError | react_dropzone.FileError[] | null) | undefined;
+    useFsAccessApi?: boolean | undefined;
+} & React.RefAttributes<unknown>>;
 
 declare type ToggleProps = {
     wrapperProps?: GeneratedPropTypes;
 } & {
     [key: string]: any;
 };
-declare const Toggle: React.FC<ToggleProps>;
+declare const Toggle: React.ForwardRefExoticComponent<Pick<{
+    wrapperProps?: GeneratedPropTypes | undefined;
+} & {
+    [key: string]: any;
+}, string | number> & React.RefAttributes<unknown>>;
 
 declare const AppContainer: styled_components.StyledComponent<"div", any, {}, never>;
 
