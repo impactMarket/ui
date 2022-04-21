@@ -26,6 +26,8 @@ const InputBoxWrapper = styled.a<GeneratedPropTypes & { [key: string]: any }>`
     ${generateProps}
 `;
 
+const InputElement = styled.input``;
+
 export const InputUpload = React.forwardRef((props: InputUploadProps, ref) => {
     const { children, handleFiles, wrapperProps, ...dropzoneOptions } = props;
 
@@ -44,7 +46,7 @@ export const InputUpload = React.forwardRef((props: InputUploadProps, ref) => {
         <InputBoxWrapper {...wrapperProps} {...getRootProps()} onClick={open}>
             <PulseIcon bgG100 borderColor="g50" g600 icon="upload" />
             {!!children && <Box mt={0.75}>{children}</Box>}
-            <input {...getInputProps()} ref={ref} />
+            <InputElement {...getInputProps()} ref={ref} />
         </InputBoxWrapper>
     );
 });
