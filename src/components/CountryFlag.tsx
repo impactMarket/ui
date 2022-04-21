@@ -1,3 +1,4 @@
+import 'flag-icons/css/flag-icons.min.css';
 import { GeneratedPropTypes } from '../types';
 import { generateProps } from 'styled-gen';
 import React from 'react';
