@@ -32,7 +32,7 @@ const ToggleSlider = styled.a<{ isActive?: boolean }>`
     position: relative;
 `;
 
-const ToggleInput = styled.input`
+const ToggleInput = styled.input<any>`
     display: none !important;
     z-index: -10 !important;
 `;
@@ -43,7 +43,7 @@ const ToggleWrapper = styled.div<GeneratedPropTypes & { [key: string]: any }>`
     ${generateProps}
 `;
 
-export const Toggle: React.FC<ToggleProps> = props => {
+export const Toggle = React.forwardRef((props: ToggleProps, ref) => {
     const { children, isActive, onChange, wrapperProps, ...inputProps } = props;
 
     const handleChange = useCallback(() => {
@@ -55,8 +55,10 @@ export const Toggle: React.FC<ToggleProps> = props => {
             <ToggleSlider isActive={isActive} onClick={handleChange}>
                 <ToggleControl isActive={isActive} />
             </ToggleSlider>
-            <ToggleInput {...inputProps} type="checkbox" value={isActive} />
+            <ToggleInput {...inputProps} ref={ref} type="checkbox" value={isActive} />
             {children}
         </ToggleWrapper>
     );
-};
+});
+
+Toggle.displayName = 'Toggle';
