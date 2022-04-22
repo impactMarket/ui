@@ -27,6 +27,7 @@ const Template: ComponentStory<any> = args => {
 
 export const Input = Template.bind({});
 Input.args = {
+    disabled: false,
     icon: '',
     placeholder: 'Write something here...',
     rows: 0,

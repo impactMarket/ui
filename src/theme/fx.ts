@@ -20,7 +20,7 @@ const placeholderStyle = css`
 `;
 
 export const inputWrapperStyle = css`
-    background-color: ${colors.n01};
+    background-color: ${({ disabled }: any) => (disabled ? colors.g100 : colors.n01)};
     border-radius: 0.5rem;
     box-shadow: 0 0.125rem 0.0625rem ${rgba(colors.g900, 0.05)}, 0 0 0 1px ${colors.g300};
     outline: 0;
@@ -43,7 +43,7 @@ export const inputWrapperStyle = css`
         appearance: none;
         background-color: transparent;
         border: none;
-        color: ${colors.g900};
+        color: ${({ disabled }: any) => (disabled ? colors.g500 : colors.g900)};
         font-family: ${fonts.families.sans};
         outline: none;
         resize: none;

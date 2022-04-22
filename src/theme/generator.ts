@@ -12,7 +12,7 @@ import { margin, padding } from 'polished';
 
 // eslint-disable-next-line prettier/prettier
 const textAlignment = { center: 'center', left: 'left', right: 'right' };
-const flexDisplayList = { flex: 'flex', inlineFlex: 'inline-flex' };
+const displayList = { flex: 'flex', inlineFlex: 'inline-flex', none: 'none', block: 'block' };
 const flexDirectionList = { column: 'column', columnReverse: 'column-reverse', row: 'row', rowReverse: 'row-reverse' };
 
 export const generator = {
@@ -22,7 +22,7 @@ export const generator = {
         { prefix: 'bg', list: colors, cssProp: 'background-color' },
         { list: colors, cssProp: 'color' },
         { list: textAlignment, cssProp: 'text-align' },
-        { list: flexDisplayList, cssProp: 'display' },
+        { list: displayList, cssProp: 'display' },
         { list: flexDirectionList, cssProp: 'flex-direction' }
     ],
 
@@ -48,6 +48,8 @@ export const generator = {
         { name: 'h', cssProp: 'height', units: 'rem' },
         { name: 'w', cssProp: 'width', units: 'rem' },
         { name: 'sColor', list: colors, cssProp: 'color' },
+        { name: 'fShrink', cssProp: 'flex-shrink' },
+        { name: 'fGrow', cssProp: 'flex-grow' },
 
         // Helper functions
         { name: 'fLayout', helperFn: flexLayout },
