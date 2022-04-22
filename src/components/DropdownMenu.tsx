@@ -3,13 +3,13 @@ import { GeneratedPropTypes } from '../types';
 import { Icon } from './Icon';
 import { Text } from './Typography';
 import { baseShadow, colors } from '../theme';
-import { ease, transitions } from 'styled-gen';
+import { ease, generateProps, transitions } from 'styled-gen';
 import { useClickOutside } from '../hooks/useClickOutside';
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 
 // #region ====== style ===
-const DropdownMenuWrapper = styled.div<{ asButton?: boolean }>`
+const DropdownMenuWrapper = styled.div<GeneratedPropTypes & { asButton?: boolean }>`
     cursor: pointer;
     display: inline-block;
     position: relative;
@@ -39,9 +39,11 @@ const DropdownMenuWrapper = styled.div<{ asButton?: boolean }>`
                 background-color: ${colors.g100};
             }
         `};
+
+    ${generateProps}
 `;
 
-const LinkWrapper = styled.div<{ asButton?: boolean }>`
+const LinkWrapper = styled.div<GeneratedPropTypes & { asButton?: boolean }>`
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -52,6 +54,8 @@ const LinkWrapper = styled.div<{ asButton?: boolean }>`
     & p {
         ${transitions('color', 350, ease.inOutCubic)};
     }
+
+    ${generateProps}
 `;
 
 const ContentWrapper = styled.div<{ rtl?: boolean; isActive?: boolean; elHeight?: number }>`
@@ -111,10 +115,12 @@ export type DropdownMenuProps = {
     items: React.ReactNode[];
     asButton?: boolean;
     rtl?: boolean;
-} & GeneratedPropTypes;
+    wrapperProps?: GeneratedPropTypes;
+    headerProps?: GeneratedPropTypes;
+};
 
 export const DropdownMenu: React.FC<DropdownMenuProps> = props => {
-    const { icon, items, title, asButton, rtl, ...forwardProps } = props;
+    const { icon, items, title, asButton, rtl, wrapperProps, headerProps, ...forwardProps } = props;
     const [showContent, toggleContent] = useState(false);
 
     const contentRef = useRef<any>();
@@ -130,8 +136,13 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = props => {
     useClickOutside(containerRef?.current, closeDropdownMenu);
 
     return (
-        <DropdownMenuWrapper asButton={asButton} ref={containerRef} {...forwardProps}>
-            <LinkWrapper asButton={asButton} onClick={() => toggleContent(!showContent)} ref={contentRef}>
+        <DropdownMenuWrapper asButton={asButton} ref={containerRef} {...wrapperProps} {...forwardProps}>
+            <LinkWrapper
+                asButton={asButton}
+                onClick={() => toggleContent(!showContent)}
+                ref={contentRef}
+                {...headerProps}
+            >
                 {title && (
                     <Text mr={icon ? 0.5 : 0} sColor={asButton ? 'g700' : 'p600'}>
                         {title}

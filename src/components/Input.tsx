@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 export type InputProps = {
     as?: any;
+    disabled?: boolean;
     icon?: string;
     onBlur?: Function;
     onFocus?: Function;
@@ -63,7 +64,7 @@ export const Input = React.forwardRef((props: InputProps, ref) => {
     }, [rows]);
 
     return (
-        <InputBoxWrapper {...wrapperProps} isFocused={isFocused} withError={withError}>
+        <InputBoxWrapper {...wrapperProps} disabled={inputProps.disabled} isFocused={isFocused} withError={withError}>
             {!!icon && <Icon g500 icon={icon} mr={0.5} size={1.25} />}
             <InputElement
                 {...(inputProps || {})}
