@@ -24,6 +24,7 @@ export * from './components/Typography';
 // Forms
 export * from './components/Input';
 export * from './components/InputUpload';
+export * from './components/Select';
 export * from './components/Toggle';
 
 // Elements
