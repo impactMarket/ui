@@ -239,7 +239,8 @@ export const Select = React.forwardRef((props: SelectProps, ref) => {
         if (filterTerm) {
             const filteredOptions = options?.filter(
                 ({ label, value }) =>
-                    label?.includes(filterTerm.toLowerCase()) || value.toString().includes(filterTerm.toLowerCase())
+                    label?.toLowerCase()?.includes(filterTerm.toLowerCase()) ||
+                    value.toString().includes(filterTerm.toLowerCase())
             );
 
             setIsFilteredOptions(filteredOptions || []);
