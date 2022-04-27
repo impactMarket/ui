@@ -107,7 +107,7 @@ export const Tab = ({ title, number, onClick, ...forwardProps }: TabProps) => {
                 <Text g500 medium small>
                     {title}
                 </Text>
-                {number && (
+                {number >= 0 && (
                     <TabNumber className="numberBg">
                         <Text extrasmall g700 medium>
                             {number}
