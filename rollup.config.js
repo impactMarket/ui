@@ -6,7 +6,7 @@ import dts from 'rollup-plugin-dts';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import resolve from '@rollup/plugin-node-resolve';
-import svg from 'rollup-plugin-svg'
+import svg from 'rollup-plugin-svg';
 import typescript from '@rollup/plugin-typescript';
 
 const packageJson = require('./package.json');
