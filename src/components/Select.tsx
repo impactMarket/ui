@@ -1,7 +1,8 @@
 import { GeneratedPropTypes } from '../types';
 import { Icon } from './Icon';
+import { Text } from './Typography';
 import { colors } from '../theme/colors';
-import { ease, generateProps, transitions } from 'styled-gen';
+import { ease, generateProps, mq, transitions } from 'styled-gen';
 import { flyoutMenuShadow, fonts, inputWrapperStyle } from '../theme';
 import { position } from 'polished';
 import { useClickOutside } from '../hooks/useClickOutside';
@@ -46,26 +47,43 @@ const InputWrapper = styled.a<{ isFocused?: boolean; withError?: boolean } & Gen
 const Option = styled.a<{ isActive?: boolean }>`
     display: flex;
     padding: 0.625rem 0.875rem;
+    background-color: ${colors.n01};
+    justify-content: space-between;
+    align-items: center;
+
+    ${({ isActive }) =>
+        isActive
+            ? css`
+                  background-color: ${colors.p25};
+              `
+            : css`
+                  &:hover  {
+                      background-color: ${colors.p100};
+                  }
+              `}
 `;
 
 const OptionsContent = styled.div`
     overflow-y: auto;
-    max-height: 17.25rem;
+    max-height: 10rem;
+
+    ${mq.tablet(css`
+        max-height: 17.25rem;
+    `)}
 `;
 
 const OptionsWrapper = styled.div<{ isActive?: boolean; withOptionsSearch?: boolean }>`
     ${transitions('all', 250, ease.inOutCubic)};
 
     background-color: ${colors.n01};
-    border-radius: 0.5rem;
     opacity: 0;
+    overflow: hidden;
+    padding-top: ${({ withOptionsSearch }) => (withOptionsSearch ? '2.75rem' : 0)};
     position: absolute;
-    top: 100%;
     transform: translateY(1.5rem);
     visibility: hidden;
     width: 100%;
     z-index: 1;
-    padding-top: ${({ withOptionsSearch }) => (withOptionsSearch ? '2.75rem' : 0)};
 
     ${({ isActive }) =>
         isActive &&
@@ -74,6 +92,25 @@ const OptionsWrapper = styled.div<{ isActive?: boolean; withOptionsSearch?: bool
             visibility: visible;
             transform: translateY(0.5rem);
         `}
+
+    ${mq.phone(css`
+        ${position('fixed', null, 0, 0)};
+
+        transform: translateY(100%);
+
+        ${({ isActive }: any) =>
+            isActive &&
+            css`
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            `}
+    `)}
+
+    ${mq.tablet(css`
+        border-radius: 0.5rem;
+        top: 100%;
+    `)}
 
     ${flyoutMenuShadow};
 `;
@@ -232,9 +269,14 @@ export const Select = React.forwardRef((props: SelectProps, ref) => {
                     )}
                     {filteredOptions.map((option: OptionType, index: any) => (
                         <Option isActive={checkIfActive(option)} key={index} onClick={() => handleChange(option)}>
-                            {typeof renderOption === 'function'
-                                ? renderOption({ isActive: checkIfActive(option), ...option })
-                                : option?.label || option?.value}
+                            {typeof renderOption === 'function' ? (
+                                renderOption({ isActive: checkIfActive(option), ...option })
+                            ) : (
+                                <>
+                                    <Text g900>{option?.label || option?.value}</Text>
+                                    {checkIfActive(option) && <Icon icon="check" p600 size={1.25} />}
+                                </>
+                            )}
                         </Option>
                     ))}
                 </OptionsContent>

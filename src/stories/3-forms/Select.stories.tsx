@@ -28,13 +28,6 @@ const SelectedLabel = ({ selected }) => {
     return <Text g500>Select an option</Text>;
 };
 
-const Option = ({ isActive, label, value }) => (
-    <Text>
-        {label}, {value.toUpperCase()}
-        {isActive ? ' ✓' : ''}
-    </Text>
-);
-
 const Template: ComponentStory<any> = args => {
     const [value, setValue] = useState('');
 
@@ -49,7 +42,6 @@ const Template: ComponentStory<any> = args => {
                     onChange={handleSelect}
                     optionsSearchPlaceholder="search"
                     renderLabel={SelectedLabel}
-                    renderOption={Option}
                     value={value}
                     {...args}
                 />
