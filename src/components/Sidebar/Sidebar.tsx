@@ -54,7 +54,7 @@ const SidebarMenu = styled.div<{ isActive?: boolean }>`
 
     ${mq.phone(css`
         ${transitions('all', 500, ease.inOutCirc)};
-        ${position('fixed', 72, 0, 0, 0)};
+        ${position('fixed', 65, 0, 0, 0)};
 
         background-color: ${colors.n01};
         transform: translateY(-100%);
@@ -155,10 +155,12 @@ export const Sidebar: React.FC<SidebarProps> = props => {
                     <SidebarHeading>
                         <Logo />
                         <SidebarMobileActions>
-                            {mobileActions}
-                            <a onClick={() => setIsActive(!isActive)}>
-                                <Icon g500 icon={isActive ? 'close' : 'menu'} ml={1} size={1.125} />
-                            </a>
+                            <>
+                                {mobileActions}
+                                <a onClick={() => setIsActive(!isActive)}>
+                                    <Icon g500 icon={isActive ? 'close' : 'menu'} ml={1} size={1.125} />
+                                </a>
+                            </>
                         </SidebarMobileActions>
                     </SidebarHeading>
                     <SidebarMenu isActive={isActive}>
@@ -166,14 +168,14 @@ export const Sidebar: React.FC<SidebarProps> = props => {
                             <LoadingContent />
                         ) : (
                             <>
-                                <SidebarMenuContent>{children}</SidebarMenuContent>
-                                {!!footer && <SidebarMobileFooter>{footer}</SidebarMobileFooter>}
+                                <SidebarMenuContent>{children as any}</SidebarMenuContent>
+                                {!!footer && <SidebarMobileFooter>{footer as any}</SidebarMobileFooter>}
                             </>
                         )}
                     </SidebarMenu>
                     {!!footer && !isLoading && (
                         <SidebarFooter>
-                            <SidebarFooterContent>{footer}</SidebarFooterContent>
+                            <SidebarFooterContent>{footer as any}</SidebarFooterContent>
                         </SidebarFooter>
                     )}
                 </>
