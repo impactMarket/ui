@@ -47,6 +47,7 @@ export * from './components/Label';
 export * from './components/Tabs';
 export * from './components/DropdownMenu';
 export * from './components/CountryFlag';
+export * from './components/Pagination';
 
 // Compositions
 export * from './components/Accordion';

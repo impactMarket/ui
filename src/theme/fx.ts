@@ -22,6 +22,7 @@ export const flyoutMenuShadow = css`
 
 const placeholderStyle = css`
     color: ${colors.g500};
+    font-size: 0.875rem;
 `;
 
 export const inputWrapperStyle = css`
@@ -51,6 +52,7 @@ export const inputWrapperStyle = css`
         border: none;
         color: ${({ disabled }: any) => (disabled ? colors.g500 : colors.g900)};
         font-family: ${fonts.families.sans};
+        font-size: 1rem;
         outline: none;
         resize: none;
 

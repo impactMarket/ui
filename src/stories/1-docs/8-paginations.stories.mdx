@@ -1,0 +1,51 @@
+import { Meta } from '@storybook/addon-docs';
+import PaginationExample from '../../ui/PaginationExample';
+
+<Meta title="Pagination" />
+
+# Pagination
+
+1. Import the `Pagination` component from the UI
+```jsx
+import { Pagination } from "@impact-market/ui";
+```
+
+2. Add the component to the desired place and pass the required fields
+```jsx
+<Pagination ... />
+```
+
+3. Required parameters
+
+```jsx
+currentPage: number `(Current page)`;
+
+pageCount: number `(Total number of pages)`
+
+handlePageClick: Function `(onClick for each page)`
+```
+
+4. Optional parameters
+
+```jsx
+breakLabel: string `(Label to show between a large set of pages. Defaults to "...")`
+
+nextLabel: string `(Label for "Next page" navigation)`
+
+nextIcon: string `(Icon for "Next page" navigation)`
+
+previousLabel: string `(Label for "Previous page" navigation)`
+
+previousIcon: string `(Icon for "Previous page" navigation)`
+
+pageRangeDisplayed: number `(Number of pages to show in the middle of the navigation. Defaults to "3")`
+
+marginPagesDisplayed: number `(Number of pages to show in the margins of the navigation. Defaults to "3")`
+
+mobileText: string | component 
+`(Instead of the pages, in mobile we can show a string like "Page 1 of 10" for example. Defaults to "1 / 10")`
+```
+
+## Try it
+
+<PaginationExample />
