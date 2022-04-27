@@ -1,7 +1,8 @@
-import 'flag-icons/css/flag-icons.min.css';
 import { GeneratedPropTypes } from '../types';
+import { colors } from '../theme';
 import { generateProps } from 'styled-gen';
 import React from 'react';
+import flags from '../../flags';
 import styled, { css } from 'styled-components';
 
 const setSize = (size: number | number[] | undefined) => {
@@ -21,11 +22,13 @@ const setSize = (size: number | number[] | undefined) => {
 };
 
 const Wrapper = styled.div<{ size?: number | number[] | undefined } & GeneratedPropTypes>`
-    display: inline-block;
+    display: inline-flex;
     width: auto;
 
-    & .fi {
+    img {
         ${({ size }) => setSize(size)};
+
+        background-color: ${colors.g200};
         border-radius: 50%;
     }
 
@@ -33,16 +36,22 @@ const Wrapper = styled.div<{ size?: number | number[] | undefined } & GeneratedP
 `;
 
 export type CountryFlagProps = {
-    countryCode: string;
+    countryCode: keyof typeof flags;
     size?: number | number[] | undefined;
 } & GeneratedPropTypes;
 
 export const CountryFlag: React.FC<CountryFlagProps> = props => {
     const { countryCode, ...forwardProps } = props;
 
+    const img = flags[countryCode];
+
+    if (!img) {
+        return null;
+    }
+
     return (
         <Wrapper {...forwardProps}>
-            <span className={`fi fi-${countryCode.toLowerCase()} fis`} />
+            <img src={img} />
         </Wrapper>
     );
 };

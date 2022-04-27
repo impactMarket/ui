@@ -4,9 +4,14 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { getGeneratedPropArgs, setGeneratedPropArgs } from '../../../helpers/generatedPropArgs';
 import React from 'react';
 import base from 'paths.macro';
+import flags from '../../../../flags';
 
 export default {
     argTypes: {
+        countryCode: {
+            control: { type: 'select' },
+            options: Object.keys(flags)
+        },
         size: {
             control: { type: 'object' }
         },
@@ -23,6 +28,6 @@ const Template: ComponentStory<any> = args => <BaseCountryFlag {...getGeneratedP
 export const CountryFlag = Template.bind({});
 CountryFlag.storyName = 'CountryFlag';
 CountryFlag.args = {
-    countryCode: 'pt',
+    countryCode: 'PT',
     size: [2, 2]
 };
