@@ -28,8 +28,18 @@ const SelectedLabel = ({ selected }) => {
     return <Text g500>Select an option</Text>;
 };
 
+const ClearLabel = ({ hasOptionSelected }) => {
+    const textProps = hasOptionSelected ? { p500: true } : { g300: true };
+
+    return (
+        <Text semibold small {...textProps}>
+            Clear...
+        </Text>
+    );
+};
+
 const Template: ComponentStory<any> = args => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState(args?.isMultiple ? [] : '');
 
     const handleSelect = value => {
         return setValue(value);
@@ -39,6 +49,7 @@ const Template: ComponentStory<any> = args => {
         <Box flex>
             <Box w={15}>
                 <BaseSelect
+                    clearLabel={ClearLabel}
                     onChange={handleSelect}
                     optionsSearchPlaceholder="search"
                     renderLabel={SelectedLabel}
@@ -64,6 +75,7 @@ const Template: ComponentStory<any> = args => {
 
 export const Select = Template.bind({});
 Select.args = {
+    isClearable: false,
     isMultiple: false,
     options: [
         { label: 'Portugal', value: 'pt' },
@@ -73,6 +85,7 @@ Select.args = {
         { label: 'Brazil', value: 'br' },
         { label: 'USA', value: 'us' },
         { label: 'United Kingdom', value: 'uk' },
+        { label: 'A very big label to format multiple line option in the list', value: 'xx' },
         { label: 'Australia', value: 'au' }
     ],
     withOptionsSearch: false
