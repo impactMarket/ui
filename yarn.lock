@@ -5131,17 +5131,17 @@ eslint-config-impact-market@impactMarket/eslint-config-impact-market:
   version "2.0.2"
   resolved "https://codeload.github.com/impactMarket/eslint-config-impact-market/tar.gz/b758ccd068ac2e67e81679b80380bb11a7112c20"
   dependencies:
-    "@babel/eslint-parser" "^7.17.0"
-    "@babel/eslint-plugin" "^7.17.7"
-    "@typescript-eslint/eslint-plugin" "^5.20.0"
-    "@typescript-eslint/parser" "^5.20.0"
-    eslint-config-prettier "^8.5.0"
-    eslint-plugin-import "^2.26.0"
+    "@babel/eslint-parser" "^7.12.17"
+    "@babel/eslint-plugin" "^7.12.13"
+    "@typescript-eslint/eslint-plugin" "^5.12.0"
+    "@typescript-eslint/parser" "^5.12.0"
+    eslint-config-prettier "^8.3.0"
+    eslint-plugin-import "^2.23.4"
     eslint-plugin-prettier "^4.0.0"
-    eslint-plugin-react "^7.29.4"
-    eslint-plugin-react-hooks "^4.4.0"
-    eslint-plugin-sort-class-members "^1.14.1"
-    eslint-plugin-sort-imports-es6-autofix "^0.6.0"
+    eslint-plugin-react "^7.24.0"
+    eslint-plugin-react-hooks "^4.2.0"
+    eslint-plugin-sort-class-members "^1.9.0"
+    eslint-plugin-sort-imports-es6-autofix "^0.5.0"
 
 eslint-config-prettier@^8.5.0:
   version "8.5.0"
@@ -5740,15 +5740,6 @@ find-up@^5.0.0:
   dependencies:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
-
-flat-cache@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/flat-cache/-/flat-cache-2.0.1.tgz#5d296d6f04bda44a4630a301413bdbc2ec085ec0"
-  integrity sha512-LoQe6yDuUMDzQAEH8sgmh4Md6oZnc/7PjtwjNFSzveXqSHt6ka9fPBuso7IGf9Rz4uqnSnWiFH2B/zj24a5ReA==
-  dependencies:
-    flatted "^2.0.0"
-    rimraf "2.6.3"
-    write "1.0.3"
 
 flat-cache@^3.0.4:
   version "3.0.4"

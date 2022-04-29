@@ -17,6 +17,8 @@ type OptionType = {
 };
 
 export type SelectProps = {
+    clearLabel?: string | Function;
+    isClearable?: boolean;
     isMultiple?: boolean;
     onBlur?: Function;
     onChange?: Function;
@@ -30,10 +32,18 @@ export type SelectProps = {
     withOptionsSearch?: boolean;
 } & GeneratedPropTypes;
 
+// #region ====== style ===
 const SelectedOptionContent = styled.div`
-    padding-right: 0.5rem;
+    margin-right: 0.5rem;
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    & > * {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 `;
 
 const InputWrapper = styled.a<{ isFocused?: boolean; withError?: boolean } & GeneratedPropTypes>`
@@ -143,9 +153,12 @@ const Wrapper = styled.div`
 
     ${generateProps};
 `;
+// #endregion === style ===
 
 export const Select = React.forwardRef((props: SelectProps, ref) => {
     const {
+        clearLabel,
+        isClearable,
         isMultiple,
         onBlur,
         onChange,
@@ -160,7 +173,7 @@ export const Select = React.forwardRef((props: SelectProps, ref) => {
         ...wrapperProps
     } = props;
 
-    const [filteredOptions, setIsFilteredOptions] = useState(options || []);
+    const [filteredOptions, setFilteredOptions] = useState(options || []);
     const [filterTerm, setFilterTerm] = useState('');
     const [isActive, setIsActive] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
@@ -187,17 +200,24 @@ export const Select = React.forwardRef((props: SelectProps, ref) => {
         [onBlur]
     );
 
-    const handleChange = (option: OptionType) => {
+    const handleChange = (option?: OptionType) => {
         if (typeof onChange !== 'function') {
             return;
         }
-        const { value: optionValue } = option;
+
+        const { value: optionValue } = option || {};
+
+        if (typeof option === 'undefined') {
+            return onChange(isMultiple ? [] : undefined);
+        }
 
         if (!isMultiple) {
+            setIsActive(false);
+
             return onChange(optionValue);
         }
 
-        const newValueArray = (value as Value[]).includes(optionValue)
+        const newValueArray = (value as Value[]).includes(optionValue as any)
             ? ((value || []) as Value[]).filter(pickedValue => pickedValue !== optionValue)
             : [...(value as Value[]), optionValue];
 
@@ -223,7 +243,14 @@ export const Select = React.forwardRef((props: SelectProps, ref) => {
         return setIsActive(false);
     };
 
+    const hasOptionSelected = () =>
+        (typeof value !== 'undefined' && value !== null && value !== '') || (Array.isArray(value) && value?.length);
+
     useClickOutside(optionsListRef?.current, handleClickOutside);
+
+    useEffect(() => {
+        setFilteredOptions(options || []);
+    }, [options]);
 
     useEffect(() => {
         if (isActive) {
@@ -243,9 +270,9 @@ export const Select = React.forwardRef((props: SelectProps, ref) => {
                     value.toString().includes(filterTerm.toLowerCase())
             );
 
-            setIsFilteredOptions(filteredOptions || []);
+            setFilteredOptions(filteredOptions || []);
         } else {
-            setIsFilteredOptions(options || []);
+            setFilteredOptions(options || []);
         }
     }, [filterTerm]);
 
@@ -268,6 +295,15 @@ export const Select = React.forwardRef((props: SelectProps, ref) => {
                             />
                         </SearchInput>
                     )}
+                    {isClearable && !!clearLabel && (
+                        <Option onClick={() => handleChange()}>
+                            {typeof clearLabel === 'function' ? (
+                                clearLabel({ hasOptionSelected: hasOptionSelected() })
+                            ) : (
+                                <Text g900>{clearLabel}</Text>
+                            )}
+                        </Option>
+                    )}
                     {filteredOptions.map((option: OptionType, index: any) => (
                         <Option isActive={checkIfActive(option)} key={index} onClick={() => handleChange(option)}>
                             {typeof renderOption === 'function' ? (
@@ -275,7 +311,7 @@ export const Select = React.forwardRef((props: SelectProps, ref) => {
                             ) : (
                                 <>
                                     <Text g900>{option?.label || option?.value}</Text>
-                                    {checkIfActive(option) && <Icon icon="check" p600 size={1.25} />}
+                                    {checkIfActive(option) && <Icon icon="check" ml={0.5} p600 size={1.25} />}
                                 </>
                             )}
                         </Option>

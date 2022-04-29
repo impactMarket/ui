@@ -16,7 +16,7 @@ export default {
     parameters: {
         generator: true
     },
-    title: `Components/forms/${base.replace('/src/stories/3-forms/', '')}Input`
+    title: `Components/Forms/${base.replace('/src/stories/3-forms/', '')}Input`
 } as ComponentMeta<any>;
 
 const Template: ComponentStory<any> = args => {
