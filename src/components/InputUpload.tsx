@@ -28,7 +28,7 @@ const InputBoxWrapper = styled.a<GeneratedPropTypes & { [key: string]: any }>`
 
 const InputElement = styled.input``;
 
-export const InputUpload = React.forwardRef((props: InputUploadProps, ref) => {
+export const InputUpload: React.FC<InputUploadProps> = props => {
     const { children, handleFiles, wrapperProps, ...dropzoneOptions } = props;
 
     const { acceptedFiles, getRootProps, getInputProps, open } = useDropzone({
@@ -46,9 +46,9 @@ export const InputUpload = React.forwardRef((props: InputUploadProps, ref) => {
         <InputBoxWrapper {...wrapperProps} {...getRootProps()} onClick={open}>
             <PulseIcon bgG100 borderColor="g50" g600 icon="upload" />
             {!!children && <Box mt={0.75}>{children}</Box>}
-            <InputElement {...getInputProps()} ref={ref} />
+            <InputElement {...getInputProps()} />
         </InputBoxWrapper>
     );
-});
+};
 
 InputUpload.displayName = 'InputUpload';
