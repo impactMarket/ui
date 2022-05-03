@@ -18,6 +18,7 @@ const miscVariations = {
 
 const commonStyle = css`
     font-family: ${fonts.families.sans};
+    white-space: pre-wrap;
 
     ${variations(miscVariations)};
     ${variations(setWeightVariations(fonts.weights))};
