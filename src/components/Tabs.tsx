@@ -97,7 +97,7 @@ export type TabProps = {
     title: string | React.ReactNode;
     number?: number;
     tabsRole?: string;
-    onClick?: Function;
+    onClick?: any;
 };
 
 export const Tab = ({ title, number, onClick, ...forwardProps }: TabProps) => {
@@ -107,7 +107,7 @@ export const Tab = ({ title, number, onClick, ...forwardProps }: TabProps) => {
                 <Text g500 medium small>
                     {title}
                 </Text>
-                {number >= 0 && (
+                {typeof number === 'number' && number >= 0 && (
                     <TabNumber className="numberBg">
                         <Text extrasmall g700 medium>
                             {number}
