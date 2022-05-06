@@ -40,7 +40,7 @@ export type AlertProps = {
     icon: string;
     title?: string | React.ReactNode;
     message?: string | React.ReactNode;
-    handleClose?: Function;
+    handleClose?: any;
 } & BoolPropsFromArray<typeof stateTypes> &
     GeneratedPropTypes;
 

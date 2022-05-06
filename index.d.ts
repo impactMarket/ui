@@ -1,8 +1,7 @@
+/// <reference types="react" />
 import * as styled_components from 'styled-components';
 import { margin, padding } from 'polished';
 import React, { ReactElement } from 'react';
-import * as react_dropzone from 'react-dropzone';
-import { DropzoneOptions } from 'react-dropzone';
 
 declare const colors: {
     readonly n01: "#FFFFFF";
@@ -29,24 +28,18 @@ declare const colors: {
     readonly p800: "#1A4ABE";
     readonly p900: "#0D2C77";
     readonly e25: "#FFFBFA";
-    readonly e50: "#FEF3F2";
     readonly e100: "#FEE4E2";
     readonly e300: "#FDA29B";
     readonly e600: "#D92D20";
     readonly e700: "#B42318";
     readonly w25: "#FFFCF5";
-    readonly w50: "#FFFAEB";
     readonly w100: "#FEF0C7";
-    readonly w200: "#FEDF89";
     readonly w300: "#FEC84B";
     readonly w600: "#DC6803";
-    readonly w500: "#F79009";
     readonly w700: "#B54708";
     readonly s25: "#F6FEF9";
-    readonly s50: "#ECFDF3";
     readonly s100: "#D1FADF";
     readonly s300: "#6CE9A6";
-    readonly s400: "#32D583";
     readonly s600: "#039855";
     readonly s700: "#027A48";
 };
@@ -93,24 +86,18 @@ declare const generator: {
             readonly p800: "#1A4ABE";
             readonly p900: "#0D2C77";
             readonly e25: "#FFFBFA";
-            readonly e50: "#FEF3F2";
             readonly e100: "#FEE4E2";
             readonly e300: "#FDA29B";
             readonly e600: "#D92D20";
             readonly e700: "#B42318";
             readonly w25: "#FFFCF5";
-            readonly w50: "#FFFAEB";
             readonly w100: "#FEF0C7";
-            readonly w200: "#FEDF89";
             readonly w300: "#FEC84B";
             readonly w600: "#DC6803";
-            readonly w500: "#F79009";
             readonly w700: "#B54708";
             readonly s25: "#F6FEF9";
-            readonly s50: "#ECFDF3";
             readonly s100: "#D1FADF";
             readonly s300: "#6CE9A6";
-            readonly s400: "#32D583";
             readonly s600: "#039855";
             readonly s700: "#027A48";
         };
@@ -141,24 +128,18 @@ declare const generator: {
             readonly p800: "#1A4ABE";
             readonly p900: "#0D2C77";
             readonly e25: "#FFFBFA";
-            readonly e50: "#FEF3F2";
             readonly e100: "#FEE4E2";
             readonly e300: "#FDA29B";
             readonly e600: "#D92D20";
             readonly e700: "#B42318";
             readonly w25: "#FFFCF5";
-            readonly w50: "#FFFAEB";
             readonly w100: "#FEF0C7";
-            readonly w200: "#FEDF89";
             readonly w300: "#FEC84B";
             readonly w600: "#DC6803";
-            readonly w500: "#F79009";
             readonly w700: "#B54708";
             readonly s25: "#F6FEF9";
-            readonly s50: "#ECFDF3";
             readonly s100: "#D1FADF";
             readonly s300: "#6CE9A6";
-            readonly s400: "#32D583";
             readonly s600: "#039855";
             readonly s700: "#027A48";
         };
@@ -174,16 +155,12 @@ declare const generator: {
         readonly list: {
             flex: string;
             inlineFlex: string;
-            none: string;
-            block: string;
         };
         readonly cssProp: "display";
     }, {
         readonly list: {
             column: string;
-            columnReverse: string;
             row: string;
-            rowReverse: string;
         };
         readonly cssProp: "flex-direction";
     }];
@@ -261,34 +238,22 @@ declare const generator: {
             readonly p800: "#1A4ABE";
             readonly p900: "#0D2C77";
             readonly e25: "#FFFBFA";
-            readonly e50: "#FEF3F2";
             readonly e100: "#FEE4E2";
             readonly e300: "#FDA29B";
             readonly e600: "#D92D20";
             readonly e700: "#B42318";
             readonly w25: "#FFFCF5";
-            readonly w50: "#FFFAEB";
             readonly w100: "#FEF0C7";
-            readonly w200: "#FEDF89";
             readonly w300: "#FEC84B";
             readonly w600: "#DC6803";
-            readonly w500: "#F79009";
             readonly w700: "#B54708";
             readonly s25: "#F6FEF9";
-            readonly s50: "#ECFDF3";
             readonly s100: "#D1FADF";
             readonly s300: "#6CE9A6";
-            readonly s400: "#32D583";
             readonly s600: "#039855";
             readonly s700: "#027A48";
         };
         readonly cssProp: "color";
-    }, {
-        readonly name: "fShrink";
-        readonly cssProp: "flex-shrink";
-    }, {
-        readonly name: "fGrow";
-        readonly cssProp: "flex-grow";
     }, {
         readonly name: "fLayout";
         readonly helperFn: (vertical: "center" | "start" | "end" | "around" | "between" | "evenly" | "stretch" | "unset", horizontal?: "center" | "start" | "end" | "around" | "between" | "evenly" | "stretch" | "unset" | undefined) => styled_components.FlattenSimpleInterpolation;
@@ -434,37 +399,27 @@ declare const Box: styled_components.StyledComponent<"div", any, {
     p800?: boolean | undefined;
     p900?: boolean | undefined;
     e25?: boolean | undefined;
-    e50?: boolean | undefined;
     e100?: boolean | undefined;
     e300?: boolean | undefined;
     e600?: boolean | undefined;
     e700?: boolean | undefined;
     w25?: boolean | undefined;
-    w50?: boolean | undefined;
     w100?: boolean | undefined;
-    w200?: boolean | undefined;
     w300?: boolean | undefined;
     w600?: boolean | undefined;
-    w500?: boolean | undefined;
     w700?: boolean | undefined;
     s25?: boolean | undefined;
-    s50?: boolean | undefined;
     s100?: boolean | undefined;
     s300?: boolean | undefined;
-    s400?: boolean | undefined;
     s600?: boolean | undefined;
     s700?: boolean | undefined;
     center?: boolean | undefined;
     left?: boolean | undefined;
     right?: boolean | undefined;
-    none?: boolean | undefined;
     flex?: boolean | undefined;
-    block?: boolean | undefined;
     inlineFlex?: boolean | undefined;
     row?: boolean | undefined;
     column?: boolean | undefined;
-    columnReverse?: boolean | undefined;
-    rowReverse?: boolean | undefined;
 } & {
     bgN01?: boolean | undefined;
     bgG25?: boolean | undefined;
@@ -490,29 +445,23 @@ declare const Box: styled_components.StyledComponent<"div", any, {
     bgP800?: boolean | undefined;
     bgP900?: boolean | undefined;
     bgE25?: boolean | undefined;
-    bgE50?: boolean | undefined;
     bgE100?: boolean | undefined;
     bgE300?: boolean | undefined;
     bgE600?: boolean | undefined;
     bgE700?: boolean | undefined;
     bgW25?: boolean | undefined;
-    bgW50?: boolean | undefined;
     bgW100?: boolean | undefined;
-    bgW200?: boolean | undefined;
     bgW300?: boolean | undefined;
     bgW600?: boolean | undefined;
-    bgW500?: boolean | undefined;
     bgW700?: boolean | undefined;
     bgS25?: boolean | undefined;
-    bgS50?: boolean | undefined;
     bgS100?: boolean | undefined;
     bgS300?: boolean | undefined;
-    bgS400?: boolean | undefined;
     bgS600?: boolean | undefined;
     bgS700?: boolean | undefined;
 } & Partial<Record<"mb" | "ml" | "mr" | "mt" | "pb" | "pl" | "pr" | "pt", MqProp<string | number>>> & {
-    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     alpha?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     maxH?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
@@ -522,9 +471,7 @@ declare const Box: styled_components.StyledComponent<"div", any, {
     show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     h?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     w?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w600" | "w500" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
-    fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e100" | "e300" | "e600" | "e700" | "w25" | "w100" | "w300" | "w600" | "w700" | "s25" | "s100" | "s300" | "s600" | "s700">> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -556,37 +503,27 @@ declare const Card: styled_components.StyledComponent<"div", any, {
     p800?: boolean | undefined;
     p900?: boolean | undefined;
     e25?: boolean | undefined;
-    e50?: boolean | undefined;
     e100?: boolean | undefined;
     e300?: boolean | undefined;
     e600?: boolean | undefined;
     e700?: boolean | undefined;
     w25?: boolean | undefined;
-    w50?: boolean | undefined;
     w100?: boolean | undefined;
-    w200?: boolean | undefined;
     w300?: boolean | undefined;
     w600?: boolean | undefined;
-    w500?: boolean | undefined;
     w700?: boolean | undefined;
     s25?: boolean | undefined;
-    s50?: boolean | undefined;
     s100?: boolean | undefined;
     s300?: boolean | undefined;
-    s400?: boolean | undefined;
     s600?: boolean | undefined;
     s700?: boolean | undefined;
     center?: boolean | undefined;
     left?: boolean | undefined;
     right?: boolean | undefined;
-    none?: boolean | undefined;
     flex?: boolean | undefined;
-    block?: boolean | undefined;
     inlineFlex?: boolean | undefined;
     row?: boolean | undefined;
     column?: boolean | undefined;
-    columnReverse?: boolean | undefined;
-    rowReverse?: boolean | undefined;
 } & {
     bgN01?: boolean | undefined;
     bgG25?: boolean | undefined;
@@ -612,29 +549,23 @@ declare const Card: styled_components.StyledComponent<"div", any, {
     bgP800?: boolean | undefined;
     bgP900?: boolean | undefined;
     bgE25?: boolean | undefined;
-    bgE50?: boolean | undefined;
     bgE100?: boolean | undefined;
     bgE300?: boolean | undefined;
     bgE600?: boolean | undefined;
     bgE700?: boolean | undefined;
     bgW25?: boolean | undefined;
-    bgW50?: boolean | undefined;
     bgW100?: boolean | undefined;
-    bgW200?: boolean | undefined;
     bgW300?: boolean | undefined;
     bgW600?: boolean | undefined;
-    bgW500?: boolean | undefined;
     bgW700?: boolean | undefined;
     bgS25?: boolean | undefined;
-    bgS50?: boolean | undefined;
     bgS100?: boolean | undefined;
     bgS300?: boolean | undefined;
-    bgS400?: boolean | undefined;
     bgS600?: boolean | undefined;
     bgS700?: boolean | undefined;
 } & Partial<Record<"mb" | "ml" | "mr" | "mt" | "pb" | "pl" | "pr" | "pt", MqProp<string | number>>> & {
-    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     alpha?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     maxH?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
@@ -644,9 +575,7 @@ declare const Card: styled_components.StyledComponent<"div", any, {
     show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     h?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     w?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w600" | "w500" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
-    fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e100" | "e300" | "e600" | "e700" | "w25" | "w100" | "w300" | "w600" | "w700" | "s25" | "s100" | "s300" | "s600" | "s700">> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -691,37 +620,27 @@ declare const Row: styled_components.StyledComponent<"div", any, {
     p800?: boolean | undefined;
     p900?: boolean | undefined;
     e25?: boolean | undefined;
-    e50?: boolean | undefined;
     e100?: boolean | undefined;
     e300?: boolean | undefined;
     e600?: boolean | undefined;
     e700?: boolean | undefined;
     w25?: boolean | undefined;
-    w50?: boolean | undefined;
     w100?: boolean | undefined;
-    w200?: boolean | undefined;
     w300?: boolean | undefined;
     w600?: boolean | undefined;
-    w500?: boolean | undefined;
     w700?: boolean | undefined;
     s25?: boolean | undefined;
-    s50?: boolean | undefined;
     s100?: boolean | undefined;
     s300?: boolean | undefined;
-    s400?: boolean | undefined;
     s600?: boolean | undefined;
     s700?: boolean | undefined;
     center?: boolean | undefined;
     left?: boolean | undefined;
     right?: boolean | undefined;
-    none?: boolean | undefined;
     flex?: boolean | undefined;
-    block?: boolean | undefined;
     inlineFlex?: boolean | undefined;
     row?: boolean | undefined;
     column?: boolean | undefined;
-    columnReverse?: boolean | undefined;
-    rowReverse?: boolean | undefined;
 } & {
     bgN01?: boolean | undefined;
     bgG25?: boolean | undefined;
@@ -747,29 +666,23 @@ declare const Row: styled_components.StyledComponent<"div", any, {
     bgP800?: boolean | undefined;
     bgP900?: boolean | undefined;
     bgE25?: boolean | undefined;
-    bgE50?: boolean | undefined;
     bgE100?: boolean | undefined;
     bgE300?: boolean | undefined;
     bgE600?: boolean | undefined;
     bgE700?: boolean | undefined;
     bgW25?: boolean | undefined;
-    bgW50?: boolean | undefined;
     bgW100?: boolean | undefined;
-    bgW200?: boolean | undefined;
     bgW300?: boolean | undefined;
     bgW600?: boolean | undefined;
-    bgW500?: boolean | undefined;
     bgW700?: boolean | undefined;
     bgS25?: boolean | undefined;
-    bgS50?: boolean | undefined;
     bgS100?: boolean | undefined;
     bgS300?: boolean | undefined;
-    bgS400?: boolean | undefined;
     bgS600?: boolean | undefined;
     bgS700?: boolean | undefined;
 } & Partial<Record<"mb" | "ml" | "mr" | "mt" | "pb" | "pl" | "pr" | "pt", MqProp<string | number>>> & {
-    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     alpha?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     maxH?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
@@ -779,9 +692,7 @@ declare const Row: styled_components.StyledComponent<"div", any, {
     show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     h?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     w?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w600" | "w500" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
-    fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e100" | "e300" | "e600" | "e700" | "w25" | "w100" | "w300" | "w600" | "w700" | "s25" | "s100" | "s300" | "s600" | "s700">> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -814,37 +725,27 @@ declare const Col: styled_components.StyledComponent<"div", any, {
     p800?: boolean | undefined;
     p900?: boolean | undefined;
     e25?: boolean | undefined;
-    e50?: boolean | undefined;
     e100?: boolean | undefined;
     e300?: boolean | undefined;
     e600?: boolean | undefined;
     e700?: boolean | undefined;
     w25?: boolean | undefined;
-    w50?: boolean | undefined;
     w100?: boolean | undefined;
-    w200?: boolean | undefined;
     w300?: boolean | undefined;
     w600?: boolean | undefined;
-    w500?: boolean | undefined;
     w700?: boolean | undefined;
     s25?: boolean | undefined;
-    s50?: boolean | undefined;
     s100?: boolean | undefined;
     s300?: boolean | undefined;
-    s400?: boolean | undefined;
     s600?: boolean | undefined;
     s700?: boolean | undefined;
     center?: boolean | undefined;
     left?: boolean | undefined;
     right?: boolean | undefined;
-    none?: boolean | undefined;
     flex?: boolean | undefined;
-    block?: boolean | undefined;
     inlineFlex?: boolean | undefined;
     row?: boolean | undefined;
     column?: boolean | undefined;
-    columnReverse?: boolean | undefined;
-    rowReverse?: boolean | undefined;
 } & {
     bgN01?: boolean | undefined;
     bgG25?: boolean | undefined;
@@ -870,29 +771,23 @@ declare const Col: styled_components.StyledComponent<"div", any, {
     bgP800?: boolean | undefined;
     bgP900?: boolean | undefined;
     bgE25?: boolean | undefined;
-    bgE50?: boolean | undefined;
     bgE100?: boolean | undefined;
     bgE300?: boolean | undefined;
     bgE600?: boolean | undefined;
     bgE700?: boolean | undefined;
     bgW25?: boolean | undefined;
-    bgW50?: boolean | undefined;
     bgW100?: boolean | undefined;
-    bgW200?: boolean | undefined;
     bgW300?: boolean | undefined;
     bgW600?: boolean | undefined;
-    bgW500?: boolean | undefined;
     bgW700?: boolean | undefined;
     bgS25?: boolean | undefined;
-    bgS50?: boolean | undefined;
     bgS100?: boolean | undefined;
     bgS300?: boolean | undefined;
-    bgS400?: boolean | undefined;
     bgS600?: boolean | undefined;
     bgS700?: boolean | undefined;
 } & Partial<Record<"mb" | "ml" | "mr" | "mt" | "pb" | "pl" | "pr" | "pt", MqProp<string | number>>> & {
-    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     alpha?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     maxH?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
@@ -902,9 +797,7 @@ declare const Col: styled_components.StyledComponent<"div", any, {
     show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     h?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     w?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w600" | "w500" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
-    fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e100" | "e300" | "e600" | "e700" | "w25" | "w100" | "w300" | "w600" | "w700" | "s25" | "s100" | "s300" | "s600" | "s700">> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -943,37 +836,27 @@ declare const Display: styled_components.StyledComponent<"h1", any, {
     p800?: boolean | undefined;
     p900?: boolean | undefined;
     e25?: boolean | undefined;
-    e50?: boolean | undefined;
     e100?: boolean | undefined;
     e300?: boolean | undefined;
     e600?: boolean | undefined;
     e700?: boolean | undefined;
     w25?: boolean | undefined;
-    w50?: boolean | undefined;
     w100?: boolean | undefined;
-    w200?: boolean | undefined;
     w300?: boolean | undefined;
     w600?: boolean | undefined;
-    w500?: boolean | undefined;
     w700?: boolean | undefined;
     s25?: boolean | undefined;
-    s50?: boolean | undefined;
     s100?: boolean | undefined;
     s300?: boolean | undefined;
-    s400?: boolean | undefined;
     s600?: boolean | undefined;
     s700?: boolean | undefined;
     center?: boolean | undefined;
     left?: boolean | undefined;
     right?: boolean | undefined;
-    none?: boolean | undefined;
     flex?: boolean | undefined;
-    block?: boolean | undefined;
     inlineFlex?: boolean | undefined;
     row?: boolean | undefined;
     column?: boolean | undefined;
-    columnReverse?: boolean | undefined;
-    rowReverse?: boolean | undefined;
 } & {
     bgN01?: boolean | undefined;
     bgG25?: boolean | undefined;
@@ -999,29 +882,23 @@ declare const Display: styled_components.StyledComponent<"h1", any, {
     bgP800?: boolean | undefined;
     bgP900?: boolean | undefined;
     bgE25?: boolean | undefined;
-    bgE50?: boolean | undefined;
     bgE100?: boolean | undefined;
     bgE300?: boolean | undefined;
     bgE600?: boolean | undefined;
     bgE700?: boolean | undefined;
     bgW25?: boolean | undefined;
-    bgW50?: boolean | undefined;
     bgW100?: boolean | undefined;
-    bgW200?: boolean | undefined;
     bgW300?: boolean | undefined;
     bgW600?: boolean | undefined;
-    bgW500?: boolean | undefined;
     bgW700?: boolean | undefined;
     bgS25?: boolean | undefined;
-    bgS50?: boolean | undefined;
     bgS100?: boolean | undefined;
     bgS300?: boolean | undefined;
-    bgS400?: boolean | undefined;
     bgS600?: boolean | undefined;
     bgS700?: boolean | undefined;
 } & Partial<Record<"mb" | "ml" | "mr" | "mt" | "pb" | "pl" | "pr" | "pt", MqProp<string | number>>> & {
-    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     alpha?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     maxH?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
@@ -1031,9 +908,7 @@ declare const Display: styled_components.StyledComponent<"h1", any, {
     show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     h?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     w?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w600" | "w500" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
-    fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e100" | "e300" | "e600" | "e700" | "w25" | "w100" | "w300" | "w600" | "w700" | "s25" | "s100" | "s300" | "s600" | "s700">> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1065,37 +940,27 @@ declare const Text: styled_components.StyledComponent<"p", any, {
     p800?: boolean | undefined;
     p900?: boolean | undefined;
     e25?: boolean | undefined;
-    e50?: boolean | undefined;
     e100?: boolean | undefined;
     e300?: boolean | undefined;
     e600?: boolean | undefined;
     e700?: boolean | undefined;
     w25?: boolean | undefined;
-    w50?: boolean | undefined;
     w100?: boolean | undefined;
-    w200?: boolean | undefined;
     w300?: boolean | undefined;
     w600?: boolean | undefined;
-    w500?: boolean | undefined;
     w700?: boolean | undefined;
     s25?: boolean | undefined;
-    s50?: boolean | undefined;
     s100?: boolean | undefined;
     s300?: boolean | undefined;
-    s400?: boolean | undefined;
     s600?: boolean | undefined;
     s700?: boolean | undefined;
     center?: boolean | undefined;
     left?: boolean | undefined;
     right?: boolean | undefined;
-    none?: boolean | undefined;
     flex?: boolean | undefined;
-    block?: boolean | undefined;
     inlineFlex?: boolean | undefined;
     row?: boolean | undefined;
     column?: boolean | undefined;
-    columnReverse?: boolean | undefined;
-    rowReverse?: boolean | undefined;
 } & {
     bgN01?: boolean | undefined;
     bgG25?: boolean | undefined;
@@ -1121,29 +986,23 @@ declare const Text: styled_components.StyledComponent<"p", any, {
     bgP800?: boolean | undefined;
     bgP900?: boolean | undefined;
     bgE25?: boolean | undefined;
-    bgE50?: boolean | undefined;
     bgE100?: boolean | undefined;
     bgE300?: boolean | undefined;
     bgE600?: boolean | undefined;
     bgE700?: boolean | undefined;
     bgW25?: boolean | undefined;
-    bgW50?: boolean | undefined;
     bgW100?: boolean | undefined;
-    bgW200?: boolean | undefined;
     bgW300?: boolean | undefined;
     bgW600?: boolean | undefined;
-    bgW500?: boolean | undefined;
     bgW700?: boolean | undefined;
     bgS25?: boolean | undefined;
-    bgS50?: boolean | undefined;
     bgS100?: boolean | undefined;
     bgS300?: boolean | undefined;
-    bgS400?: boolean | undefined;
     bgS600?: boolean | undefined;
     bgS700?: boolean | undefined;
 } & Partial<Record<"mb" | "ml" | "mr" | "mt" | "pb" | "pl" | "pr" | "pt", MqProp<string | number>>> & {
-    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     alpha?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     maxH?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
@@ -1153,232 +1012,12 @@ declare const Text: styled_components.StyledComponent<"p", any, {
     show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     h?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     w?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w600" | "w500" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
-    fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e100" | "e300" | "e600" | "e700" | "w25" | "w100" | "w300" | "w600" | "w700" | "s25" | "s100" | "s300" | "s600" | "s700">> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
     padding?: MqProp<string | number> | undefined;
 } & Partial<Record<"ellipsis" | "uppercase", boolean | "true" | "false">> & Partial<Record<"bold" | "regular" | "medium" | "semibold", boolean | "true" | "false">> & Partial<Record<"base" | "small" | "extralarge" | "large" | "extrasmall", boolean | "true" | "false">>, never>;
-
-declare type InputProps = {
-    as?: any;
-    disabled?: boolean;
-    icon?: string;
-    onBlur?: Function;
-    onFocus?: Function;
-    rows?: number | string;
-    withError?: boolean;
-    wrapperProps?: GeneratedPropTypes;
-} & {
-    [key: string]: any;
-};
-declare const Input: React.ForwardRefExoticComponent<Pick<{
-    as?: any;
-    disabled?: boolean | undefined;
-    icon?: string | undefined;
-    onBlur?: Function | undefined;
-    onFocus?: Function | undefined;
-    rows?: string | number | undefined;
-    withError?: boolean | undefined;
-    wrapperProps?: GeneratedPropTypes | undefined;
-} & {
-    [key: string]: any;
-}, string | number> & React.RefAttributes<unknown>>;
-
-declare type InputUploadProps = {
-    children?: any;
-    handleFiles: Function;
-    wrapperProps?: GeneratedPropTypes;
-} & DropzoneOptions;
-declare const InputUpload: React.ForwardRefExoticComponent<{
-    children?: any;
-    handleFiles: Function;
-    wrapperProps?: GeneratedPropTypes | undefined;
-} & Pick<React.HTMLProps<HTMLElement>, "onDragEnter" | "onDragLeave" | "onDragOver" | "multiple"> & {
-    accept?: string | string[] | undefined;
-    minSize?: number | undefined;
-    maxSize?: number | undefined;
-    maxFiles?: number | undefined;
-    preventDropOnDocument?: boolean | undefined;
-    noClick?: boolean | undefined;
-    noKeyboard?: boolean | undefined;
-    noDrag?: boolean | undefined;
-    noDragEventsBubbling?: boolean | undefined;
-    disabled?: boolean | undefined;
-    onDrop?: (<T extends File>(acceptedFiles: T[], fileRejections: react_dropzone.FileRejection[], event: react_dropzone.DropEvent) => void) | undefined;
-    onDropAccepted?: (<T_1 extends File>(files: T_1[], event: react_dropzone.DropEvent) => void) | undefined;
-    onDropRejected?: ((fileRejections: react_dropzone.FileRejection[], event: react_dropzone.DropEvent) => void) | undefined;
-    getFilesFromEvent?: ((event: react_dropzone.DropEvent) => Promise<(File | DataTransferItem)[]>) | undefined;
-    onFileDialogCancel?: (() => void) | undefined;
-    onFileDialogOpen?: (() => void) | undefined;
-    validator?: (<T_2 extends File>(file: T_2) => react_dropzone.FileError | react_dropzone.FileError[] | null) | undefined;
-    useFsAccessApi?: boolean | undefined;
-} & React.RefAttributes<unknown>>;
-
-declare type Value = string | number;
-declare type OptionType = {
-    label?: string;
-    value: string;
-};
-declare type SelectProps = {
-    isMultiple?: boolean;
-    onBlur?: Function;
-    onChange?: Function;
-    onFocus?: Function;
-    options?: OptionType[];
-    optionsSearchPlaceholder?: string;
-    renderLabel: Function;
-    renderOption?: Function;
-    value?: Value | Value[];
-    withError?: boolean;
-    withOptionsSearch?: boolean;
-} & GeneratedPropTypes;
-declare const Select: React.ForwardRefExoticComponent<{
-    isMultiple?: boolean | undefined;
-    onBlur?: Function | undefined;
-    onChange?: Function | undefined;
-    onFocus?: Function | undefined;
-    options?: OptionType[] | undefined;
-    optionsSearchPlaceholder?: string | undefined;
-    renderLabel: Function;
-    renderOption?: Function | undefined;
-    value?: Value | Value[] | undefined;
-    withError?: boolean | undefined;
-    withOptionsSearch?: boolean | undefined;
-} & {
-    n01?: boolean | undefined;
-    g25?: boolean | undefined;
-    g50?: boolean | undefined;
-    g100?: boolean | undefined;
-    g200?: boolean | undefined;
-    g300?: boolean | undefined;
-    g400?: boolean | undefined;
-    g500?: boolean | undefined;
-    g600?: boolean | undefined;
-    g700?: boolean | undefined;
-    g800?: boolean | undefined;
-    g900?: boolean | undefined;
-    p25?: boolean | undefined;
-    p50?: boolean | undefined;
-    p100?: boolean | undefined;
-    p200?: boolean | undefined;
-    p300?: boolean | undefined;
-    p400?: boolean | undefined;
-    p500?: boolean | undefined;
-    p600?: boolean | undefined;
-    p700?: boolean | undefined;
-    p800?: boolean | undefined;
-    p900?: boolean | undefined;
-    e25?: boolean | undefined;
-    e50?: boolean | undefined;
-    e100?: boolean | undefined;
-    e300?: boolean | undefined;
-    e600?: boolean | undefined;
-    e700?: boolean | undefined;
-    w25?: boolean | undefined;
-    w50?: boolean | undefined;
-    w100?: boolean | undefined;
-    w200?: boolean | undefined;
-    w300?: boolean | undefined;
-    w600?: boolean | undefined;
-    w500?: boolean | undefined;
-    w700?: boolean | undefined;
-    s25?: boolean | undefined;
-    s50?: boolean | undefined;
-    s100?: boolean | undefined;
-    s300?: boolean | undefined;
-    s400?: boolean | undefined;
-    s600?: boolean | undefined;
-    s700?: boolean | undefined;
-    center?: boolean | undefined;
-    left?: boolean | undefined;
-    right?: boolean | undefined;
-    none?: boolean | undefined;
-    flex?: boolean | undefined;
-    block?: boolean | undefined;
-    inlineFlex?: boolean | undefined;
-    row?: boolean | undefined;
-    column?: boolean | undefined;
-    columnReverse?: boolean | undefined;
-    rowReverse?: boolean | undefined;
-} & {
-    bgN01?: boolean | undefined;
-    bgG25?: boolean | undefined;
-    bgG50?: boolean | undefined;
-    bgG100?: boolean | undefined;
-    bgG200?: boolean | undefined;
-    bgG300?: boolean | undefined;
-    bgG400?: boolean | undefined;
-    bgG500?: boolean | undefined;
-    bgG600?: boolean | undefined;
-    bgG700?: boolean | undefined;
-    bgG800?: boolean | undefined;
-    bgG900?: boolean | undefined;
-    bgP25?: boolean | undefined;
-    bgP50?: boolean | undefined;
-    bgP100?: boolean | undefined;
-    bgP200?: boolean | undefined;
-    bgP300?: boolean | undefined;
-    bgP400?: boolean | undefined;
-    bgP500?: boolean | undefined;
-    bgP600?: boolean | undefined;
-    bgP700?: boolean | undefined;
-    bgP800?: boolean | undefined;
-    bgP900?: boolean | undefined;
-    bgE25?: boolean | undefined;
-    bgE50?: boolean | undefined;
-    bgE100?: boolean | undefined;
-    bgE300?: boolean | undefined;
-    bgE600?: boolean | undefined;
-    bgE700?: boolean | undefined;
-    bgW25?: boolean | undefined;
-    bgW50?: boolean | undefined;
-    bgW100?: boolean | undefined;
-    bgW200?: boolean | undefined;
-    bgW300?: boolean | undefined;
-    bgW600?: boolean | undefined;
-    bgW500?: boolean | undefined;
-    bgW700?: boolean | undefined;
-    bgS25?: boolean | undefined;
-    bgS50?: boolean | undefined;
-    bgS100?: boolean | undefined;
-    bgS300?: boolean | undefined;
-    bgS400?: boolean | undefined;
-    bgS600?: boolean | undefined;
-    bgS700?: boolean | undefined;
-} & Partial<Record<"mb" | "ml" | "mr" | "mt" | "pb" | "pl" | "pr" | "pt", MqProp<string | number>>> & {
-    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    alpha?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    maxH?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    maxW?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    minH?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    minW?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    h?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    w?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w600" | "w500" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
-    fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-} & {
-    fLayout?: MqProp<FlexLayoutType> | undefined;
-    margin?: MqProp<string | number> | undefined;
-    padding?: MqProp<string | number> | undefined;
-} & React.RefAttributes<unknown>>;
-
-declare type ToggleProps = {
-    wrapperProps?: GeneratedPropTypes;
-} & {
-    [key: string]: any;
-};
-declare const Toggle: React.ForwardRefExoticComponent<Pick<{
-    wrapperProps?: GeneratedPropTypes | undefined;
-} & {
-    [key: string]: any;
-}, string | number> & React.RefAttributes<unknown>>;
 
 declare const AppContainer: styled_components.StyledComponent<"div", any, {}, never>;
 
@@ -1417,37 +1056,27 @@ declare const Avatar: styled_components.StyledComponent<"div", any, {
     p800?: boolean | undefined;
     p900?: boolean | undefined;
     e25?: boolean | undefined;
-    e50?: boolean | undefined;
     e100?: boolean | undefined;
     e300?: boolean | undefined;
     e600?: boolean | undefined;
     e700?: boolean | undefined;
     w25?: boolean | undefined;
-    w50?: boolean | undefined;
     w100?: boolean | undefined;
-    w200?: boolean | undefined;
     w300?: boolean | undefined;
     w600?: boolean | undefined;
-    w500?: boolean | undefined;
     w700?: boolean | undefined;
     s25?: boolean | undefined;
-    s50?: boolean | undefined;
     s100?: boolean | undefined;
     s300?: boolean | undefined;
-    s400?: boolean | undefined;
     s600?: boolean | undefined;
     s700?: boolean | undefined;
     center?: boolean | undefined;
     left?: boolean | undefined;
     right?: boolean | undefined;
-    none?: boolean | undefined;
     flex?: boolean | undefined;
-    block?: boolean | undefined;
     inlineFlex?: boolean | undefined;
     row?: boolean | undefined;
     column?: boolean | undefined;
-    columnReverse?: boolean | undefined;
-    rowReverse?: boolean | undefined;
 } & {
     bgN01?: boolean | undefined;
     bgG25?: boolean | undefined;
@@ -1473,29 +1102,23 @@ declare const Avatar: styled_components.StyledComponent<"div", any, {
     bgP800?: boolean | undefined;
     bgP900?: boolean | undefined;
     bgE25?: boolean | undefined;
-    bgE50?: boolean | undefined;
     bgE100?: boolean | undefined;
     bgE300?: boolean | undefined;
     bgE600?: boolean | undefined;
     bgE700?: boolean | undefined;
     bgW25?: boolean | undefined;
-    bgW50?: boolean | undefined;
     bgW100?: boolean | undefined;
-    bgW200?: boolean | undefined;
     bgW300?: boolean | undefined;
     bgW600?: boolean | undefined;
-    bgW500?: boolean | undefined;
     bgW700?: boolean | undefined;
     bgS25?: boolean | undefined;
-    bgS50?: boolean | undefined;
     bgS100?: boolean | undefined;
     bgS300?: boolean | undefined;
-    bgS400?: boolean | undefined;
     bgS600?: boolean | undefined;
     bgS700?: boolean | undefined;
 } & Partial<Record<"mb" | "ml" | "mr" | "mt" | "pb" | "pl" | "pr" | "pt", MqProp<string | number>>> & {
-    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     alpha?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     maxH?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
@@ -1505,9 +1128,7 @@ declare const Avatar: styled_components.StyledComponent<"div", any, {
     show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     h?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     w?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w600" | "w500" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
-    fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e100" | "e300" | "e600" | "e700" | "w25" | "w100" | "w300" | "w600" | "w700" | "s25" | "s100" | "s300" | "s600" | "s700">> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1516,11 +1137,8 @@ declare const Avatar: styled_components.StyledComponent<"div", any, {
 
 declare const buttonColorVariations: {
     default: styled_components.FlattenInterpolation<styled_components.ThemeProps<any>>;
-    error: styled_components.FlattenInterpolation<styled_components.ThemeProps<any>>;
     gray: styled_components.FlattenInterpolation<styled_components.ThemeProps<any>>;
-    info: styled_components.FlattenInterpolation<styled_components.ThemeProps<any>>;
     secondary: styled_components.FlattenInterpolation<styled_components.ThemeProps<any>>;
-    success: styled_components.FlattenInterpolation<styled_components.ThemeProps<any>>;
 };
 declare const buttonSizeVariations: {
     default: styled_components.FlattenSimpleInterpolation;
@@ -1538,7 +1156,6 @@ declare type ButtonBaseProps = {
     reverse?: boolean;
     isLoading?: boolean;
     title?: string;
-    type?: string;
 };
 declare type ButtonColorVariations = BoolProps<typeof buttonColorVariations>;
 declare type ButtonSizeVariations = BoolProps<typeof buttonSizeVariations>;
@@ -1564,7 +1181,6 @@ declare const circledIconSizeVariations: {
     default: styled_components.FlattenSimpleInterpolation;
     medium: styled_components.FlattenSimpleInterpolation;
     large: styled_components.FlattenSimpleInterpolation;
-    extralarge: styled_components.FlattenSimpleInterpolation;
 };
 declare type CircledIconProps = {
     icon: string;
@@ -1596,37 +1212,27 @@ declare const Divider: styled_components.StyledComponent<"div", any, {
     p800?: boolean | undefined;
     p900?: boolean | undefined;
     e25?: boolean | undefined;
-    e50?: boolean | undefined;
     e100?: boolean | undefined;
     e300?: boolean | undefined;
     e600?: boolean | undefined;
     e700?: boolean | undefined;
     w25?: boolean | undefined;
-    w50?: boolean | undefined;
     w100?: boolean | undefined;
-    w200?: boolean | undefined;
     w300?: boolean | undefined;
     w600?: boolean | undefined;
-    w500?: boolean | undefined;
     w700?: boolean | undefined;
     s25?: boolean | undefined;
-    s50?: boolean | undefined;
     s100?: boolean | undefined;
     s300?: boolean | undefined;
-    s400?: boolean | undefined;
     s600?: boolean | undefined;
     s700?: boolean | undefined;
     center?: boolean | undefined;
     left?: boolean | undefined;
     right?: boolean | undefined;
-    none?: boolean | undefined;
     flex?: boolean | undefined;
-    block?: boolean | undefined;
     inlineFlex?: boolean | undefined;
     row?: boolean | undefined;
     column?: boolean | undefined;
-    columnReverse?: boolean | undefined;
-    rowReverse?: boolean | undefined;
 } & {
     bgN01?: boolean | undefined;
     bgG25?: boolean | undefined;
@@ -1652,29 +1258,23 @@ declare const Divider: styled_components.StyledComponent<"div", any, {
     bgP800?: boolean | undefined;
     bgP900?: boolean | undefined;
     bgE25?: boolean | undefined;
-    bgE50?: boolean | undefined;
     bgE100?: boolean | undefined;
     bgE300?: boolean | undefined;
     bgE600?: boolean | undefined;
     bgE700?: boolean | undefined;
     bgW25?: boolean | undefined;
-    bgW50?: boolean | undefined;
     bgW100?: boolean | undefined;
-    bgW200?: boolean | undefined;
     bgW300?: boolean | undefined;
     bgW600?: boolean | undefined;
-    bgW500?: boolean | undefined;
     bgW700?: boolean | undefined;
     bgS25?: boolean | undefined;
-    bgS50?: boolean | undefined;
     bgS100?: boolean | undefined;
     bgS300?: boolean | undefined;
-    bgS400?: boolean | undefined;
     bgS600?: boolean | undefined;
     bgS700?: boolean | undefined;
 } & Partial<Record<"mb" | "ml" | "mr" | "mt" | "pb" | "pl" | "pr" | "pt", MqProp<string | number>>> & {
-    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     alpha?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     maxH?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
@@ -1684,20 +1284,16 @@ declare const Divider: styled_components.StyledComponent<"div", any, {
     show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     h?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     w?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w600" | "w500" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
-    fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e100" | "e300" | "e600" | "e700" | "w25" | "w100" | "w300" | "w600" | "w700" | "s25" | "s100" | "s300" | "s600" | "s700">> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
     padding?: MqProp<string | number> | undefined;
 }, never>;
 
-declare type SizeType = number | number[];
-
 declare type IconProps = {
     icon: string;
-    size?: SizeType;
+    size?: number | number[];
 } & GeneratedPropTypes;
 declare const Icon: React.FC<IconProps>;
 
@@ -1708,13 +1304,6 @@ declare type ModalProps = {
     children?: React.FC | JSX.Element | React.FC[] | JSX.Element[];
 } & GeneratedPropTypes;
 declare const ModalWrapper: React.FC<ModalProps>;
-
-declare type PulseIconProps = {
-    icon: string;
-    size?: number;
-    borderColor?: keyof typeof colors;
-} & GeneratedPropTypes;
-declare const PulseIcon: React.FC<PulseIconProps>;
 
 declare type ProgressBarProps = {
     progress: number | string;
@@ -1746,37 +1335,27 @@ declare const ProgressBar: styled_components.StyledComponent<"div", any, {
     p800?: boolean | undefined;
     p900?: boolean | undefined;
     e25?: boolean | undefined;
-    e50?: boolean | undefined;
     e100?: boolean | undefined;
     e300?: boolean | undefined;
     e600?: boolean | undefined;
     e700?: boolean | undefined;
     w25?: boolean | undefined;
-    w50?: boolean | undefined;
     w100?: boolean | undefined;
-    w200?: boolean | undefined;
     w300?: boolean | undefined;
     w600?: boolean | undefined;
-    w500?: boolean | undefined;
     w700?: boolean | undefined;
     s25?: boolean | undefined;
-    s50?: boolean | undefined;
     s100?: boolean | undefined;
     s300?: boolean | undefined;
-    s400?: boolean | undefined;
     s600?: boolean | undefined;
     s700?: boolean | undefined;
     center?: boolean | undefined;
     left?: boolean | undefined;
     right?: boolean | undefined;
-    none?: boolean | undefined;
     flex?: boolean | undefined;
-    block?: boolean | undefined;
     inlineFlex?: boolean | undefined;
     row?: boolean | undefined;
     column?: boolean | undefined;
-    columnReverse?: boolean | undefined;
-    rowReverse?: boolean | undefined;
 } & {
     bgN01?: boolean | undefined;
     bgG25?: boolean | undefined;
@@ -1802,29 +1381,23 @@ declare const ProgressBar: styled_components.StyledComponent<"div", any, {
     bgP800?: boolean | undefined;
     bgP900?: boolean | undefined;
     bgE25?: boolean | undefined;
-    bgE50?: boolean | undefined;
     bgE100?: boolean | undefined;
     bgE300?: boolean | undefined;
     bgE600?: boolean | undefined;
     bgE700?: boolean | undefined;
     bgW25?: boolean | undefined;
-    bgW50?: boolean | undefined;
     bgW100?: boolean | undefined;
-    bgW200?: boolean | undefined;
     bgW300?: boolean | undefined;
     bgW600?: boolean | undefined;
-    bgW500?: boolean | undefined;
     bgW700?: boolean | undefined;
     bgS25?: boolean | undefined;
-    bgS50?: boolean | undefined;
     bgS100?: boolean | undefined;
     bgS300?: boolean | undefined;
-    bgS400?: boolean | undefined;
     bgS600?: boolean | undefined;
     bgS700?: boolean | undefined;
 } & Partial<Record<"mb" | "ml" | "mr" | "mt" | "pb" | "pl" | "pr" | "pt", MqProp<string | number>>> & {
-    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     alpha?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     maxH?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
@@ -1834,9 +1407,7 @@ declare const ProgressBar: styled_components.StyledComponent<"div", any, {
     show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     h?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     w?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w600" | "w500" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
-    fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e100" | "e300" | "e600" | "e700" | "w25" | "w100" | "w300" | "w600" | "w700" | "s25" | "s100" | "s300" | "s600" | "s700">> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1873,37 +1444,27 @@ declare const SkeletonElement: styled_components.StyledComponent<"div", any, {
     p800?: boolean | undefined;
     p900?: boolean | undefined;
     e25?: boolean | undefined;
-    e50?: boolean | undefined;
     e100?: boolean | undefined;
     e300?: boolean | undefined;
     e600?: boolean | undefined;
     e700?: boolean | undefined;
     w25?: boolean | undefined;
-    w50?: boolean | undefined;
     w100?: boolean | undefined;
-    w200?: boolean | undefined;
     w300?: boolean | undefined;
     w600?: boolean | undefined;
-    w500?: boolean | undefined;
     w700?: boolean | undefined;
     s25?: boolean | undefined;
-    s50?: boolean | undefined;
     s100?: boolean | undefined;
     s300?: boolean | undefined;
-    s400?: boolean | undefined;
     s600?: boolean | undefined;
     s700?: boolean | undefined;
     center?: boolean | undefined;
     left?: boolean | undefined;
     right?: boolean | undefined;
-    none?: boolean | undefined;
     flex?: boolean | undefined;
-    block?: boolean | undefined;
     inlineFlex?: boolean | undefined;
     row?: boolean | undefined;
     column?: boolean | undefined;
-    columnReverse?: boolean | undefined;
-    rowReverse?: boolean | undefined;
 } & {
     bgN01?: boolean | undefined;
     bgG25?: boolean | undefined;
@@ -1929,29 +1490,23 @@ declare const SkeletonElement: styled_components.StyledComponent<"div", any, {
     bgP800?: boolean | undefined;
     bgP900?: boolean | undefined;
     bgE25?: boolean | undefined;
-    bgE50?: boolean | undefined;
     bgE100?: boolean | undefined;
     bgE300?: boolean | undefined;
     bgE600?: boolean | undefined;
     bgE700?: boolean | undefined;
     bgW25?: boolean | undefined;
-    bgW50?: boolean | undefined;
     bgW100?: boolean | undefined;
-    bgW200?: boolean | undefined;
     bgW300?: boolean | undefined;
     bgW600?: boolean | undefined;
-    bgW500?: boolean | undefined;
     bgW700?: boolean | undefined;
     bgS25?: boolean | undefined;
-    bgS50?: boolean | undefined;
     bgS100?: boolean | undefined;
     bgS300?: boolean | undefined;
-    bgS400?: boolean | undefined;
     bgS600?: boolean | undefined;
     bgS700?: boolean | undefined;
 } & Partial<Record<"mb" | "ml" | "mr" | "mt" | "pb" | "pl" | "pr" | "pt", MqProp<string | number>>> & {
-    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     alpha?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    tAlign?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     radius?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fDirection?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     maxH?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
@@ -1961,9 +1516,7 @@ declare const SkeletonElement: styled_components.StyledComponent<"div", any, {
     show?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     h?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     w?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w600" | "w500" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
-    fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
-    fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    sColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e100" | "e300" | "e600" | "e700" | "w25" | "w100" | "w300" | "w600" | "w700" | "s25" | "s100" | "s300" | "s600" | "s700">> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1986,60 +1539,6 @@ declare const toast: {
     [key in TypeOptions]: (content: string | ReactElement) => React.ReactText;
 };
 declare const Toaster: () => JSX.Element;
-
-declare type LabelProps = {
-    icon?: string;
-    content: string | number;
-} & BoolPropsFromArray<typeof stateTypes> & GeneratedPropTypes;
-declare const Label: React.FC<LabelProps>;
-
-declare type TabListProps = {
-    children: any;
-    tabsRole?: string;
-};
-declare const TabList: {
-    ({ children, ...forwardProps }: TabListProps): JSX.Element;
-    tabsRole: string;
-};
-declare type TabProps = {
-    title: string | React.ReactNode;
-    number?: number;
-    tabsRole?: string;
-    onClick?: Function;
-};
-declare const Tab: {
-    ({ title, number, onClick, ...forwardProps }: TabProps): JSX.Element;
-    tabsRole: string;
-};
-declare type TabPanelProps = {
-    children: any;
-    tabsRole?: string;
-};
-declare const TabPanel: {
-    ({ children, ...forwardProps }: TabPanelProps): JSX.Element;
-    tabsRole: string;
-};
-declare type TabsProps = {
-    children: any;
-} & GeneratedPropTypes;
-declare const Tabs: React.FC<TabsProps>;
-
-declare type DropdownMenuProps = {
-    title?: string | React.ReactNode;
-    icon?: string | undefined;
-    items: React.ReactNode[];
-    asButton?: boolean;
-    rtl?: boolean;
-    wrapperProps?: GeneratedPropTypes;
-    headerProps?: GeneratedPropTypes;
-};
-declare const DropdownMenu: React.FC<DropdownMenuProps>;
-
-declare type CountryFlagProps = {
-    countryCode: string;
-    size?: number | number[] | undefined;
-} & GeneratedPropTypes;
-declare const CountryFlag: React.FC<CountryFlagProps>;
 
 declare type AccordionItemProps = {
     children: any;
@@ -2074,7 +1573,7 @@ declare const SidebarMenuGroup: React.FC<SidebarMenuGroupProps>;
 
 declare type SidebarMenuItemProps = {
     children?: React.ReactNode;
-    flag?: string | number;
+    flag?: string | number | React.ReactNode;
     icon?: string;
     isActive?: boolean;
     label?: string | React.ReactNode;
@@ -2095,10 +1594,10 @@ declare const SidebarUserButton: React.FC<SidebarUserButtonProps>;
 declare type AlertProps = {
     button?: any;
     icon: string;
-    title?: string | React.ReactNode;
-    message?: string | React.ReactNode;
-    handleClose?: Function;
+    title?: string;
+    message?: string;
+    handleClose?: any;
 } & BoolPropsFromArray<typeof stateTypes> & GeneratedPropTypes;
 declare const Alert: React.FC<AlertProps>;
 
-export { Accordion, AccordionItem, AccordionItemProps, AccordionProps, Alert, AlertProps, AppContainer, Avatar, AvatarProps, BoolProps, BoolPropsFromArray, Box, Breakpoint, Button, ButtonProps, Card, CircledIcon, CircledIconProps, Col, Countdown, CountdownProps, CountryFlag, CountryFlagProps, DesignSystemProvider, Display, DisplayProps, Divider, DropdownMenu, DropdownMenuProps, GeneratedPropTypes, Grid, Icon, Input, InputProps, InputUpload, InputUploadProps, Label, LabelProps, Logo, ModalContextType, ModalManager, ModalManagerProps, ModalWrapper, MqProp, ProgressBar, ProgressBarProps, PulseIcon, Row, RowProps, Select, SelectProps, Sidebar, SidebarMenuGroup, SidebarMenuGroupProps, SidebarMenuItem, SidebarMenuItemProps, SidebarProps, SidebarUserButton, SidebarUserButtonProps, SkeletonElement, SkeletonElementProps, Spinner, SpinnerProps, StringProps, Tab, TabList, TabListProps, TabPanel, TabPanelProps, TabProps, Tabs, TabsProps, Text, TextProps, Toaster, Toggle, ToggleProps, ViewContainer, ViewContainerWrapper, avatarSizeVariations, breakpoints, buttonColorVariations, buttonSizeVariations, circledIconSizeVariations, closeModal, colors, openModal, spaceNames, toast, useCountDown, useModal, useSidebarMobile };
+export { Accordion, AccordionItem, AccordionItemProps, AccordionProps, Alert, AlertProps, AppContainer, Avatar, AvatarProps, BoolProps, BoolPropsFromArray, Box, Breakpoint, Button, ButtonProps, Card, CircledIcon, CircledIconProps, Col, Countdown, CountdownProps, DesignSystemProvider, Display, DisplayProps, Divider, GeneratedPropTypes, Grid, Icon, Logo, ModalContextType, ModalManager, ModalManagerProps, ModalWrapper, MqProp, ProgressBar, ProgressBarProps, Row, RowProps, Sidebar, SidebarMenuGroup, SidebarMenuGroupProps, SidebarMenuItem, SidebarMenuItemProps, SidebarProps, SidebarUserButton, SidebarUserButtonProps, SkeletonElement, SkeletonElementProps, Spinner, SpinnerProps, StringProps, Text, TextProps, Toaster, ViewContainer, ViewContainerWrapper, avatarSizeVariations, breakpoints, buttonColorVariations, buttonSizeVariations, circledIconSizeVariations, closeModal, colors, openModal, spaceNames, toast, useCountDown, useModal, useSidebarMobile };

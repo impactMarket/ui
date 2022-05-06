@@ -15,7 +15,7 @@ const generateFlagsIndex = async () => {
         const files = allFiles.filter(filename => filename.endsWith('.svg'));
 
         const fileContent = `/* eslint-disable */
-${files.map(filename => `import ${getFlagName(filename)} from './${filename}'`).join(';\n')};
+${files.map(filename => `const ${getFlagName(filename)} = require('./${filename}')`).join(';\n')};
 
 export default {
     ${files.map(filename => `${getFlagName(filename)}`).join(',\n    ')}
