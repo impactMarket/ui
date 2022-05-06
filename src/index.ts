@@ -48,6 +48,7 @@ export * from './components/Tabs';
 export * from './components/DropdownMenu';
 export * from './components/CountryFlag';
 export * from './components/Pagination';
+export * from './components/Image';
 
 // Compositions
 export * from './components/Accordion';

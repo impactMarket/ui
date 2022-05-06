@@ -20,6 +20,10 @@ export const flyoutMenuShadow = css`
         0 0.25rem 0.375rem -0.125rem ${rgba(colors.g900, 0.05)};
 `;
 
+export const imageIconShadow = css`
+    box-shadow: 0 0.063rem 0.125rem ${rgba(colors.g900, 0.05)};
+`;
+
 const placeholderStyle = css`
     color: ${colors.g500};
     font-size: 0.875rem;
