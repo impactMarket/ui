@@ -70,7 +70,7 @@ const MobileActions = (props: { withButton?: boolean }) => {
 
     if (withButton) {
         return (
-            <Button fluid icon="coins" onClick={() => console.log('Connecting wallet action')} secondary>
+            <Button icon="coins" onClick={() => console.log('Connecting wallet action')} secondary>
                 Connect Wallet
             </Button>
         );

@@ -10,18 +10,12 @@ import styled, { css } from 'styled-components';
 // #region ====== style ===
 const SidebarWrapper = styled.div`
     background-color: ${colors.n01};
+    border-bottom: 0.0625rem solid ${colors.g200};
     display: flex;
     flex-direction: row;
     flex-shrink: 0;
     position: relative;
     width: 100%;
-
-    ${mq.upTo(
-        'tabletLandscape',
-        css`
-            border-bottom: 0.0625rem solid ${colors.g200};
-        `
-    )}
 
     ${mq.tabletLandscape(css`
         border-right: 0.0625rem solid ${colors.g200};
@@ -52,20 +46,23 @@ const SidebarMenu = styled.div<{ isActive?: boolean }>`
     padding: 0.5rem 1rem 1rem;
     overflow-y: auto;
 
-    ${mq.phone(css`
-        ${transitions('all', 500, ease.inOutCirc)};
-        ${position('fixed', 65, 0, 0, 0)};
+    ${mq.upTo(
+        'tabletLandscape',
+        css`
+            ${transitions('all', 500, ease.inOutCirc)};
+            ${position('fixed', 65, 0, 0, 0)};
 
-        background-color: ${colors.n01};
-        transform: translateY(-100%);
-        z-index: 1;
+            background-color: ${colors.n01};
+            transform: translateY(-100%);
+            z-index: 1;
 
-        ${({ isActive }: any) =>
-            isActive &&
-            css`
-                transform: translateY(0);
-            `}
-    `)};
+            ${({ isActive }: any) =>
+                isActive &&
+                css`
+                    transform: translateY(0);
+                `}
+        `
+    )};
 
     ${mq.tabletLandscape(css`
         height: 100%;
