@@ -57,7 +57,7 @@ const Wrapper = styled.div`
 
 type ModalProps = {
     isActive?: boolean;
-    children?: React.FC | JSX.Element | React.FC[] | JSX.Element[];
+    children?: any;
 } & GeneratedPropTypes;
 
 export const ModalWrapper: React.FC<ModalProps> = props => {
