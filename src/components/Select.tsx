@@ -75,7 +75,7 @@ const Option = styled.a<{ isActive?: boolean }>`
 
 const OptionsContent = styled.div`
     overflow-y: auto;
-    max-height: 10rem;
+    max-height: 15rem;
 
     ${mq.tablet(css`
         max-height: 17.25rem;
@@ -94,6 +94,8 @@ const OptionsWrapper = styled.div<{ isActive?: boolean; withOptionsSearch?: bool
     visibility: hidden;
     width: 100%;
     z-index: 1;
+    border-radius: 0.5rem;
+    top: 100%;
 
     ${({ isActive }) =>
         isActive &&
@@ -102,25 +104,6 @@ const OptionsWrapper = styled.div<{ isActive?: boolean; withOptionsSearch?: bool
             visibility: visible;
             transform: translateY(0.5rem);
         `}
-
-    ${mq.phone(css`
-        ${position('fixed', null, 0, 0)};
-
-        transform: translateY(100%);
-
-        ${({ isActive }: any) =>
-            isActive &&
-            css`
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            `}
-    `)}
-
-    ${mq.tablet(css`
-        border-radius: 0.5rem;
-        top: 100%;
-    `)}
 
     ${flyoutMenuShadow};
 `;
