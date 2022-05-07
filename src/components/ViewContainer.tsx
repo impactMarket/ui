@@ -45,7 +45,7 @@ export const ViewContainer: React.FC<{ isLoading?: boolean }> = props => {
                     <Spinner g400 isActive />
                 </ViewContainerLoading>
             ) : (
-                <ViewContainerContent>{children}</ViewContainerContent>
+                <ViewContainerContent>{children as any}</ViewContainerContent>
             )}
         </ViewContainerWrapper>
     );

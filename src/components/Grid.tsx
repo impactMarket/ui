@@ -96,7 +96,7 @@ export const Grid: React.FC<RowProps> = props => {
 
     return (
         <Row {...forwardProps} auto>
-            {React.Children.toArray(children).map((child, index) => (
+            {React.Children.toArray(children).map((child: any, index) => (
                 <GridCol className="grid-col" {...colProps} key={index}>
                     {child}
                 </GridCol>

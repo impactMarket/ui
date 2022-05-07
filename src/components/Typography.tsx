@@ -26,7 +26,9 @@ const commonStyle = css`
     ${generateProps};
 `;
 
-type CommonProps = GeneratedPropTypes & BoolProps<typeof miscVariations> & BoolProps<typeof fonts.weights>;
+type CommonProps = { children?: any | any[] } & GeneratedPropTypes &
+    BoolProps<typeof miscVariations> &
+    BoolProps<typeof fonts.weights>;
 
 /*
  * Display

@@ -32,7 +32,7 @@ const Item = styled.a<{ isActive?: boolean }>`
 `;
 
 export type SidebarMenuItemProps = {
-    children?: React.ReactNode;
+    children?: any;
     flag?: string | number;
     icon?: string;
     isActive?: boolean;
