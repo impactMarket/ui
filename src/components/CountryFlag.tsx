@@ -37,6 +37,7 @@ const Wrapper = styled.div<{ size?: number | number[] | undefined } & GeneratedP
 
 export type CountryFlagProps = {
     // countryCode: keyof typeof flags;
+    countryCode?: any;
     size?: number | number[] | undefined;
 } & GeneratedPropTypes;
 
