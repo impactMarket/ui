@@ -2,7 +2,7 @@ import { GeneratedPropTypes } from '../types';
 import { colors } from '../theme';
 import { generateProps } from 'styled-gen';
 import React from 'react';
-import flags from '../../flags';
+// import flags from '../../flags';
 import styled, { css } from 'styled-components';
 
 const setSize = (size: number | number[] | undefined) => {
@@ -36,22 +36,22 @@ const Wrapper = styled.div<{ size?: number | number[] | undefined } & GeneratedP
 `;
 
 export type CountryFlagProps = {
-    countryCode: keyof typeof flags;
+    // countryCode: keyof typeof flags;
     size?: number | number[] | undefined;
 } & GeneratedPropTypes;
 
 export const CountryFlag: React.FC<CountryFlagProps> = props => {
-    const { countryCode, ...forwardProps } = props;
+    const { ...forwardProps } = props;
 
-    const img = flags[countryCode];
+    // const img = flags[countryCode];
 
-    if (!img) {
-        return null;
-    }
+    // if (!img) {
+    //     return null;
+    // }
 
     return (
         <Wrapper {...forwardProps}>
-            <img src={img} />
+            <img src="https://picsum.photos/120" />
         </Wrapper>
     );
 };
