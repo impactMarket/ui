@@ -28,6 +28,7 @@ const Template: ComponentStory<any> = args => {
 export const Input = Template.bind({});
 Input.args = {
     disabled: false,
+    hint: 'This is a hint text to help user.',
     icon: '',
     placeholder: 'Write something here...',
     rows: 0,

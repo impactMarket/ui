@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import { Image as BaseImage, ImageProps } from '../../../components/Image';
+import { Thumbnail as BaseThumbnail, ThumbnailProps } from '../../../components/Thumbnail';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { getGeneratedPropArgs, setGeneratedPropArgs } from '../../../helpers/generatedPropArgs';
 import React from 'react';
@@ -17,7 +17,7 @@ export default {
     parameters: {
         generator: true
     },
-    title: `Components/${base.replace('/src/stories/2-base/', '')}Image`
+    title: `Components/${base.replace('/src/stories/2-base/', '')}Thumbnail`
 } as ComponentMeta<any>;
 
 const Template: ComponentStory<any> = args => {
@@ -28,13 +28,13 @@ const Template: ComponentStory<any> = args => {
         {
             ...getGeneratedPropArgs({ ...args, handleClick })
         }
-    ) as ImageProps;
+    ) as ThumbnailProps;
 
-    return <BaseImage {...props} />;
+    return <BaseThumbnail {...props} />;
 };
 
-export const Image = Template.bind({});
-Image.args = {
+export const Thumbnail = Template.bind({});
+Thumbnail.args = {
     icon: 'trash',
     url: 'https://picsum.photos/120'
 };

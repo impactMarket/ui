@@ -34,6 +34,7 @@ export const colors = {
     e50: '#FEF3F2',
     e100: '#FEE4E2',
     e300: '#FDA29B',
+    e500: '#F04438',
     e600: '#D92D20',
     e700: '#B42318',
 
@@ -43,8 +44,8 @@ export const colors = {
     w100: '#FEF0C7',
     w200: '#FEDF89',
     w300: '#FEC84B',
-    w600: '#DC6803',
     w500: '#F79009',
+    w600: '#DC6803',
     w700: '#B54708',
 
     // Success
