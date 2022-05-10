@@ -41,6 +41,7 @@ export * from './components/PulseIcon';
 export * from './components/ProgressBar';
 export * from './components/SkeletonElement';
 export * from './components/Spinner';
+export * from './components/TextLink';
 export * from './components/ViewContainer';
 export * from './components/Toaster';
 export * from './components/Label';

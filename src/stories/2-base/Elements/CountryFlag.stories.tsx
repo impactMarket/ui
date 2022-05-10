@@ -8,10 +8,6 @@ import base from 'paths.macro';
 
 export default {
     argTypes: {
-        // countryCode: {
-        //     control: { type: 'select' },
-        //     options: Object.keys(flags)
-        // },
         size: {
             control: { type: 'object' }
         },
@@ -28,6 +24,6 @@ const Template: ComponentStory<any> = args => <BaseCountryFlag {...getGeneratedP
 export const CountryFlag = Template.bind({});
 CountryFlag.storyName = 'CountryFlag';
 CountryFlag.args = {
-    // countryCode: 'PT',
+    countryCode: 'PT',
     size: [2, 2]
 };
