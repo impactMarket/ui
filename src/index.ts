@@ -49,7 +49,7 @@ export * from './components/Tabs';
 export * from './components/DropdownMenu';
 export * from './components/CountryFlag';
 export * from './components/Pagination';
-export * from './components/Image';
+export * from './components/Thumbnail';
 
 // Compositions
 export * from './components/Accordion';

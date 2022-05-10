@@ -18,6 +18,7 @@ type OptionType = {
 
 export type SelectProps = {
     clearLabel?: string | Function;
+    hint?: string;
     isClearable?: boolean;
     isMultiple?: boolean;
     onBlur?: Function;
@@ -67,7 +68,7 @@ const Option = styled.a<{ isActive?: boolean }>`
                   background-color: ${colors.p25};
               `
             : css`
-                  &:hover  {
+                  &:hover {
                       background-color: ${colors.p100};
                   }
               `}
@@ -141,6 +142,7 @@ const Wrapper = styled.div`
 export const Select = React.forwardRef((props: SelectProps, ref) => {
     const {
         clearLabel,
+        hint,
         isClearable,
         isMultiple,
         onBlur,
@@ -301,6 +303,11 @@ export const Select = React.forwardRef((props: SelectProps, ref) => {
                     ))}
                 </OptionsContent>
             </OptionsWrapper>
+            {!!hint && (
+                <Text pt={0.375} sColor={withError ? colors.e500 : colors.g500} small>
+                    {hint}
+                </Text>
+            )}
         </Wrapper>
     );
 });

@@ -21,7 +21,7 @@ const ImgWrapper = styled.div<GeneratedPropTypes>`
     ${generateProps};
 `;
 
-const Img = styled.div<ImageProps>`
+const Img = styled.div<ThumbnailProps>`
     ${({ url }) =>
         !!url &&
         css`
@@ -59,13 +59,13 @@ const IconWrapper = styled.div`
 `;
 // #endregion === style ===
 
-export type ImageProps = {
+export type ThumbnailProps = {
     handleClick?: any;
     icon?: string;
     url?: string;
 } & GeneratedPropTypes;
 
-export const Image = (props: ImageProps) => {
+export const Thumbnail = (props: ThumbnailProps) => {
     const { handleClick, icon, url, ...forwardProps } = props;
 
     return (

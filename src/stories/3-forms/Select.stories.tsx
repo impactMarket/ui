@@ -75,6 +75,7 @@ const Template: ComponentStory<any> = args => {
 
 export const Select = Template.bind({});
 Select.args = {
+    hint: 'This is a hint text to help user.',
     isClearable: false,
     isMultiple: false,
     options: [
@@ -88,5 +89,6 @@ Select.args = {
         { label: 'A very big label to format multiple line option in the list', value: 'xx' },
         { label: 'Australia', value: 'au' }
     ],
+    withError: false,
     withOptionsSearch: false
 };

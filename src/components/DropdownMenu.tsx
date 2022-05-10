@@ -94,6 +94,10 @@ const Item = styled.div`
         border-bottom-right-radius: 0.5rem;
     }
 
+    & p {
+        white-space: unset;
+    }
+
     &:hover {
         background-color: ${colors.p50};
 
