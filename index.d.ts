@@ -2022,8 +2022,8 @@ declare type DropdownMenuProps = {
 declare const DropdownMenu: React.FC<DropdownMenuProps>;
 
 declare type CountryFlagProps = {
-    countryCode?: any;
-    size?: number | number[] | undefined;
+    countryCode: string;
+    height?: number;
 } & GeneratedPropTypes;
 declare const CountryFlag: React.FC<CountryFlagProps>;
 
