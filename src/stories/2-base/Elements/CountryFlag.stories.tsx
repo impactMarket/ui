@@ -25,5 +25,5 @@ export const CountryFlag = Template.bind({});
 CountryFlag.storyName = 'CountryFlag';
 CountryFlag.args = {
     countryCode: 'PT',
-    size: [2, 2]
+    height: 1
 };

@@ -262,53 +262,57 @@ export const Select = React.forwardRef((props: SelectProps, ref) => {
     }, [filterTerm]);
 
     return (
-        <Wrapper {...wrapperProps} ref={ref as any}>
-            <InputWrapper isFocused={isFocused} onClick={() => setIsActive(!isActive)} withError={withError}>
-                <SelectedOptionContent>{renderLabel({ isFocused, selected: getLabelValue() })}</SelectedOptionContent>
-                <Icon g500 icon={isActive ? 'chevronUp' : 'chevronDown'} size={1.25} />
-            </InputWrapper>
-            <OptionsWrapper isActive={isActive} ref={optionsListRef as any} withOptionsSearch={withOptionsSearch}>
-                <OptionsContent>
-                    {withOptionsSearch && (
-                        <SearchInput>
-                            <Icon g500 icon="search" pr={0.5} size={1.5} />
-                            <input
-                                onChange={event => setFilterTerm(event?.target?.value)}
-                                placeholder={optionsSearchPlaceholder || ''}
-                                type="text"
-                                value={filterTerm || ''}
-                            />
-                        </SearchInput>
-                    )}
-                    {isClearable && !!clearLabel && (
-                        <Option onClick={() => handleChange()}>
-                            {typeof clearLabel === 'function' ? (
-                                clearLabel({ hasOptionSelected: hasOptionSelected() })
-                            ) : (
-                                <Text g900>{clearLabel}</Text>
-                            )}
-                        </Option>
-                    )}
-                    {filteredOptions.map((option: OptionType, index: any) => (
-                        <Option isActive={checkIfActive(option)} key={index} onClick={() => handleChange(option)}>
-                            {typeof renderOption === 'function' ? (
-                                renderOption({ isActive: checkIfActive(option), ...option })
-                            ) : (
-                                <>
-                                    <Text g900>{option?.label || option?.value}</Text>
-                                    {checkIfActive(option) && <Icon icon="check" ml={0.5} p600 size={1.25} />}
-                                </>
-                            )}
-                        </Option>
-                    ))}
-                </OptionsContent>
-            </OptionsWrapper>
+        <>
+            <Wrapper {...wrapperProps} ref={ref as any}>
+                <InputWrapper isFocused={isFocused} onClick={() => setIsActive(!isActive)} withError={withError}>
+                    <SelectedOptionContent>
+                        {renderLabel({ isFocused, selected: getLabelValue() })}
+                    </SelectedOptionContent>
+                    <Icon g500 icon={isActive ? 'chevronUp' : 'chevronDown'} size={1.25} />
+                </InputWrapper>
+                <OptionsWrapper isActive={isActive} ref={optionsListRef as any} withOptionsSearch={withOptionsSearch}>
+                    <OptionsContent>
+                        {withOptionsSearch && (
+                            <SearchInput>
+                                <Icon g500 icon="search" pr={0.5} size={1.5} />
+                                <input
+                                    onChange={event => setFilterTerm(event?.target?.value)}
+                                    placeholder={optionsSearchPlaceholder || ''}
+                                    type="text"
+                                    value={filterTerm || ''}
+                                />
+                            </SearchInput>
+                        )}
+                        {isClearable && !!clearLabel && (
+                            <Option onClick={() => handleChange()}>
+                                {typeof clearLabel === 'function' ? (
+                                    clearLabel({ hasOptionSelected: hasOptionSelected() })
+                                ) : (
+                                    <Text g900>{clearLabel}</Text>
+                                )}
+                            </Option>
+                        )}
+                        {filteredOptions.map((option: OptionType, index: any) => (
+                            <Option isActive={checkIfActive(option)} key={index} onClick={() => handleChange(option)}>
+                                {typeof renderOption === 'function' ? (
+                                    renderOption({ isActive: checkIfActive(option), ...option })
+                                ) : (
+                                    <>
+                                        <Text g900>{option?.label || option?.value}</Text>
+                                        {checkIfActive(option) && <Icon icon="check" ml={0.5} p600 size={1.25} />}
+                                    </>
+                                )}
+                            </Option>
+                        ))}
+                    </OptionsContent>
+                </OptionsWrapper>
+            </Wrapper>
             {!!hint && (
                 <Text pt={0.375} sColor={withError ? colors.e500 : colors.g500} small>
                     {hint}
                 </Text>
             )}
-        </Wrapper>
+        </>
     );
 });
 
