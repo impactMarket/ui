@@ -2166,6 +2166,7 @@ declare const TabPanel: {
 };
 declare type TabsProps = {
     children: any;
+    defaultIndex?: number;
 } & GeneratedPropTypes;
 declare const Tabs: React.FC<TabsProps>;
 
