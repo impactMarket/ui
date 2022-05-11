@@ -27,6 +27,10 @@ export default {
             description: 'Pass as bool prop',
             options: Object.keys(buttonSizeVariations)
         },
+        disabled: {
+            control: { type: 'boolean' },
+            description: 'Pass as bool prop'
+        },
         isLoading: {
             control: { type: 'boolean' },
             description: 'Pass as bool prop'
@@ -66,5 +70,6 @@ Button.args = {
     isLoading: false,
     reverse: false,
     icon: 'arrowRight',
-    children: 'Label'
+    children: 'Label',
+    disabled: false
 };

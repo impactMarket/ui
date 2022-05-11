@@ -189,6 +189,7 @@ const ButtonWrapper = styled.button<ButtonProps>`
     outline: 0;
     overflow: hidden;
     position: relative;
+    opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
 
     &:not(:disabled) {
         &:hover {
