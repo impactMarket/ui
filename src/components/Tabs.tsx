@@ -141,6 +141,7 @@ TabPanel.tabsRole = 'TabPanel';
 
 export type TabsProps = {
     children: any;
+    defaultIndex?: number;
 } & GeneratedPropTypes;
 
 export const Tabs: React.FC<TabsProps> = props => {

@@ -1,5 +1,6 @@
 import { Avatar } from '../Avatar';
 import { Box } from '../Box';
+import { CircledIcon } from '../CircledIcon';
 import { Icon } from '../Icon';
 import { Text } from '../Typography';
 import { colors } from '../../theme';
@@ -54,7 +55,7 @@ export const SidebarUserButton: React.FC<SidebarUserButtonProps> = props => {
 
     return (
         <SidebarUserButtonWrapper isActive={isActive} {...forwardProps} onClick={handleClick}>
-            <Avatar url={photo?.url} />
+            {photo?.url ? <Avatar url={photo?.url} /> : <CircledIcon icon="user" />}
             <Box ml={1}>
                 {!!name && (
                     <Text g700 semibold>
