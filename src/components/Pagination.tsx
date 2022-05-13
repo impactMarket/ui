@@ -24,6 +24,10 @@ const PaginationWrapper = styled.div<GeneratedPropTypes>`
         display: flex;
         justify-content: center;
 
+        & a {
+            display: block;
+        }
+
         & .prevPage,
         .nextPage {
             display: none;
@@ -117,60 +121,64 @@ export const Pagination: React.FC<PaginationProps> = props => {
     const Pagination = ReactPaginate as any;
 
     return (
-        <PaginationWrapper {...forwardProps}>
-            {(previousLabel || previousIcon) && (
-                <a className="navPages" onClick={(e: any) => handlePageClick(e, 1)}>
-                    <Row fLayout="start" margin={0} pr={0.625}>
-                        {previousIcon && (
-                            <Col mr={{ sm: 0.75, xs: 0 }} padding={0}>
-                                <Icon g500 icon={previousIcon} />
-                            </Col>
-                        )}
-                        {previousLabel && (
-                            <Col padding={0}>
-                                <Text g500 medium small>
-                                    {previousLabel}
-                                </Text>
-                            </Col>
-                        )}
-                    </Row>
-                </a>
+        <>
+            {pageCount > 1 && (
+                <PaginationWrapper {...forwardProps}>
+                    {(previousLabel || previousIcon) && (
+                        <a className="navPages" onClick={(e: any) => handlePageClick(e, 1)}>
+                            <Row fLayout="start" margin={0} pr={0.625}>
+                                {previousIcon && (
+                                    <Col mr={{ sm: 0.75, xs: 0 }} padding={0}>
+                                        <Icon g500 icon={previousIcon} />
+                                    </Col>
+                                )}
+                                {previousLabel && (
+                                    <Col padding={0}>
+                                        <Text g500 medium small>
+                                            {previousLabel}
+                                        </Text>
+                                    </Col>
+                                )}
+                            </Row>
+                        </a>
+                    )}
+                    <Pagination
+                        activeLinkClassName="pageSelected"
+                        breakLabel={breakLabel || '...'}
+                        containerClassName="pagesContainer"
+                        forcePage={currentPage}
+                        marginPagesDisplayed={marginPagesDisplayed || 3}
+                        nextClassName="nextPage"
+                        onPageChange={handlePageClick}
+                        pageClassName="page"
+                        pageCount={pageCount}
+                        pageRangeDisplayed={pageRangeDisplayed || 3}
+                        previousClassName="prevPage"
+                        renderOnZeroPageCount={() => null}
+                    />
+                    <Text className="pagesContainerMobile" g700 medium small>
+                        {mobileText || `${currentPage + 1} / ${pageCount}`}
+                    </Text>
+                    {(nextLabel || nextIcon) && (
+                        <a className="navPages" onClick={(e: any) => handlePageClick(e, 2)}>
+                            <Row fLayout="start" margin={0} pl={0.625}>
+                                {nextLabel && (
+                                    <Col padding={0}>
+                                        <Text g500 medium small>
+                                            {nextLabel}
+                                        </Text>
+                                    </Col>
+                                )}
+                                {nextIcon && (
+                                    <Col ml={{ sm: 0.75, xs: 0 }} padding={0}>
+                                        <Icon g500 icon={nextIcon} />
+                                    </Col>
+                                )}
+                            </Row>
+                        </a>
+                    )}
+                </PaginationWrapper>
             )}
-            <Pagination
-                activeLinkClassName="pageSelected"
-                breakLabel={breakLabel || '...'}
-                containerClassName="pagesContainer"
-                forcePage={currentPage}
-                marginPagesDisplayed={marginPagesDisplayed || 3}
-                nextClassName="nextPage"
-                onPageChange={handlePageClick}
-                pageClassName="page"
-                pageCount={pageCount}
-                pageRangeDisplayed={pageRangeDisplayed || 3}
-                previousClassName="prevPage"
-                renderOnZeroPageCount={() => null}
-            />
-            <Text className="pagesContainerMobile" g700 medium small>
-                {mobileText || `${currentPage + 1} / ${pageCount}`}
-            </Text>
-            {(nextLabel || nextIcon) && (
-                <a className="navPages" onClick={(e: any) => handlePageClick(e, 2)}>
-                    <Row fLayout="start" margin={0} pl={0.625}>
-                        {nextLabel && (
-                            <Col padding={0}>
-                                <Text g500 medium small>
-                                    {nextLabel}
-                                </Text>
-                            </Col>
-                        )}
-                        {nextIcon && (
-                            <Col ml={{ sm: 0.75, xs: 0 }} padding={0}>
-                                <Icon g500 icon={nextIcon} />
-                            </Col>
-                        )}
-                    </Row>
-                </a>
-            )}
-        </PaginationWrapper>
+        </>
     );
 };

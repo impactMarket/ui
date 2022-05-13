@@ -1,0 +1,46 @@
+import { Meta } from '@storybook/addon-docs';
+import TableExample from '../../ui/TableExample';
+
+<Meta title="Table" />
+
+# Table
+
+1. Import the `Table` component from the UI
+```jsx
+import { Table } from "@impact-market/ui";
+```
+
+2. Add the component to the desired place and pass the required fields
+```jsx
+<Table ... />
+```
+
+3. Required parameters
+
+```jsx
+columns: Array `(Column headers)`;
+    title?: string; `(Column title)`
+    value?: string; `(Column value, should match with the rows field OR use the render field)`
+    width?: string | number; `(Column width)`
+    minWidth?: string | number; `(Column min width)`
+    sortable?: boolean; `(Column is sortable or not)`
+    render?: component; `(Instead of showing just a value, can pass a JSX component with the design needed)`
+
+rows: Array `(Table results)`;
+```
+
+4. Optional parameters
+
+```jsx
+pagination: component `(Pass the JSX component to control the Pagination)`;
+
+handleSort: Function `(Function to control the results sorting)`;
+
+sortKey: Object `(Object to save the current sorting info)`;
+    key: string; `(Value of the Column)`
+    sortDesc: boolean; `(Sort direction for the current key. True means DESC sort, False means ASC sort)`
+```
+
+## Try it
+
+<TableExample />

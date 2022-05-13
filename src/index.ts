@@ -50,6 +50,7 @@ export * from './components/DropdownMenu';
 export * from './components/CountryFlag';
 export * from './components/Pagination';
 export * from './components/Thumbnail';
+export * from './components/Table';
 
 // Compositions
 export * from './components/Accordion';
