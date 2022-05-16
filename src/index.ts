@@ -51,6 +51,7 @@ export * from './components/CountryFlag';
 export * from './components/Pagination';
 export * from './components/Thumbnail';
 export * from './components/Table';
+export * from './components/Img';
 
 // Compositions
 export * from './components/Accordion';
