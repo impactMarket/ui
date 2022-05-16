@@ -50,6 +50,7 @@ export const generator = {
         { name: 'sColor', list: colors, cssProp: 'color' },
         { name: 'fShrink', cssProp: 'flex-shrink' },
         { name: 'fGrow', cssProp: 'flex-grow' },
+        { name: 'fWrap', cssProp: 'flex-wrap' },
 
         // Helper functions
         { name: 'fLayout', helperFn: flexLayout },
