@@ -96,6 +96,10 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .Toastify__toast-container {
+    z-index: 999999;
+  }
+  
   .Toastify__toast {
     border-radius: 0.5rem;
     box-shadow: 0 0 1.5rem ${rgba(colors.g600, 0.08)};

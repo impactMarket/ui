@@ -27,7 +27,7 @@ const Wrapper = styled.div<{ state?: StateTypes } & GeneratedPropTypes>`
 
 export type LabelProps = {
     icon?: string;
-    content: string | number;
+    content: string | number | React.ReactNode;
 } & BoolPropsFromArray<typeof stateTypes> &
     GeneratedPropTypes;
 

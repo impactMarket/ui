@@ -1,10 +1,11 @@
 /* eslint-disable sort-keys */
 import { TextLink as BaseTextLink, TextLinkProps } from '../../../components/TextLink';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { fonts } from '../../../theme';
+import { fonts, typography } from '../../../theme';
 import { getGeneratedPropArgs, setGeneratedPropArgs } from '../../../helpers/generatedPropArgs';
 import React from 'react';
 import base from 'paths.macro';
+import getTypographyArgTypes from '../../../helpers/getTypographyArgTypes';
 
 export default {
     argTypes: {
@@ -13,6 +14,7 @@ export default {
             description: 'Pass as bool prop',
             options: Object.keys(fonts?.weights)
         },
+        ...getTypographyArgTypes({ sizes: Object.keys(typography.text) }),
         ...setGeneratedPropArgs()
     },
     parameters: {

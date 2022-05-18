@@ -13,6 +13,10 @@ export const avatarSizeVariations = {
         ${size('7.5rem')};
     `,
 
+    medium: css`
+        ${size('5.313rem')};
+    `,
+
     small: css`
         ${size('2rem')};
     `
