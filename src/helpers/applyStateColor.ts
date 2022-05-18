@@ -33,7 +33,7 @@ export const applyAlertStateColor = (type: StateTypes) => {
 
 export const applyProgressBarStateColor = (type: StateTypes) => {
     const typePrefix = getTypePrefix(type);
-    const colorCode = typePrefix === 'p' ? 400 : typePrefix === 'w' ? 300 : 600;
+    const colorCode = typePrefix === 'p' ? 400 : typePrefix === 'w' ? 300 : typePrefix === 'e' ? 500 : 600;
 
     return css`
         background-color: ${colors[`${typePrefix}${colorCode}` as Color]};

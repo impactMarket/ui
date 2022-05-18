@@ -1,6 +1,7 @@
 /* eslint-disable sort-keys */
 export const typography = {
     display: {
+        large: [36, 44],
         small: { sm: [30, 38], xs: [24, 32] }
     },
     text: {

@@ -1,7 +1,7 @@
 import { BoolProps, GeneratedPropTypes } from '../types';
-import { colors, fonts } from '../theme';
+import { colors, fonts, typography } from '../theme';
 import { ease, generateProps, mq, transitions, variations } from 'styled-gen';
-import { setWeightVariations } from '../utils/typographyHelpers';
+import { setSizeVariations, setWeightVariations } from '../utils/typographyHelpers';
 import styled, { css } from 'styled-components';
 
 const setColorVariation = (color: string, hover: string) => css`
@@ -28,9 +28,9 @@ export const TextLink = styled.a<TextLinkProps>`
     ${transitions('color', 250, ease.outSine)};
 
     cursor: pointer;
-    font-size: inherit;
 
     ${variations(colorVariations)};
-    ${variations(setWeightVariations(fonts.weights))}
+    ${variations(setWeightVariations(fonts.weights))};
+    ${variations(setSizeVariations(typography.text as any))};
     ${generateProps};
 `;
