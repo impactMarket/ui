@@ -311,6 +311,7 @@ declare const generator: {
 
 declare const typography: {
     readonly display: {
+        readonly large: readonly [36, 44];
         readonly small: {
             readonly sm: readonly [30, 38];
             readonly xs: readonly [24, 32];
@@ -1063,7 +1064,7 @@ declare const Display: styled_components.StyledComponent<"h1", any, {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
     padding?: MqProp<string | number> | undefined;
-} & Partial<Record<"ellipsis" | "uppercase", boolean | "true" | "false">> & Partial<Record<"bold" | "regular" | "medium" | "semibold", boolean | "true" | "false">> & Partial<Record<"small", boolean | "true" | "false">>, never>;
+} & Partial<Record<"ellipsis" | "uppercase", boolean | "true" | "false">> & Partial<Record<"bold" | "regular" | "medium" | "semibold", boolean | "true" | "false">> & Partial<Record<"small" | "large", boolean | "true" | "false">>, never>;
 declare type TextProps = CommonProps & BoolProps<typeof typography.text>;
 declare const Text: styled_components.StyledComponent<"p", any, {
     children?: any | any[];
@@ -1190,7 +1191,7 @@ declare const Text: styled_components.StyledComponent<"p", any, {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
     padding?: MqProp<string | number> | undefined;
-} & Partial<Record<"ellipsis" | "uppercase", boolean | "true" | "false">> & Partial<Record<"bold" | "regular" | "medium" | "semibold", boolean | "true" | "false">> & Partial<Record<"base" | "small" | "extralarge" | "large" | "extrasmall", boolean | "true" | "false">>, never>;
+} & Partial<Record<"ellipsis" | "uppercase", boolean | "true" | "false">> & Partial<Record<"bold" | "regular" | "medium" | "semibold", boolean | "true" | "false">> & Partial<Record<"base" | "small" | "large" | "extralarge" | "extrasmall", boolean | "true" | "false">>, never>;
 
 declare type InputProps = {
     as?: any;
@@ -1403,6 +1404,7 @@ declare const AppContainer: styled_components.StyledComponent<"div", any, {}, ne
 declare const avatarSizeVariations: {
     default: styled_components.FlattenSimpleInterpolation;
     large: styled_components.FlattenSimpleInterpolation;
+    medium: styled_components.FlattenSimpleInterpolation;
     small: styled_components.FlattenSimpleInterpolation;
 };
 declare type AvatarProps = {
@@ -1533,7 +1535,7 @@ declare const Avatar: styled_components.StyledComponent<"div", any, {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
     padding?: MqProp<string | number> | undefined;
-} & Partial<Record<"small" | "default" | "large", boolean | "true" | "false">>, never>;
+} & Partial<Record<"small" | "default" | "medium" | "large", boolean | "true" | "false">>, never>;
 
 declare const buttonColorVariations: {
     default: styled_components.FlattenInterpolation<styled_components.ThemeProps<any>>;
@@ -2149,7 +2151,7 @@ declare const Toaster: () => JSX.Element;
 
 declare type LabelProps = {
     icon?: string;
-    content: string | number;
+    content: string | number | React.ReactNode;
 } & BoolPropsFromArray<typeof stateTypes> & GeneratedPropTypes;
 declare const Label: React.FC<LabelProps>;
 
