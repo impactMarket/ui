@@ -2408,10 +2408,12 @@ declare type SidebarMenuGroupProps = {
 declare const SidebarMenuGroup: React.FC<SidebarMenuGroupProps>;
 
 declare type SidebarMenuItemProps = {
+    uid?: string;
     children?: any;
     flag?: string | number;
     icon?: string;
     isActive?: boolean;
+    isVisible?: boolean;
     label?: string | React.ReactNode;
 } & React.HTMLAttributes<HTMLAnchorElement>;
 declare const SidebarMenuItem: React.FC<SidebarMenuItemProps>;
