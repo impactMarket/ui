@@ -118,6 +118,7 @@ const SidebarFooterContent = styled.div`
 export type SidebarProps = {
     children: React.ReactNode;
     footer?: React.ReactNode;
+    handleLogoClick?: any;
     isLoading?: boolean;
     mobileActions?: React.ReactNode;
 };
@@ -142,7 +143,7 @@ const LoadingContent = () => (
 );
 
 export const Sidebar: React.FC<SidebarProps> = props => {
-    const { children, footer, isLoading, mobileActions } = props;
+    const { children, footer, isLoading, mobileActions, handleLogoClick } = props;
     const [isActive, setIsActive] = useState(false);
 
     return (
@@ -150,7 +151,14 @@ export const Sidebar: React.FC<SidebarProps> = props => {
             <SidebarMobileContext.Provider value={{ isActive, setIsActive }}>
                 <>
                     <SidebarHeading>
-                        <Logo />
+                        {typeof handleLogoClick === 'function' ? (
+                            <a onClick={handleLogoClick}>
+                                <Logo />
+                            </a>
+                        ) : (
+                            <Logo />
+                        )}
+
                         <SidebarMobileActions>
                             <>
                                 {mobileActions}
