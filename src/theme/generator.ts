@@ -51,6 +51,7 @@ export const generator = {
         { name: 'fShrink', cssProp: 'flex-shrink' },
         { name: 'fGrow', cssProp: 'flex-grow' },
         { name: 'fWrap', cssProp: 'flex-wrap' },
+        { name: 'order', cssProp: 'order' },
 
         // Helper functions
         { name: 'fLayout', helperFn: flexLayout },

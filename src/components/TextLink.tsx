@@ -22,7 +22,10 @@ const colorVariations = {
 
 type ColorVariations = BoolProps<typeof colorVariations>;
 
-export type TextLinkProps = ColorVariations & BoolProps<typeof fonts.weights> & GeneratedPropTypes;
+export type TextLinkProps = ColorVariations &
+    BoolProps<typeof fonts.weights> &
+    BoolProps<typeof typography.text> &
+    GeneratedPropTypes;
 
 export const TextLink = styled.a<TextLinkProps>`
     ${transitions('color', 250, ease.outSine)};

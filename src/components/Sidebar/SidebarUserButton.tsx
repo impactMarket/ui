@@ -30,6 +30,13 @@ const SidebarUserButtonWrapper = styled.a<{ isActive?: boolean }>`
               `}
 `;
 
+const SidebarUserName = styled(Text)`
+    height: 1.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+`;
+
 export type SidebarUserButtonProps = {
     address: string;
     isActive?: boolean;
@@ -58,9 +65,9 @@ export const SidebarUserButton: React.FC<SidebarUserButtonProps> = props => {
             {photo?.url ? <Avatar url={photo?.url} /> : <CircledIcon icon="user" />}
             <Box ml={1}>
                 {!!name && (
-                    <Text g700 semibold>
+                    <SidebarUserName g700 maxW={11.25} semibold>
                         {name}
-                    </Text>
+                    </SidebarUserName>
                 )}
                 <Text g700>
                     {address}
