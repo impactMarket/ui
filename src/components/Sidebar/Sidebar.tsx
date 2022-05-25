@@ -1,3 +1,4 @@
+import { Box } from '../Box';
 import { Icon } from '../Icon';
 import { Logo } from '../Logo';
 import { SkeletonElement } from '../SkeletonElement';
@@ -158,14 +159,15 @@ export const Sidebar: React.FC<SidebarProps> = props => {
                         ) : (
                             <Logo />
                         )}
-
                         <SidebarMobileActions>
-                            <>
-                                {mobileActions}
-                                <a onClick={() => setIsActive(!isActive)}>
-                                    <Icon g500 icon={isActive ? 'close' : 'menu'} ml={1} size={1.125} />
-                                </a>
-                            </>
+                            <a onClick={() => setIsActive(!isActive)}>
+                                <Box fLayout="center" flex>
+                                    <>
+                                        {mobileActions}
+                                        <Icon g500 icon={isActive ? 'close' : 'menu'} ml={1} size={1.125} />
+                                    </>
+                                </Box>
+                            </a>
                         </SidebarMobileActions>
                     </SidebarHeading>
                     <SidebarMenu isActive={isActive}>
