@@ -296,6 +296,9 @@ declare const generator: {
         readonly name: "fWrap";
         readonly cssProp: "flex-wrap";
     }, {
+        readonly name: "order";
+        readonly cssProp: "order";
+    }, {
         readonly name: "fLayout";
         readonly helperFn: (vertical: "center" | "start" | "end" | "around" | "between" | "evenly" | "stretch" | "unset", horizontal?: "center" | "start" | "end" | "around" | "between" | "evenly" | "stretch" | "unset" | undefined) => styled_components.FlattenSimpleInterpolation;
     }, {
@@ -535,6 +538,7 @@ declare const Box: styled_components.StyledComponent<"div", any, {
     fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -660,6 +664,7 @@ declare const Card: styled_components.StyledComponent<"div", any, {
     fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -798,6 +803,7 @@ declare const Row: styled_components.StyledComponent<"div", any, {
     fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -924,6 +930,7 @@ declare const Col: styled_components.StyledComponent<"div", any, {
     fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1060,6 +1067,7 @@ declare const Display: styled_components.StyledComponent<"h1", any, {
     fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1187,6 +1195,7 @@ declare const Text: styled_components.StyledComponent<"p", any, {
     fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1382,6 +1391,7 @@ declare const Select: React.ForwardRefExoticComponent<{
     fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1531,6 +1541,7 @@ declare const Avatar: styled_components.StyledComponent<"div", any, {
     fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1587,6 +1598,7 @@ declare const circledIconSizeVariations: {
     default: styled_components.FlattenSimpleInterpolation;
     medium: styled_components.FlattenSimpleInterpolation;
     large: styled_components.FlattenSimpleInterpolation;
+    superlarge: styled_components.FlattenSimpleInterpolation;
     extralarge: styled_components.FlattenSimpleInterpolation;
 };
 declare type CircledIconProps = {
@@ -1713,6 +1725,7 @@ declare const Divider: styled_components.StyledComponent<"div", any, {
     fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1866,6 +1879,7 @@ declare const ProgressBar: styled_components.StyledComponent<"div", any, {
     fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1996,6 +2010,7 @@ declare const SkeletonElement: styled_components.StyledComponent<"div", any, {
     fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -2012,8 +2027,8 @@ declare const colorVariations: {
     default: styled_components.FlattenSimpleInterpolation;
 };
 declare type ColorVariations = BoolProps<typeof colorVariations>;
-declare type TextLinkProps = ColorVariations & BoolProps<typeof fonts.weights> & GeneratedPropTypes;
-declare const TextLink: styled_components.StyledComponent<"a", any, Partial<Record<"default", boolean | "true" | "false">> & Partial<Record<"bold" | "regular" | "medium" | "semibold", boolean | "true" | "false">> & {
+declare type TextLinkProps = ColorVariations & BoolProps<typeof fonts.weights> & BoolProps<typeof typography.text> & GeneratedPropTypes;
+declare const TextLink: styled_components.StyledComponent<"a", any, Partial<Record<"default", boolean | "true" | "false">> & Partial<Record<"bold" | "regular" | "medium" | "semibold", boolean | "true" | "false">> & Partial<Record<"base" | "small" | "large" | "extralarge" | "extrasmall", boolean | "true" | "false">> & {
     n01?: boolean | undefined;
     g25?: boolean | undefined;
     g50?: boolean | undefined;
@@ -2132,6 +2147,7 @@ declare const TextLink: styled_components.StyledComponent<"a", any, Partial<Reco
     fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -2369,6 +2385,7 @@ declare const ImgWrapper: styled_components.StyledComponent<"img", any, {
     fShrink?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -2391,6 +2408,7 @@ declare const Accordion: React.FC<AccordionProps>;
 declare type SidebarProps = {
     children: React.ReactNode;
     footer?: React.ReactNode;
+    handleLogoClick?: any;
     isLoading?: boolean;
     mobileActions?: React.ReactNode;
 };
