@@ -2027,8 +2027,12 @@ declare const colorVariations: {
     default: styled_components.FlattenSimpleInterpolation;
 };
 declare type ColorVariations = BoolProps<typeof colorVariations>;
-declare type TextLinkProps = ColorVariations & BoolProps<typeof fonts.weights> & BoolProps<typeof typography.text> & GeneratedPropTypes;
-declare const TextLink: styled_components.StyledComponent<"a", any, Partial<Record<"default", boolean | "true" | "false">> & Partial<Record<"bold" | "regular" | "medium" | "semibold", boolean | "true" | "false">> & Partial<Record<"base" | "small" | "large" | "extralarge" | "extrasmall", boolean | "true" | "false">> & {
+declare type TextLinkProps = {
+    disabled?: boolean;
+} & ColorVariations & BoolProps<typeof fonts.weights> & BoolProps<typeof typography.text> & GeneratedPropTypes;
+declare const TextLink: styled_components.StyledComponent<"a", any, {
+    disabled?: boolean | undefined;
+} & Partial<Record<"default", boolean | "true" | "false">> & Partial<Record<"bold" | "regular" | "medium" | "semibold", boolean | "true" | "false">> & Partial<Record<"base" | "small" | "large" | "extralarge" | "extrasmall", boolean | "true" | "false">> & {
     n01?: boolean | undefined;
     g25?: boolean | undefined;
     g50?: boolean | undefined;
@@ -2222,6 +2226,7 @@ declare const CountryFlag: React.FC<CountryFlagProps>;
 
 declare type PaginationProps = {
     currentPage: number;
+    disabled?: boolean;
     pageCount: number;
     handlePageClick: any;
     breakLabel?: string;
@@ -2252,6 +2257,7 @@ declare type ColumnProps = {
 };
 declare type TableProps = {
     columns: ColumnProps[];
+    isLoading: boolean;
     rows: any;
     pagination?: any;
     handleSort?: any;
@@ -2396,6 +2402,7 @@ declare const Img: (props: ImgProps) => JSX.Element;
 declare type AccordionItemProps = {
     children: any;
     handleItemClick?: any;
+    scrollIntoView?: any;
     isActive?: boolean;
     title: string;
 };
