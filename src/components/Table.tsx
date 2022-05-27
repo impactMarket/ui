@@ -3,6 +3,7 @@ import { Box } from './Box';
 import { Divider } from './Divider';
 import { GeneratedPropTypes } from '../types';
 import { Icon } from './Icon';
+import { Spinner } from './Spinner';
 import { Text } from './Typography';
 import { baseShadow, colors } from '../theme';
 import { generateProps } from 'styled-gen';
@@ -19,9 +20,9 @@ const TableWrapper = styled.div<GeneratedPropTypes>`
     ${generateProps};
 `;
 
-const TableOverflow = styled.div`
+const TableOverflow = styled.div<{ isLoading: boolean }>`
     display: block;
-    overflow-x: auto;
+    overflow-x: ${({ isLoading }) => (isLoading ? 'hidden' : 'auto')};
 `;
 
 const BaseTable = styled.table`
@@ -53,6 +54,11 @@ const THColumn = styled.th<GeneratedPropTypes>`
         word-break: unset;
     }
 
+    & .disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
     ${generateProps};
 `;
 
@@ -75,6 +81,7 @@ export type ColumnProps = {
 
 export type TableProps = {
     columns: ColumnProps[];
+    isLoading: boolean;
     rows: any;
     pagination?: any;
     handleSort?: any;
@@ -85,12 +92,12 @@ export type TableProps = {
 } & GeneratedPropTypes;
 
 export const Table: React.FC<TableProps> = props => {
-    const { columns, rows, pagination, handleSort, sortKey, ...forwardProps } = props;
+    const { columns, isLoading, rows, pagination, handleSort, sortKey, ...forwardProps } = props;
 
     const renderColumnTitle = (column: ColumnProps) => {
         if (column.sortable) {
             return (
-                <a onClick={() => handleSort(column.value)}>
+                <a className={isLoading ? 'disabled' : ''} onClick={() => !isLoading && handleSort(column.value)}>
                     <Box fLayout="center start" flex>
                         <Text extrasmall medium sColor={column.value === sortKey?.key ? colors.p600 : colors.g500}>
                             {column.title}
@@ -114,7 +121,7 @@ export const Table: React.FC<TableProps> = props => {
         }
 
         return (
-            <Text extrasmall g500 medium>
+            <Text className={isLoading ? 'disabled' : ''} extrasmall g500 medium>
                 {column.title}
             </Text>
         );
@@ -122,7 +129,7 @@ export const Table: React.FC<TableProps> = props => {
 
     return (
         <TableWrapper {...forwardProps}>
-            <TableOverflow>
+            <TableOverflow isLoading={isLoading}>
                 <BaseTable>
                     <TableHeader>
                         {columns?.length > 0 && (
@@ -139,24 +146,31 @@ export const Table: React.FC<TableProps> = props => {
                             </TableRow>
                         )}
                     </TableHeader>
-                    <TableBody>
-                        {rows?.length > 0 &&
-                            rows.map((row: any, index: number) => (
-                                <TableRow key={index}>
-                                    {columns.map((column: ColumnProps, indexColumn: number) => (
-                                        <TBColumn key={indexColumn}>
-                                            {!!column.render
-                                                ? column.render(row)
-                                                : column.value
-                                                ? row[column.value]
-                                                : null}
-                                        </TBColumn>
-                                    ))}
-                                </TableRow>
-                            ))}
-                    </TableBody>
+                    {!isLoading && (
+                        <TableBody>
+                            {rows?.length > 0 &&
+                                rows.map((row: any, index: number) => (
+                                    <TableRow key={index}>
+                                        {columns.map((column: ColumnProps, indexColumn: number) => (
+                                            <TBColumn key={indexColumn}>
+                                                {!!column.render
+                                                    ? column.render(row)
+                                                    : column.value
+                                                    ? row[column.value]
+                                                    : null}
+                                            </TBColumn>
+                                        ))}
+                                    </TableRow>
+                                ))}
+                        </TableBody>
+                    )}
                 </BaseTable>
             </TableOverflow>
+            {isLoading && (
+                <Box padding="2 0">
+                    <Spinner g700 isActive margin="auto" />
+                </Box>
+            )}
             {!!pagination && pagination?.props?.pageCount > 1 && (
                 <>
                     <Divider margin={0} />

@@ -22,7 +22,7 @@ const colorVariations = {
 
 type ColorVariations = BoolProps<typeof colorVariations>;
 
-export type TextLinkProps = ColorVariations &
+export type TextLinkProps = { disabled?: boolean } & ColorVariations &
     BoolProps<typeof fonts.weights> &
     BoolProps<typeof typography.text> &
     GeneratedPropTypes;
@@ -31,6 +31,8 @@ export const TextLink = styled.a<TextLinkProps>`
     ${transitions('color', 250, ease.outSine)};
 
     cursor: pointer;
+
+    ${({ disabled }) => disabled && `opacity: 0.5; pointer-events: none;`};
 
     ${variations(colorVariations)};
     ${variations(setWeightVariations(fonts.weights))};
