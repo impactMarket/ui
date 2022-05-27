@@ -3,7 +3,7 @@ import { Icon } from '../Icon';
 import { Logo } from '../Logo';
 import { SkeletonElement } from '../SkeletonElement';
 import { colors } from '../../theme/colors';
-import { ease, mq, transitions } from 'styled-gen';
+import { mq } from 'styled-gen';
 import { position } from 'polished';
 import React, { useContext, useState } from 'react';
 import styled, { css } from 'styled-components';
@@ -50,7 +50,6 @@ const SidebarMenu = styled.div<{ isActive?: boolean }>`
     ${mq.upTo(
         'tabletLandscape',
         css`
-            ${transitions('all', 500, ease.inOutCirc)};
             ${position('fixed', 65, 0, 0, 0)};
 
             background-color: ${colors.n01};
