@@ -178,6 +178,7 @@ const Example = () => {
 
     // Table
     const [sortKey, setSortKey] = useState({}) as any;
+    const [isLoading, setIsLoading] = useState(false);
 
     // Pagination
     useEffect(() => {
@@ -206,6 +207,8 @@ const Example = () => {
 
     // Pagination
     const handlePageClick = (event: any, direction?: number) => {
+        setIsLoading(true);
+
         let pageChanged = false;
 
         if (event.selected >= 0) {
@@ -233,6 +236,8 @@ const Example = () => {
             setCurrentPage(newPage);
         }
 
+        setIsLoading(false);
+
         // Scroll to top of table after clicking a page
         if (pageChanged && tableRef && tableRef.current) {
             tableRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -250,9 +255,11 @@ const Example = () => {
                 <Table
                     columns={columns}
                     handleSort={handleSort}
+                    isLoading={isLoading}
                     pagination={
                         <Pagination
                             currentPage={currentPage}
+                            disabled={isLoading}
                             handlePageClick={handlePageClick}
                             nextIcon="arrowRight"
                             nextLabel="Next"

@@ -9,7 +9,7 @@ import ReactPaginate from 'react-paginate';
 import styled, { css } from 'styled-components';
 
 // #region ====== style ===
-const PaginationWrapper = styled.div<GeneratedPropTypes>`
+const PaginationWrapper = styled.div<{ disabled?: boolean } & GeneratedPropTypes>`
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -58,6 +58,11 @@ const PaginationWrapper = styled.div<GeneratedPropTypes>`
     }
 
     & .navPages {
+        &.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
         & p,
         svg {
             ${transitions('color', 250, ease.inOutQuad)};
@@ -84,12 +89,22 @@ const PaginationWrapper = styled.div<GeneratedPropTypes>`
         `
     )}
 
+    ${({ disabled }) =>
+        disabled &&
+        `
+        & .pagesContainer {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    `}
+
     ${generateProps};
 `;
 // #endregion === style ===
 
 export type PaginationProps = {
     currentPage: number;
+    disabled?: boolean;
     pageCount: number;
     handlePageClick: any;
     breakLabel?: string;
@@ -105,6 +120,7 @@ export type PaginationProps = {
 export const Pagination: React.FC<PaginationProps> = props => {
     const {
         currentPage,
+        disabled,
         breakLabel,
         handlePageClick,
         marginPagesDisplayed,
@@ -123,9 +139,12 @@ export const Pagination: React.FC<PaginationProps> = props => {
     return (
         <>
             {pageCount > 1 && (
-                <PaginationWrapper {...forwardProps}>
+                <PaginationWrapper disabled={disabled} {...forwardProps}>
                     {(previousLabel || previousIcon) && (
-                        <a className="navPages" onClick={(e: any) => handlePageClick(e, 1)}>
+                        <a
+                            className={`navPages ${disabled ? 'disabled' : ''}`}
+                            onClick={(e: any) => !disabled && handlePageClick(e, 1)}
+                        >
                             <Row fLayout="start" margin={0} pr={0.625}>
                                 {previousIcon && (
                                     <Col mr={{ sm: 0.75, xs: 0 }} padding={0}>
@@ -149,7 +168,7 @@ export const Pagination: React.FC<PaginationProps> = props => {
                         forcePage={currentPage}
                         marginPagesDisplayed={marginPagesDisplayed || 3}
                         nextClassName="nextPage"
-                        onPageChange={handlePageClick}
+                        onPageChange={!disabled && handlePageClick}
                         pageClassName="page"
                         pageCount={pageCount}
                         pageRangeDisplayed={pageRangeDisplayed || 3}
@@ -160,7 +179,10 @@ export const Pagination: React.FC<PaginationProps> = props => {
                         {mobileText || `${currentPage + 1} / ${pageCount}`}
                     </Text>
                     {(nextLabel || nextIcon) && (
-                        <a className="navPages" onClick={(e: any) => handlePageClick(e, 2)}>
+                        <a
+                            className={`navPages ${disabled ? 'disabled' : ''}`}
+                            onClick={(e: any) => !disabled && handlePageClick(e, 2)}
+                        >
                             <Row fLayout="start" margin={0} pl={0.625}>
                                 {nextLabel && (
                                     <Col padding={0}>

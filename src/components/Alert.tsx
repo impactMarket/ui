@@ -54,12 +54,12 @@ export const Alert: React.FC<AlertProps> = props => {
         <Box w="100%">
             <AlertWrapper {...forwardProps}>
                 <Row fLayout="center start">
-                    <Col pb={{ sm: 1, xs: 0.75 }}>
+                    <Col pb={{ sm: 1, xs: 0.75 }} pr={0}>
                         <Icon icon={icon} />
                     </Col>
                     <Col colSize={{ sm: hasButton ? 8 : 11, xs: 12 }} pb={1} pt={{ sm: 1, xs: 0 }}>
                         {title && (
-                            <Text mb={0.25} semibold small>
+                            <Text mb={message ? 0.25 : 0} semibold small>
                                 {title}
                             </Text>
                         )}

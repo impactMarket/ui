@@ -9,6 +9,10 @@ import getTypographyArgTypes from '../../../helpers/getTypographyArgTypes';
 
 export default {
     argTypes: {
+        disabled: {
+            control: { type: 'boolean' },
+            description: 'Pass as bool prop'
+        },
         weight: {
             control: { type: 'radio' },
             description: 'Pass as bool prop',
@@ -34,5 +38,6 @@ const Template: ComponentStory<any> = ({ text, ...args }) => {
 export const TextLink = Template.bind({});
 TextLink.storyName = 'TextLink';
 TextLink.args = {
-    text: 'My link'
+    text: 'My link',
+    disabled: false
 };
