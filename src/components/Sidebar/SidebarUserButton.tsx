@@ -55,6 +55,10 @@ export const SidebarUserButton: React.FC<SidebarUserButtonProps> = props => {
     const handleClick = (event: any) => {
         setIsActive(false);
 
+        if (isActive) {
+            event.preventDefault();
+        }
+
         if (typeof onClick === 'function') {
             return onClick(event);
         }

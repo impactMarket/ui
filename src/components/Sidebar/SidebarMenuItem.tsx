@@ -42,12 +42,15 @@ export type SidebarMenuItemProps = {
 } & React.HTMLAttributes<HTMLAnchorElement>;
 
 export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = props => {
-    const { children, flag, icon, label, onClick, ...forwardProps } = props;
-
+    const { children, isActive, flag, icon, label, onClick, ...forwardProps } = props;
     const { setIsActive } = useSidebarMobile();
 
     const handleClick = (event: any) => {
         setIsActive(false);
+
+        if (isActive) {
+            event.preventDefault();
+        }
 
         if (typeof onClick === 'function') {
             return onClick(event);
@@ -55,7 +58,7 @@ export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = props => {
     };
 
     return (
-        <Item {...forwardProps} onClick={handleClick}>
+        <Item isActive={isActive} {...forwardProps} onClick={handleClick}>
             {!!icon && <Icon icon={icon} mr={0.75} size={1.5} />}
             {!!label && <Text medium>{label}</Text>}
             {children}

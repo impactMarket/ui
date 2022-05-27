@@ -30,7 +30,7 @@ const AccordionItemHeading = styled.a`
 const AccordionItemInnerContent = styled.div`
     ${position('absolute', 0, 0, null, 0)};
 
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
     width: 100%;
 
     ${mq.tabletLandscape(css`
@@ -52,17 +52,18 @@ const AccordionItemWrapper = styled.div`
 export type AccordionItemProps = {
     children: any;
     handleItemClick?: any;
+    scrollIntoView?: any;
     isActive?: boolean;
     title: string;
 };
 
 export const AccordionItem: React.FC<AccordionItemProps> = props => {
-    const { children, handleItemClick, isActive, title } = props;
+    const { children, handleItemClick, isActive, scrollIntoView, title } = props;
 
     const contentRef = useRef<any>();
 
     return (
-        <AccordionItemWrapper>
+        <AccordionItemWrapper onClick={() => scrollIntoView && scrollIntoView(isActive, contentRef?.current)}>
             <AccordionItemHeading onClick={handleItemClick}>
                 <Text g800 large medium pr={1.5}>
                     {title}
