@@ -1,3 +1,4 @@
+/* eslint-disable sort-keys */
 import { BoolProps, GeneratedPropTypes } from '../types';
 import { colors } from '../theme';
 import { generateProps, variations } from 'styled-gen';
@@ -18,6 +19,10 @@ export const avatarSizeVariations = {
     `,
 
     small: css`
+        ${size('4.125rem')};
+    `,
+
+    extrasmall: css`
         ${size('2rem')};
     `
 };

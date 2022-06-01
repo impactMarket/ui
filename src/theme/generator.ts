@@ -52,6 +52,10 @@ export const generator = {
         { name: 'fGrow', cssProp: 'flex-grow' },
         { name: 'fWrap', cssProp: 'flex-wrap' },
         { name: 'order', cssProp: 'order' },
+        { name: 'bgColor', list: colors, cssProp: 'background-color' },
+        { name: 'overflow', cssProp: 'overflow' },
+        { name: 'overflowX', cssProp: 'overflow-x' },
+        { name: 'overflowY', cssProp: 'overflow-y' },
 
         // Helper functions
         { name: 'fLayout', helperFn: flexLayout },
