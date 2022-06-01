@@ -229,7 +229,9 @@ export const Button = (props: ButtonProps) => {
                 <Spinner isActive={isLoading} />
             </ButtonSpinnerWrapper>
             <ButtonContent className="button-content" reverse={reverse}>
-                {icon && <Icon icon={icon} ml={reverse ? 0.5 : 0} mr={!reverse ? 0.5 : 0} />}
+                {icon && (
+                    <Icon icon={icon} ml={reverse && !!children ? 0.5 : 0} mr={!reverse && !!children ? 0.5 : 0} />
+                )}
                 {children}
             </ButtonContent>
         </ButtonWrapper>

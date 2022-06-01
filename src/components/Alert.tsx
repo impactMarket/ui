@@ -1,7 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import { BoolPropsFromArray, GeneratedPropTypes } from '../types';
 import { Box } from './Box';
-import { Col, Row } from './Grid';
 import { Icon } from './Icon';
 import { StateTypes, applyAlertStateColor, stateTypes } from '../helpers/applyStateColor';
 import { Text } from './Typography';
@@ -51,34 +50,44 @@ export const Alert: React.FC<AlertProps> = props => {
     const hasClose = !hasButton && typeof handleClose === 'function';
 
     return (
-        <Box w="100%">
-            <AlertWrapper {...forwardProps}>
-                <Row fLayout="center start">
-                    <Col pb={{ sm: 1, xs: 0.75 }} pr={0}>
+        <AlertWrapper {...forwardProps}>
+            <Box fLayout="center between" fWrap="wrap" flex>
+                <Box
+                    fDirection={{ sm: 'row', xs: 'column' }}
+                    fLayout={{ sm: 'center start', xs: 'start' }}
+                    flex
+                    w={{ sm: hasButton ? '75%' : '100%', xs: '100%' }}
+                >
+                    <Box pb={{ sm: 0, xs: 0.75 }} pr={0.875}>
                         <Icon icon={icon} />
-                    </Col>
-                    <Col colSize={{ sm: hasButton ? 8 : 11, xs: 12 }} pb={1} pt={{ sm: 1, xs: 0 }}>
+                    </Box>
+                    <Box>
                         {title && (
                             <Text mb={message ? 0.25 : 0} semibold small>
                                 {title}
                             </Text>
                         )}
                         {message && <Text small>{message}</Text>}
-                    </Col>
-                    {hasButton && (
-                        <Col colSize={{ sm: 3, xs: 12 }} pt={{ sm: 1, xs: 0 }} tAlign={{ sm: 'right', xs: 'left' }}>
-                            {button}
-                        </Col>
-                    )}
-                </Row>
-                {hasClose && (
-                    <AlertCloseWrapper>
-                        <a onClick={handleClose}>
-                            <Icon icon="close" />
-                        </a>
-                    </AlertCloseWrapper>
+                    </Box>
+                </Box>
+                {hasButton && (
+                    <Box
+                        pl={{ sm: 0.875, xs: 0 }}
+                        pt={{ sm: 0, xs: 0.75 }}
+                        tAlign={{ sm: 'right', xs: 'left' }}
+                        w={{ sm: hasButton ? '25%' : '100%', xs: '100%' }}
+                    >
+                        {button}
+                    </Box>
                 )}
-            </AlertWrapper>
-        </Box>
+            </Box>
+            {hasClose && (
+                <AlertCloseWrapper>
+                    <a onClick={handleClose}>
+                        <Icon icon="close" />
+                    </a>
+                </AlertCloseWrapper>
+            )}
+        </AlertWrapper>
     );
 };

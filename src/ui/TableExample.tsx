@@ -256,6 +256,7 @@ const Example = () => {
                     columns={columns}
                     handleSort={handleSort}
                     isLoading={isLoading}
+                    noResults="Não existem resultados a apresentar!"
                     pagination={
                         <Pagination
                             currentPage={currentPage}

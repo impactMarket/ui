@@ -97,7 +97,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .Toastify__toast-container {
-    z-index: 999999;
+    z-index: 999999 !important;
   }
   
   .Toastify__toast {

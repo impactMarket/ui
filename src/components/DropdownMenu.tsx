@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { Card } from './Card';
 import { GeneratedPropTypes } from '../types';
 import { Icon } from './Icon';
@@ -53,6 +54,10 @@ const LinkWrapper = styled.div<GeneratedPropTypes & { asButton?: boolean }>`
 
     & p {
         ${transitions('color', 350, ease.inOutCubic)};
+    }
+
+    & svg > path {
+        ${transitions('fill', 350, ease.inOutCubic)};
     }
 
     ${generateProps}
@@ -121,10 +126,11 @@ export type DropdownMenuProps = {
     rtl?: boolean;
     wrapperProps?: GeneratedPropTypes;
     headerProps?: GeneratedPropTypes;
+    titleColor?: string;
 };
 
 export const DropdownMenu: React.FC<DropdownMenuProps> = props => {
-    const { icon, items, title, asButton, rtl, wrapperProps, headerProps, ...forwardProps } = props;
+    const { icon, items, title, asButton, rtl, wrapperProps, headerProps, titleColor, ...forwardProps } = props;
     const [showContent, toggleContent] = useState(false);
 
     const contentRef = useRef<any>();
@@ -137,6 +143,8 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = props => {
         onClick();
     };
 
+    const color = titleColor ? titleColor : asButton ? 'g700' : 'p600';
+
     useClickOutside(containerRef?.current, closeDropdownMenu);
 
     return (
@@ -148,11 +156,11 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = props => {
                 {...headerProps}
             >
                 {title && (
-                    <Text mr={icon ? 0.5 : 0} sColor={asButton ? 'g700' : 'p600'}>
+                    <Text mr={icon ? 0.5 : 0} sColor={color}>
                         {title}
                     </Text>
                 )}
-                {icon && <Icon icon={icon} sColor={asButton ? 'g700' : 'p600'} />}
+                {icon && <Icon icon={icon} sColor={color} />}
             </LinkWrapper>
             {items?.length > 0 && (
                 <ContentWrapper elHeight={contentRef?.current?.clientHeight} isActive={showContent} rtl={rtl}>

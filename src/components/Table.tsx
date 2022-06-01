@@ -20,9 +20,9 @@ const TableWrapper = styled.div<GeneratedPropTypes>`
     ${generateProps};
 `;
 
-const TableOverflow = styled.div<{ isLoading: boolean }>`
+const TableOverflow = styled.div<{ isLoading: boolean; noResults: boolean }>`
     display: block;
-    overflow-x: ${({ isLoading }) => (isLoading ? 'hidden' : 'auto')};
+    overflow-x: ${({ isLoading, noResults }) => (isLoading || noResults ? 'hidden' : 'auto')};
 `;
 
 const BaseTable = styled.table`
@@ -83,6 +83,7 @@ export type TableProps = {
     columns: ColumnProps[];
     isLoading: boolean;
     rows: any;
+    noResults: string;
     pagination?: any;
     handleSort?: any;
     sortKey?: {
@@ -92,7 +93,7 @@ export type TableProps = {
 } & GeneratedPropTypes;
 
 export const Table: React.FC<TableProps> = props => {
-    const { columns, isLoading, rows, pagination, handleSort, sortKey, ...forwardProps } = props;
+    const { columns, isLoading, rows, noResults, pagination, handleSort, sortKey, ...forwardProps } = props;
 
     const renderColumnTitle = (column: ColumnProps) => {
         if (column.sortable) {
@@ -129,7 +130,7 @@ export const Table: React.FC<TableProps> = props => {
 
     return (
         <TableWrapper {...forwardProps}>
-            <TableOverflow isLoading={isLoading}>
+            <TableOverflow isLoading={isLoading} noResults={rows?.length === 0}>
                 <BaseTable>
                     <TableHeader>
                         {columns?.length > 0 && (
@@ -146,22 +147,21 @@ export const Table: React.FC<TableProps> = props => {
                             </TableRow>
                         )}
                     </TableHeader>
-                    {!isLoading && (
+                    {!isLoading && rows?.length > 0 && (
                         <TableBody>
-                            {rows?.length > 0 &&
-                                rows.map((row: any, index: number) => (
-                                    <TableRow key={index}>
-                                        {columns.map((column: ColumnProps, indexColumn: number) => (
-                                            <TBColumn key={indexColumn}>
-                                                {!!column.render
-                                                    ? column.render(row)
-                                                    : column.value
-                                                    ? row[column.value]
-                                                    : null}
-                                            </TBColumn>
-                                        ))}
-                                    </TableRow>
-                                ))}
+                            {rows.map((row: any, index: number) => (
+                                <TableRow key={index}>
+                                    {columns.map((column: ColumnProps, indexColumn: number) => (
+                                        <TBColumn key={indexColumn}>
+                                            {!!column.render
+                                                ? column.render(row)
+                                                : column.value
+                                                ? row[column.value]
+                                                : null}
+                                        </TBColumn>
+                                    ))}
+                                </TableRow>
+                            ))}
                         </TableBody>
                     )}
                 </BaseTable>
@@ -171,7 +171,14 @@ export const Table: React.FC<TableProps> = props => {
                     <Spinner g700 isActive margin="auto" />
                 </Box>
             )}
-            {!!pagination && pagination?.props?.pageCount > 1 && (
+            {rows?.length === 0 && !!noResults && (
+                <Box padding="2 0">
+                    <Text center g700>
+                        {noResults}
+                    </Text>
+                </Box>
+            )}
+            {!!pagination && pagination?.props?.pageCount > 1 && rows?.length > 0 && (
                 <>
                     <Divider margin={0} />
                     <Box padding="1.25 1.5">{pagination}</Box>
