@@ -299,6 +299,65 @@ declare const generator: {
         readonly name: "order";
         readonly cssProp: "order";
     }, {
+        readonly name: "bgColor";
+        readonly list: {
+            readonly n01: "#FFFFFF";
+            readonly g25: "#FCFCFD";
+            readonly g50: "#F9FAFB";
+            readonly g100: "#F2F4F7";
+            readonly g200: "#E4E7EC";
+            readonly g300: "#D0D5DD";
+            readonly g400: "#98A2B3";
+            readonly g500: "#667085";
+            readonly g600: "#475467";
+            readonly g700: "#344054";
+            readonly g800: "#1D2939";
+            readonly g900: "#101828";
+            readonly p25: "#F0F2F7";
+            readonly p50: "#DFE7F8";
+            readonly p100: "#DFE7F8";
+            readonly p200: "#D3DFFE";
+            readonly p300: "#A7C0FE";
+            readonly p400: "#7BA1FD";
+            readonly p500: "#2362FB";
+            readonly p600: "#1F5AEA";
+            readonly p700: "#1C54DB";
+            readonly p800: "#1A4ABE";
+            readonly p900: "#0D2C77";
+            readonly e25: "#FFFBFA";
+            readonly e50: "#FEF3F2";
+            readonly e100: "#FEE4E2";
+            readonly e300: "#FDA29B";
+            readonly e500: "#F04438";
+            readonly e600: "#D92D20";
+            readonly e700: "#B42318";
+            readonly w25: "#FFFCF5";
+            readonly w50: "#FFFAEB";
+            readonly w100: "#FEF0C7";
+            readonly w200: "#FEDF89";
+            readonly w300: "#FEC84B";
+            readonly w500: "#F79009";
+            readonly w600: "#DC6803";
+            readonly w700: "#B54708";
+            readonly s25: "#F6FEF9";
+            readonly s50: "#ECFDF3";
+            readonly s100: "#D1FADF";
+            readonly s300: "#6CE9A6";
+            readonly s400: "#32D583";
+            readonly s600: "#039855";
+            readonly s700: "#027A48";
+        };
+        readonly cssProp: "background-color";
+    }, {
+        readonly name: "overflow";
+        readonly cssProp: "overflow";
+    }, {
+        readonly name: "overflowX";
+        readonly cssProp: "overflow-x";
+    }, {
+        readonly name: "overflowY";
+        readonly cssProp: "overflow-y";
+    }, {
         readonly name: "fLayout";
         readonly helperFn: (vertical: "center" | "start" | "end" | "around" | "between" | "evenly" | "stretch" | "unset", horizontal?: "center" | "start" | "end" | "around" | "between" | "evenly" | "stretch" | "unset" | undefined) => styled_components.FlattenSimpleInterpolation;
     }, {
@@ -539,6 +598,10 @@ declare const Box: styled_components.StyledComponent<"div", any, {
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    bgColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e500" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w500" | "w600" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
+    overflow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowX?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowY?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -665,6 +728,10 @@ declare const Card: styled_components.StyledComponent<"div", any, {
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    bgColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e500" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w500" | "w600" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
+    overflow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowX?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowY?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -804,6 +871,10 @@ declare const Row: styled_components.StyledComponent<"div", any, {
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    bgColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e500" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w500" | "w600" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
+    overflow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowX?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowY?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -931,6 +1002,10 @@ declare const Col: styled_components.StyledComponent<"div", any, {
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    bgColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e500" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w500" | "w600" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
+    overflow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowX?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowY?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1068,6 +1143,10 @@ declare const Display: styled_components.StyledComponent<"h1", any, {
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    bgColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e500" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w500" | "w600" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
+    overflow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowX?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowY?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1196,6 +1275,10 @@ declare const Text: styled_components.StyledComponent<"p", any, {
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    bgColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e500" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w500" | "w600" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
+    overflow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowX?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowY?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1392,6 +1475,10 @@ declare const Select: React.ForwardRefExoticComponent<{
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    bgColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e500" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w500" | "w600" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
+    overflow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowX?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowY?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1416,6 +1503,7 @@ declare const avatarSizeVariations: {
     large: styled_components.FlattenSimpleInterpolation;
     medium: styled_components.FlattenSimpleInterpolation;
     small: styled_components.FlattenSimpleInterpolation;
+    extrasmall: styled_components.FlattenSimpleInterpolation;
 };
 declare type AvatarProps = {
     url?: string;
@@ -1542,11 +1630,15 @@ declare const Avatar: styled_components.StyledComponent<"div", any, {
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    bgColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e500" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w500" | "w600" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
+    overflow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowX?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowY?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
     padding?: MqProp<string | number> | undefined;
-} & Partial<Record<"small" | "default" | "medium" | "large", boolean | "true" | "false">>, never>;
+} & Partial<Record<"small" | "default" | "medium" | "large" | "extrasmall", boolean | "true" | "false">>, never>;
 
 declare const buttonColorVariations: {
     default: styled_components.FlattenInterpolation<styled_components.ThemeProps<any>>;
@@ -1726,6 +1818,10 @@ declare const Divider: styled_components.StyledComponent<"div", any, {
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    bgColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e500" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w500" | "w600" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
+    overflow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowX?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowY?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -1880,6 +1976,10 @@ declare const ProgressBar: styled_components.StyledComponent<"div", any, {
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    bgColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e500" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w500" | "w600" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
+    overflow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowX?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowY?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -2011,6 +2111,10 @@ declare const SkeletonElement: styled_components.StyledComponent<"div", any, {
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    bgColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e500" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w500" | "w600" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
+    overflow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowX?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowY?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -2152,6 +2256,10 @@ declare const TextLink: styled_components.StyledComponent<"a", any, {
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    bgColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e500" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w500" | "w600" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
+    overflow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowX?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowY?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
@@ -2215,6 +2323,7 @@ declare type DropdownMenuProps = {
     rtl?: boolean;
     wrapperProps?: GeneratedPropTypes;
     headerProps?: GeneratedPropTypes;
+    titleColor?: string;
 };
 declare const DropdownMenu: React.FC<DropdownMenuProps>;
 
@@ -2259,6 +2368,7 @@ declare type TableProps = {
     columns: ColumnProps[];
     isLoading: boolean;
     rows: any;
+    noResults: string;
     pagination?: any;
     handleSort?: any;
     sortKey?: {
@@ -2392,6 +2502,10 @@ declare const ImgWrapper: styled_components.StyledComponent<"img", any, {
     fGrow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     fWrap?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
     order?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    bgColor?: string | number | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", string | number>> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", "n01" | "g25" | "g50" | "g100" | "g200" | "g300" | "g400" | "g500" | "g600" | "g700" | "g800" | "g900" | "p25" | "p50" | "p100" | "p200" | "p300" | "p400" | "p500" | "p600" | "p700" | "p800" | "p900" | "e25" | "e50" | "e100" | "e300" | "e500" | "e600" | "e700" | "w25" | "w50" | "w100" | "w200" | "w300" | "w500" | "w600" | "w700" | "s25" | "s50" | "s100" | "s300" | "s400" | "s600" | "s700">> | undefined;
+    overflow?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowX?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
+    overflowY?: MqProp<string | number> | Partial<Record<"xs" | "sm" | "md" | "lg" | "phone" | "tablet" | "tabletLandscape" | "desktop", never>> | undefined;
 } & {
     fLayout?: MqProp<FlexLayoutType> | undefined;
     margin?: MqProp<string | number> | undefined;
