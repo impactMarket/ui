@@ -1,8 +1,9 @@
-import { GeneratedPropTypes } from '../types';
+import { GeneratedPropTypes, MqProp } from '../types';
 import { generateProps } from 'styled-gen';
+import applyMqProps from '../utils/applyMqProps';
 import styled, { css } from 'styled-components';
 
-export const Box = styled.div<{ bgImg?: string } & GeneratedPropTypes>`
+export const Box = styled.div<{ bgImg?: string; borderRadius?: MqProp<string | number> } & GeneratedPropTypes>`
     ${({ bgImg }) =>
         !!bgImg &&
         css`
@@ -12,5 +13,14 @@ export const Box = styled.div<{ bgImg?: string } & GeneratedPropTypes>`
             background-size: cover;
             overflow: hidden;
         `}
+
+    ${({ borderRadius }) =>
+        typeof borderRadius !== undefined &&
+        applyMqProps(
+            borderRadius as string | number,
+            (value: number) => css`
+                border-radius: ${value};
+            `
+        )}
     ${generateProps};
 `;
