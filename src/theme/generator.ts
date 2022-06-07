@@ -56,6 +56,11 @@ export const generator = {
         { name: 'overflow', cssProp: 'overflow' },
         { name: 'overflowX', cssProp: 'overflow-x' },
         { name: 'overflowY', cssProp: 'overflow-y' },
+        { name: 'bRadius', cssProp: 'border-radius', units: 'rem' },
+        { name: 'bTopLeftRadius', cssProp: 'border-top-left-radius', units: 'rem' },
+        { name: 'bTopRightRadius', cssProp: 'border-top-right-radius', units: 'rem' },
+        { name: 'bBottomLeftRadius', cssProp: 'border-bottom-left-radius', units: 'rem' },
+        { name: 'bBottomRightRadius', cssProp: 'border-bottom-right-radius', units: 'rem' },
 
         // Helper functions
         { name: 'fLayout', helperFn: flexLayout },

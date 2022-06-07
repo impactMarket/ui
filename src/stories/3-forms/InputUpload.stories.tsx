@@ -22,6 +22,8 @@ export const InputUpload = Template.bind({});
 InputUpload.storyName = 'InputUpload';
 InputUpload.args = {
     children: 'Pass any content here',
+    hint: 'This is a hint text to help user.',
+    withError: false,
     wrapperProps: {
         mt: 2
     }
