@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { Box } from '../components/Box';
 import { Button } from '../components/Button';
 import { DesignSystemProvider } from '../components/DesignSystemProvider';
@@ -9,8 +10,13 @@ import React from 'react';
 const Modal = () => {
     const { handleClose, date } = useModal();
 
+    const onCloseButton = () => {
+        alert('You clicked the close button!');
+        handleClose();
+    };
+
     return (
-        <ModalWrapper maxW={20} padding={1.5}>
+        <ModalWrapper maxW={20} onCloseButton={onCloseButton} padding={1.5}>
             <Text large>This is an example alert modal opened at {date.toString()}!</Text>
             <Button fluid mt={1.5} onClick={() => handleClose(() => openModal('secondModal'))}>
                 Close Modal

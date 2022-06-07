@@ -21,6 +21,14 @@ export const circledIconSizeVariations = {
         }
     `,
 
+    small: css`
+        ${size('2rem')};
+
+        svg {
+            ${size('0.8rem')};
+        }
+    `,
+
     medium: css`
         ${size('3rem')};
 

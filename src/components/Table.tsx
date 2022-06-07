@@ -98,7 +98,10 @@ export const Table: React.FC<TableProps> = props => {
     const renderColumnTitle = (column: ColumnProps) => {
         if (column.sortable) {
             return (
-                <a className={isLoading ? 'disabled' : ''} onClick={() => !isLoading && handleSort(column.value)}>
+                <a
+                    className={isLoading || rows?.length === 0 ? 'disabled' : ''}
+                    onClick={() => !isLoading && rows?.length > 0 && handleSort(column.value)}
+                >
                     <Box fLayout="center start" flex>
                         <Text extrasmall medium sColor={column.value === sortKey?.key ? colors.p600 : colors.g500}>
                             {column.title}
@@ -122,7 +125,7 @@ export const Table: React.FC<TableProps> = props => {
         }
 
         return (
-            <Text className={isLoading ? 'disabled' : ''} extrasmall g500 medium>
+            <Text className={isLoading || rows?.length === 0 ? 'disabled' : ''} extrasmall g500 medium>
                 {column.title}
             </Text>
         );
@@ -171,7 +174,7 @@ export const Table: React.FC<TableProps> = props => {
                     <Spinner g700 isActive margin="auto" />
                 </Box>
             )}
-            {rows?.length === 0 && !!noResults && (
+            {!isLoading && rows?.length === 0 && !!noResults && (
                 <Box padding="2 0">
                     <Text center g700>
                         {noResults}
