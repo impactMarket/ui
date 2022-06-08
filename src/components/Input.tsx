@@ -14,7 +14,9 @@ export type InputProps = {
     icon?: string;
     onBlur?: Function;
     onFocus?: Function;
+    prefix?: string;
     rows?: number | string;
+    suffix?: string;
     withError?: boolean;
     wrapperProps?: GeneratedPropTypes;
 } & { [key: string]: any };
@@ -28,12 +30,17 @@ const InputBoxWrapper = styled.div<GeneratedPropTypes & { [key: string]: any }>`
     align-items: center;
     flex-wrap: nowrap;
 
+    & p {
+        white-space: unset;
+        word-break: unset;
+    }
+
     ${inputWrapperStyle};
     ${generateProps}
 `;
 
 export const Input = React.forwardRef((props: InputProps, ref) => {
-    const { hint, icon, onFocus, onBlur, rows, withError, wrapperProps, ...inputProps } = props;
+    const { hint, icon, onFocus, onBlur, prefix, rows, suffix, withError, wrapperProps, ...inputProps } = props;
 
     const [isFocused, setIsFocused] = useState(false);
 
@@ -76,6 +83,11 @@ export const Input = React.forwardRef((props: InputProps, ref) => {
                 withError={withError}
             >
                 {!!icon && <Icon g500 icon={icon} mr={0.5} size={1.25} />}
+                {!!prefix && (
+                    <Text g500 mr={0.5}>
+                        {prefix}
+                    </Text>
+                )}
                 <InputElement
                     {...(inputProps || {})}
                     {...inputExtraProps}
@@ -83,7 +95,12 @@ export const Input = React.forwardRef((props: InputProps, ref) => {
                     onFocus={handleFocus}
                     ref={ref}
                 />
-                {withError && <Icon e500 icon="alertCircle" size={1} />}
+                {withError && <Icon e500 icon="alertCircle" ml={0.5} size={1} />}
+                {!!suffix && (
+                    <Text g500 ml={0.5}>
+                        {suffix}
+                    </Text>
+                )}
             </InputBoxWrapper>
             {!!hint && (
                 <Text pt={0.375} sColor={withError ? colors.e500 : colors.g500} small>
