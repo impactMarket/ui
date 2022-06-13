@@ -1343,7 +1343,9 @@ declare type InputProps = {
     icon?: string;
     onBlur?: Function;
     onFocus?: Function;
+    prefix?: string;
     rows?: number | string;
+    suffix?: string;
     withError?: boolean;
     wrapperProps?: GeneratedPropTypes;
 } & {
@@ -1356,7 +1358,9 @@ declare const Input: React.ForwardRefExoticComponent<Pick<{
     icon?: string | undefined;
     onBlur?: Function | undefined;
     onFocus?: Function | undefined;
+    prefix?: string | undefined;
     rows?: string | number | undefined;
+    suffix?: string | undefined;
     withError?: boolean | undefined;
     wrapperProps?: GeneratedPropTypes | undefined;
 } & {
@@ -1367,6 +1371,7 @@ declare type InputUploadProps = {
     children?: any;
     handleFiles: Function;
     hint?: string;
+    name?: string;
     withError?: boolean;
     wrapperProps?: GeneratedPropTypes;
 } & DropzoneOptions;
