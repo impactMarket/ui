@@ -31,7 +31,9 @@ Input.args = {
     hint: 'This is a hint text to help user.',
     icon: '',
     placeholder: 'Write something here...',
+    prefix: '$',
     rows: 0,
+    suffix: 'USD',
     withError: false,
     wrapperProps: {
         mt: 2
