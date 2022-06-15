@@ -1369,6 +1369,7 @@ declare const Input: React.ForwardRefExoticComponent<Pick<{
 
 declare type InputUploadProps = {
     children?: any;
+    disabled?: boolean;
     handleFiles: Function;
     hint?: string;
     name?: string;
@@ -1384,6 +1385,7 @@ declare type OptionType = {
 };
 declare type SelectProps = {
     clearLabel?: string | Function;
+    disabled?: boolean;
     hint?: string;
     isClearable?: boolean;
     isMultiple?: boolean;
@@ -1400,6 +1402,7 @@ declare type SelectProps = {
 } & GeneratedPropTypes;
 declare const Select: React.ForwardRefExoticComponent<{
     clearLabel?: string | Function | undefined;
+    disabled?: boolean | undefined;
     hint?: string | undefined;
     isClearable?: boolean | undefined;
     isMultiple?: boolean | undefined;
@@ -1549,11 +1552,13 @@ declare const Select: React.ForwardRefExoticComponent<{
 } & React.RefAttributes<unknown>>;
 
 declare type ToggleProps = {
+    disabled?: boolean;
     wrapperProps?: GeneratedPropTypes;
 } & {
     [key: string]: any;
 };
 declare const Toggle: React.ForwardRefExoticComponent<Pick<{
+    disabled?: boolean | undefined;
     wrapperProps?: GeneratedPropTypes | undefined;
 } & {
     [key: string]: any;
@@ -2440,6 +2445,7 @@ declare type PaginationProps = {
 declare const Pagination: React.FC<PaginationProps>;
 
 declare type ThumbnailProps = {
+    disabled?: boolean;
     handleClick?: any;
     icon?: string;
     url?: string;
