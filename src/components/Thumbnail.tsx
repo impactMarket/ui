@@ -60,18 +60,19 @@ const IconWrapper = styled.div`
 // #endregion === style ===
 
 export type ThumbnailProps = {
+    disabled?: boolean;
     handleClick?: any;
     icon?: string;
     url?: string;
 } & GeneratedPropTypes;
 
 export const Thumbnail = (props: ThumbnailProps) => {
-    const { handleClick, icon, url, ...forwardProps } = props;
+    const { disabled, handleClick, icon, url, ...forwardProps } = props;
 
     return (
         <ImgWrapper {...forwardProps}>
             <Img url={url} />
-            {!!icon && typeof handleClick === 'function' && (
+            {!disabled && !!icon && typeof handleClick === 'function' && (
                 <IconWrapper onClick={handleClick}>
                     <Icon icon={icon} />
                 </IconWrapper>

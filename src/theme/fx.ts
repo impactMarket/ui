@@ -33,6 +33,7 @@ export const inputWrapperStyle = css`
     background-color: ${({ disabled }: any) => (disabled ? colors.g100 : colors.n01)};
     border-radius: 0.5rem;
     box-shadow: 0 0.125rem 0.0625rem ${rgba(colors.g900, 0.05)}, 0 0 0 1px ${colors.g300};
+    color: ${({ disabled }: any) => (disabled ? colors.g500 : colors.g900)};
     outline: 0;
     padding: 0.625rem 0.875rem;
 
