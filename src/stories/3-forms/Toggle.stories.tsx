@@ -12,13 +12,14 @@ export default {
 } as ComponentMeta<any>;
 
 const Template: ComponentStory<any> = args => {
-    const { wrapperProps, ...otherProps } = args;
+    const { disabled, wrapperProps, ...otherProps } = args;
 
     const [isActive, setIsActive] = useState(false);
 
     return (
         <Box>
             <BaseToggle
+                disabled={disabled}
                 wrapperProps={wrapperProps}
                 {...otherProps}
                 isActive={isActive}
@@ -36,6 +37,7 @@ const Template: ComponentStory<any> = args => {
 
 export const Toggle = Template.bind({});
 Toggle.args = {
+    disabled: false,
     wrapperProps: {
         mt: 2
     }

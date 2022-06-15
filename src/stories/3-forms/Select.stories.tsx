@@ -75,6 +75,7 @@ const Template: ComponentStory<any> = args => {
 
 export const Select = Template.bind({});
 Select.args = {
+    disabled: false,
     hint: 'This is a hint text to help user.',
     isClearable: false,
     isMultiple: false,

@@ -18,6 +18,7 @@ type OptionType = {
 
 export type SelectProps = {
     clearLabel?: string | Function;
+    disabled?: boolean;
     hint?: string;
     isClearable?: boolean;
     isMultiple?: boolean;
@@ -47,7 +48,8 @@ const SelectedOptionContent = styled.div`
     }
 `;
 
-const InputWrapper = styled.a<{ isFocused?: boolean; withError?: boolean } & GeneratedPropTypes>`
+const InputWrapper = styled.a<{ disabled?: boolean; isFocused?: boolean; withError?: boolean } & GeneratedPropTypes>`
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')} !important;
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -142,6 +144,7 @@ const Wrapper = styled.div`
 export const Select = React.forwardRef((props: SelectProps, ref) => {
     const {
         clearLabel,
+        disabled,
         hint,
         isClearable,
         isMultiple,
@@ -264,7 +267,12 @@ export const Select = React.forwardRef((props: SelectProps, ref) => {
     return (
         <>
             <Wrapper {...wrapperProps} ref={ref as any}>
-                <InputWrapper isFocused={isFocused} onClick={() => setIsActive(!isActive)} withError={withError}>
+                <InputWrapper
+                    disabled={disabled}
+                    isFocused={isFocused}
+                    onClick={() => !disabled && setIsActive(!isActive)}
+                    withError={withError}
+                >
                     <SelectedOptionContent>
                         {renderLabel({ isFocused, selected: getLabelValue() })}
                     </SelectedOptionContent>

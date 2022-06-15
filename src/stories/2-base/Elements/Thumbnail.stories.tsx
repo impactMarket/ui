@@ -35,6 +35,7 @@ const Template: ComponentStory<any> = args => {
 
 export const Thumbnail = Template.bind({});
 Thumbnail.args = {
+    disabled: false,
     icon: 'trash',
     url: 'https://picsum.photos/120'
 };

@@ -11,6 +11,7 @@ import styled from 'styled-components';
 
 export type InputUploadProps = {
     children?: any;
+    disabled?: boolean;
     handleFiles: Function;
     hint?: string;
     name?: string;
@@ -18,8 +19,9 @@ export type InputUploadProps = {
     wrapperProps?: GeneratedPropTypes;
 } & DropzoneOptions;
 
-const InputBoxWrapper = styled.a<GeneratedPropTypes & { [key: string]: any }>`
+const InputBoxWrapper = styled.a<GeneratedPropTypes & { [key: string]: any } & { disabled?: boolean }>`
     align-items: center;
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')} !important;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -34,10 +36,11 @@ const InputBoxWrapper = styled.a<GeneratedPropTypes & { [key: string]: any }>`
 const InputElement = styled.input``;
 
 export const InputUpload: React.FC<InputUploadProps> = props => {
-    const { children, handleFiles, hint, name, withError, wrapperProps, ...dropzoneOptions } = props;
+    const { children, disabled, handleFiles, hint, name, withError, wrapperProps, ...dropzoneOptions } = props;
 
     const { acceptedFiles, getRootProps, getInputProps, open } = useDropzone({
         // Disable click and keydown behavior
+        disabled,
         noClick: true,
         noKeyboard: true,
         ...dropzoneOptions
@@ -49,7 +52,13 @@ export const InputUpload: React.FC<InputUploadProps> = props => {
 
     return (
         <>
-            <InputBoxWrapper {...wrapperProps} {...getRootProps()} onClick={open} withError={withError}>
+            <InputBoxWrapper
+                disabled={disabled}
+                {...wrapperProps}
+                {...getRootProps()}
+                onClick={open}
+                withError={withError}
+            >
                 <PulseIcon bgG100 borderColor="g50" g600 icon="upload" />
                 {!!children && <Box mt={0.75}>{children}</Box>}
                 <InputElement name={name} {...getInputProps()} />
