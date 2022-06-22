@@ -52,6 +52,8 @@ export * from './components/Pagination';
 export * from './components/Thumbnail';
 export * from './components/Table';
 export * from './components/Img';
+export * from './components/Dot';
+export * from './components/Typing';
 
 // Compositions
 export * from './components/Accordion';
