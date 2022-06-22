@@ -48,3 +48,11 @@ export const applyLabelStateColor = (type: StateTypes) => {
         background-color: ${colors[`${typePrefix}50` as Color]};
     `;
 };
+
+export const applyDotStateColor = (type: StateTypes) => {
+    const typePrefix = getTypePrefix(type);
+
+    return css`
+        background-color: ${colors[`${typePrefix}500` as Color]};
+    `;
+};

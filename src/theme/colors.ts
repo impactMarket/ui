@@ -54,6 +54,7 @@ export const colors = {
     s100: '#D1FADF',
     s300: '#6CE9A6',
     s400: '#32D583',
+    s500: '#12B76A',
     s600: '#039855',
     s700: '#027A48'
 } as const;

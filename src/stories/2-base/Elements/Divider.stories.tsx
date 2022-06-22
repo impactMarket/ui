@@ -43,5 +43,6 @@ const Template: ComponentStory<any> = args => {
 
 export const Divider = Template.bind({});
 Divider.args = {
+    text: 'Example',
     variableProps: { margin: '2 0' }
 };

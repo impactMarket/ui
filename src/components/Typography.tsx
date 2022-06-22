@@ -17,6 +17,7 @@ const miscVariations = {
 };
 
 const commonStyle = css`
+    flex-shrink: 0;
     font-family: ${fonts.families.sans};
     white-space: pre-wrap;
     word-break: break-word;
