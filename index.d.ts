@@ -1355,6 +1355,7 @@ declare const Text: styled_components.StyledComponent<"p", any, {
 
 declare type InputProps = {
     as?: any;
+    button?: any;
     disabled?: boolean;
     hint?: string;
     icon?: string;
@@ -1370,6 +1371,7 @@ declare type InputProps = {
 };
 declare const Input: React.ForwardRefExoticComponent<Pick<{
     as?: any;
+    button?: any;
     disabled?: boolean | undefined;
     hint?: string | undefined;
     icon?: string | undefined;
@@ -2134,6 +2136,7 @@ declare const toast: {
 declare const Toaster: () => JSX.Element;
 
 declare type LabelProps = {
+    dot?: string;
     icon?: string;
     content: string | number | React.ReactNode;
 } & BoolPropsFromArray<typeof stateTypes> & GeneratedPropTypes;
