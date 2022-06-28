@@ -9,6 +9,10 @@ import icons from '../../../icons/ui';
 
 export default {
     argTypes: {
+        dot: {
+            control: { type: 'select' },
+            options: stateTypes
+        },
         icon: {
             control: { type: 'select' },
             options: Object.keys(icons)
@@ -31,11 +35,7 @@ const Template: ComponentStory<any> = args => {
         ...getGeneratedPropArgs(args)
     }) as LabelProps;
 
-    return (
-        <>
-            <BaseLabel {...props} />
-        </>
-    );
+    return <BaseLabel {...props} />;
 };
 
 export const Label = Template.bind({});

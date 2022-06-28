@@ -1,4 +1,6 @@
+/* eslint-disable no-alert */
 import { Input as BaseInput } from '../../components/Input';
+import { Button } from '../../components/Button';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { setGeneratedPropArgs } from '../../helpers/generatedPropArgs';
 import React from 'react';
@@ -20,9 +22,22 @@ export default {
 } as ComponentMeta<any>;
 
 const Template: ComponentStory<any> = args => {
-    const { wrapperProps, ...otherProps } = args;
+    const { showExampleButton, wrapperProps, ...otherProps } = args;
 
-    return <BaseInput wrapperProps={wrapperProps} {...otherProps} />;
+    let buttonProps = otherProps;
+
+    if (showExampleButton) {
+        buttonProps = {
+            ...buttonProps,
+            button: (
+                <Button icon="send" onClick={() => alert('You clicked the button!!!')}>
+                    Save
+                </Button>
+            )
+        };
+    }
+
+    return <BaseInput wrapperProps={wrapperProps} {...buttonProps} />;
 };
 
 export const Input = Template.bind({});
@@ -33,6 +48,7 @@ Input.args = {
     placeholder: 'Write something here...',
     prefix: '$',
     rows: 0,
+    showExampleButton: false,
     suffix: 'USD',
     withError: false,
     wrapperProps: {
