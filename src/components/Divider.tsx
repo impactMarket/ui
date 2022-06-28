@@ -21,7 +21,7 @@ const Wrapper = styled.div<GeneratedPropTypes>`
 `;
 
 const TextWrapper = styled.div`
-    background-color: ${colors.n01};
+    background-color: ${colors.g25};
     left: 50%;
     padding: 0 0.5rem;
     position: absolute;

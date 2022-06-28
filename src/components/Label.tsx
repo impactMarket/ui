@@ -1,4 +1,5 @@
 import { BoolPropsFromArray, GeneratedPropTypes } from '../types';
+import { Dot } from './Dot';
 import { Icon } from './Icon';
 import { StateTypes, applyLabelStateColor, stateTypes } from '../helpers/applyStateColor';
 import { Text } from './Typography';
@@ -26,17 +27,19 @@ const Wrapper = styled.div<{ state?: StateTypes } & GeneratedPropTypes>`
 `;
 
 export type LabelProps = {
+    dot?: string;
     icon?: string;
     content: string | number | React.ReactNode;
 } & BoolPropsFromArray<typeof stateTypes> &
     GeneratedPropTypes;
 
 export const Label: React.FC<LabelProps> = props => {
-    const { icon, content, ...forwardProps } = props;
+    const { dot, icon, content, ...forwardProps } = props;
 
     return (
         <Wrapper {...forwardProps}>
-            {icon && <Icon icon={icon} mr={0.375} />}
+            {!!dot && <Dot {...{ [dot]: true }} h={0.375} mr={0.375} w={0.375} />}
+            {!!icon && <Icon icon={icon} mr={0.375} />}
             <Text medium small>
                 {content}
             </Text>
