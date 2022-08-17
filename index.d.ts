@@ -1,6 +1,6 @@
 import * as styled_components from 'styled-components';
 import { margin, padding } from 'polished';
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { DropzoneOptions } from 'react-dropzone';
 
 declare const colors: {
@@ -2131,7 +2131,7 @@ declare const ViewContainer: React.FC<{
 
 declare type TypeOptions = 'info' | 'success' | 'warning' | 'error';
 declare const toast: {
-    [key in TypeOptions]: (content: string | ReactElement) => React.ReactText;
+    [key in TypeOptions]: (content: any) => React.ReactText;
 };
 declare const Toaster: () => JSX.Element;
 
