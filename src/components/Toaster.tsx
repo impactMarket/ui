@@ -4,7 +4,7 @@ import { Icon } from './Icon';
 import { Text } from './Typography';
 import { ToastContainer, toast as toastifyToast } from 'react-toastify';
 import { colors } from '../theme/colors';
-import React, { ReactElement } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 // #region ====== style ===
@@ -33,18 +33,18 @@ const toastType: { [key in TypeOptions]: ToastTypeOptions } = {
 const Toast = ({ color, children, icon }: { children: any } & ToastTypeOptions) => (
     <ToastWrapper>
         <Icon h={1.1} icon={icon} mr={0.75} sColor={color} />
-        <Text medium small>
-            {children}
+        <Text medium small w="100%">
+            {typeof children === 'function' ? children() : children}
         </Text>
     </ToastWrapper>
 );
 
 const types = Object.keys(toastType) as (keyof typeof toastType)[];
 
-export const toast: { [key in TypeOptions]: (content: string | ReactElement) => React.ReactText } = types.reduce(
+export const toast: { [key in TypeOptions]: (content: any) => React.ReactText } = types.reduce(
     (methods: any, type: TypeOptions) => ({
         ...methods,
-        [type]: (content: string) => {
+        [type]: (content: any) => {
             const toastProps = toastType[type];
 
             return toastifyToast(<Toast {...toastProps}>{content}</Toast>, { type });
