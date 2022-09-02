@@ -35,7 +35,17 @@ toast.warning('Warning!');
 
 toast.error('Error!');
 
-toast.info('Info!');
+toast.info(() => (
+    <>
+        <Display bold p600>Info!</Display>
+        <Text mt={0.5}>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit.
+            Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel,
+            nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget
+            blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+        </Text>
+    </>
+));
 
 ```
 
