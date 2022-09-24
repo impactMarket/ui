@@ -189,6 +189,8 @@ export const Select = React.forwardRef((props: SelectProps, ref) => {
     );
 
     const handleChange = (option?: OptionType) => {
+        setFilterTerm('');
+
         if (typeof onChange !== 'function') {
             return;
         }
@@ -306,7 +308,9 @@ export const Select = React.forwardRef((props: SelectProps, ref) => {
                                     renderOption({ isActive: checkIfActive(option), ...option })
                                 ) : (
                                     <>
-                                        <Text g900>{option?.label || option?.value}</Text>
+                                        <Text g900 w="100%">
+                                            {option?.label || option?.value}
+                                        </Text>
                                         {checkIfActive(option) && <Icon icon="check" ml={0.5} p600 size={1.25} />}
                                     </>
                                 )}
