@@ -142,7 +142,7 @@ export const Pagination: React.FC<PaginationProps> = props => {
                 <PaginationWrapper disabled={disabled} {...forwardProps}>
                     {(previousLabel || previousIcon) && (
                         <a
-                            className={`navPages ${currentPage === 0 ? 'disabled' : ' '}`}
+                            className={`navPages ${currentPage === 0 ? 'disabled' : ''}`}
                             onClick={(e: any) => !disabled && handlePageClick(e, 1)}
                         >
                             <Row fLayout="start" margin={0} pr={0.625}>
