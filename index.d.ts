@@ -2238,10 +2238,6 @@ declare type TableProps = {
 } & GeneratedPropTypes;
 declare const Table: React.FC<TableProps>;
 
-declare type ImgProps = {
-    alt?: string;
-    url: string;
-} & GeneratedPropTypes;
 declare const ImgWrapper: styled_components.StyledComponent<"img", any, {
     n01?: boolean | undefined;
     g25?: boolean | undefined;
@@ -2378,7 +2374,15 @@ declare const ImgWrapper: styled_components.StyledComponent<"img", any, {
     margin?: MqProp<string | number> | undefined;
     padding?: MqProp<string | number> | undefined;
 }, never>;
+declare const ImgClickWrapper: styled_components.StyledComponent<"div", any, {}, never>;
+declare type ImgProps = {
+    alt?: string;
+    handleClick?: any;
+    icon?: string;
+    url: string;
+} & GeneratedPropTypes;
 declare const Img: (props: ImgProps) => JSX.Element;
+declare const ImgClick: (props: ImgProps) => JSX.Element;
 
 declare type DotProps = BoolPropsFromArray<typeof stateTypes> & GeneratedPropTypes;
 declare const Dot: styled_components.StyledComponent<"div", any, Partial<Record<"error" | "info" | "success" | "warning" | "system", boolean | "true" | "false">> & {
@@ -2584,4 +2588,4 @@ declare type AlertProps = {
 } & BoolPropsFromArray<typeof stateTypes> & GeneratedPropTypes;
 declare const Alert: React.FC<AlertProps>;
 
-export { Accordion, AccordionItem, AccordionItemProps, AccordionProps, Alert, AlertProps, AppContainer, Avatar, AvatarProps, BoolProps, BoolPropsFromArray, Box, Breakpoint, Button, ButtonProps, Card, CircledIcon, CircledIconProps, Col, ColumnProps, Countdown, CountdownProps, CountryFlag, CountryFlagProps, DesignSystemProvider, Display, DisplayProps, Divider, DividerProps, Dot, DotProps, DropdownMenu, DropdownMenuProps, GeneratedPropTypes, Grid, Icon, Img, ImgProps, ImgWrapper, Input, InputProps, InputUpload, InputUploadProps, Label, LabelProps, Logo, ModalContextType, ModalManager, ModalManagerProps, ModalWrapper, MqProp, Pagination, PaginationProps, ProgressBar, ProgressBarProps, PulseIcon, Row, RowProps, Select, SelectProps, Sidebar, SidebarMenuGroup, SidebarMenuGroupProps, SidebarMenuItem, SidebarMenuItemProps, SidebarProps, SidebarUserButton, SidebarUserButtonProps, SkeletonElement, SkeletonElementProps, Spinner, SpinnerProps, StringProps, Tab, TabList, TabListProps, TabPanel, TabPanelProps, TabProps, Table, TableProps, Tabs, TabsProps, Text, TextLink, TextLinkProps, TextProps, Thumbnail, ThumbnailProps, Toaster, Toggle, ToggleProps, Typing, ViewContainer, ViewContainerWrapper, avatarSizeVariations, breakpoints, buttonColorVariations, buttonSizeVariations, circledIconSizeVariations, closeModal, colors, openModal, spaceNames, toast, useCountDown, useModal, useSidebarMobile };
+export { Accordion, AccordionItem, AccordionItemProps, AccordionProps, Alert, AlertProps, AppContainer, Avatar, AvatarProps, BoolProps, BoolPropsFromArray, Box, Breakpoint, Button, ButtonProps, Card, CircledIcon, CircledIconProps, Col, ColumnProps, Countdown, CountdownProps, CountryFlag, CountryFlagProps, DesignSystemProvider, Display, DisplayProps, Divider, DividerProps, Dot, DotProps, DropdownMenu, DropdownMenuProps, GeneratedPropTypes, Grid, Icon, Img, ImgClick, ImgClickWrapper, ImgProps, ImgWrapper, Input, InputProps, InputUpload, InputUploadProps, Label, LabelProps, Logo, ModalContextType, ModalManager, ModalManagerProps, ModalWrapper, MqProp, Pagination, PaginationProps, ProgressBar, ProgressBarProps, PulseIcon, Row, RowProps, Select, SelectProps, Sidebar, SidebarMenuGroup, SidebarMenuGroupProps, SidebarMenuItem, SidebarMenuItemProps, SidebarProps, SidebarUserButton, SidebarUserButtonProps, SkeletonElement, SkeletonElementProps, Spinner, SpinnerProps, StringProps, Tab, TabList, TabListProps, TabPanel, TabPanelProps, TabProps, Table, TableProps, Tabs, TabsProps, Text, TextLink, TextLinkProps, TextProps, Thumbnail, ThumbnailProps, Toaster, Toggle, ToggleProps, Typing, ViewContainer, ViewContainerWrapper, avatarSizeVariations, breakpoints, buttonColorVariations, buttonSizeVariations, circledIconSizeVariations, closeModal, colors, openModal, spaceNames, toast, useCountDown, useModal, useSidebarMobile };
