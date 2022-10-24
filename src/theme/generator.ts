@@ -14,6 +14,7 @@ import { margin, padding } from 'polished';
 const textAlignment = { center: 'center', left: 'left', right: 'right' };
 const displayList = { flex: 'flex', inlineFlex: 'inline-flex', none: 'none', block: 'block' };
 const flexDirectionList = { column: 'column', columnReverse: 'column-reverse', row: 'row', rowReverse: 'row-reverse' };
+const positionList = { relative: 'relative', absolute: 'absolute', fixed: 'fixed' };
 
 export const generator = {
     // will generate bool props
@@ -23,7 +24,8 @@ export const generator = {
         { list: colors, cssProp: 'color' },
         { list: textAlignment, cssProp: 'text-align' },
         { list: displayList, cssProp: 'display' },
-        { list: flexDirectionList, cssProp: 'flex-direction' }
+        { list: flexDirectionList, cssProp: 'flex-direction' },
+        { list: positionList, cssProp: 'position' }
     ],
 
     // Will generate spacing shorthanded props

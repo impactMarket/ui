@@ -137,6 +137,25 @@ export const buttonSizeVariations = {
             height: 2rem;
             width: 2rem;
         }
+    `,
+
+    xl: css`
+        .button-content {
+            font-size: 1rem;
+            line-height: 1.25rem;
+            min-height: 3.125rem;
+            padding: 0.8125rem 1.5rem;
+
+            & > svg {
+                height: 1rem;
+                width: auto;
+            }
+        }
+
+        .spinner {
+            height: 2rem;
+            width: 2rem;
+        }
     `
 };
 
