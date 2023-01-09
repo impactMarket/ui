@@ -9,6 +9,10 @@ import { position, rgba } from 'polished';
 import React from 'react';
 import styled from 'styled-components';
 
+const ClickableCard = styled(Card)`
+    cursor: pointer;
+`;
+
 const ImageWrapper = styled.div`
     border-radius: 0.25rem;
     height: 11.625rem;
@@ -36,13 +40,14 @@ export type ComposedCardProps = {
     image?: string;
     imageBackgroundColor?: string;
     label?: string;
+    onClick?: () => {};
 } & GeneratedPropTypes;
 
 export const ComposedCard: React.FC<ComposedCardProps> = props => {
-    const { badgeProps, content, children, heading, image, imageBackgroundColor, label, ...forwardProps } = props;
+    const { badgeProps, content, children, heading, image, imageBackgroundColor, label, onClick, ...forwardProps } = props;
 
     return (
-        <Card padding={0.75} {...forwardProps}>
+        <ClickableCard padding={0.75} {...forwardProps} onClick={onClick}>
             <ImageWrapper style={{ backgroundColor: imageBackgroundColor }}>
                 {!!image && <img alt="" src={image} />}
                 {!!label && (
@@ -62,7 +67,7 @@ export const ComposedCard: React.FC<ComposedCardProps> = props => {
                 </Text>
             )}
             {!!children && <Box mt={0.75}>{children}</Box>}
-        </Card>
+        </ClickableCard>
     );
 };
 
