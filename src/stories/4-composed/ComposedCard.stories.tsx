@@ -41,5 +41,6 @@ ComposedCard.args = {
     content: 'Level 1  · 5 lessons · Earn up to 500 PACTS',
     heading: 'What is crypto and Blockchain?',
     image: 'https://picsum.photos/300',
-    label: 'Beginner'
+    label: 'Beginner',
+    onClick: () => console.log('clicked')
 };

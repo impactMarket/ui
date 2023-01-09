@@ -2755,6 +2755,7 @@ declare type ComposedCardProps = {
     image?: string;
     imageBackgroundColor?: string;
     label?: string;
+    onClick?: () => {};
 } & GeneratedPropTypes;
 declare const ComposedCard: React.FC<ComposedCardProps>;
 
