@@ -21,7 +21,7 @@ const SidebarWrapper = styled.div`
     ${mq.tabletLandscape(css`
         border-right: 0.0625rem solid ${colors.g200};
         flex-direction: column;
-        height: 100%;
+        height: 100vh;
         overflow-y: auto;
         width: 20rem;
     `)}
@@ -39,18 +39,26 @@ const SidebarHeading = styled.div`
     ${mq.tabletLandscape(css`
         padding: 2rem 1.5rem 1.5rem;
     `)};
+
+    ${mq.upTo(
+        'tabletLandscape',
+        css`
+            position: fixed;
+        `
+    )};
 `;
 
 const SidebarMenu = styled.div<{ isActive?: boolean }>`
     display: flex;
     flex-direction: column;
+    height: 100%;
     padding: 0.5rem 1rem 1rem;
-    overflow-y: auto;
+    overflow-y: hidden;
 
     ${mq.upTo(
         'tabletLandscape',
         css`
-            ${position('fixed', 65, 0, 0, 0)};
+            ${position('fixed', 0, 0, 0, 0)};
 
             background-color: ${colors.n01};
             transform: translateY(-100%);
@@ -64,9 +72,6 @@ const SidebarMenu = styled.div<{ isActive?: boolean }>`
         `
     )};
 
-    ${mq.tabletLandscape(css`
-        height: 100%;
-    `)};
 `;
 
 const SidebarMenuContent = styled.div`
@@ -78,6 +83,13 @@ const SidebarMenuContent = styled.div`
     ${mq.tabletLandscape(css`
         padding-bottom: 0;
     `)};
+
+    ${mq.upTo(
+        'tabletLandscape',
+        css`
+           padding-top: 85px;
+        `
+    )};
 `;
 
 const SidebarMobileActions = styled.div`
@@ -159,14 +171,16 @@ export const Sidebar: React.FC<SidebarProps> = props => {
                             <Logo />
                         )}
                         <SidebarMobileActions>
-                            <a onClick={() => setIsActive(!isActive)}>
                                 <Box fLayout="center" flex>
                                     <>
-                                        {mobileActions}
-                                        <Icon g500 icon={isActive ? 'close' : 'menu'} ml={1} size={1.125} />
+                                        <Box mr={1}>
+                                            {mobileActions}
+                                        </Box>
+                                        <a onClick={() => setIsActive(!isActive)}>
+                                            <Icon g500 icon={isActive ? 'close' : 'menu'} size={1.125} />
+                                        </a>
                                     </>
-                                </Box>
-                            </a>
+                                </Box>                 
                         </SidebarMobileActions>
                     </SidebarHeading>
                     <SidebarMenu isActive={isActive}>

@@ -14,6 +14,7 @@ const renderPaths = (icon: { paths: any }) =>
 type IconProps = {
     icon: string;
     size?: SizeType;
+    onClick?: (event: any) => void;
 } & GeneratedPropTypes;
 
 const IconSvg = styled.svg<any>`
@@ -26,7 +27,7 @@ const IconSvg = styled.svg<any>`
 `;
 
 export const Icon: React.FC<IconProps> = props => {
-    const { icon, ...otherProps } = props;
+    const { icon, onClick, ...otherProps } = props;
     const selectedIcon = icons[icon] as any;
 
     if (!selectedIcon) {
@@ -42,7 +43,7 @@ export const Icon: React.FC<IconProps> = props => {
     }
 
     return (
-        <IconSvg role="img" viewBox={selectedIcon.viewbox} {...otherProps}>
+        <IconSvg role="img" viewBox={selectedIcon.viewbox} {...otherProps} onClick={onClick}>
             {renderPaths(selectedIcon)}
         </IconSvg>
     );

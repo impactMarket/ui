@@ -7,11 +7,18 @@ import styled, { css } from 'styled-components';
 
 export const ViewContainerWrapper = styled.div`
     background-color: ${colors.g50};
-    height: 100%;
+    height: 100vh;
     overflow-y: auto;
     position: relative;
     width: 100%;
     display: flex;
+
+    ${mq.upTo(
+        'tabletLandscape',
+        css`
+            padding-top: 65px;
+        `
+    )};
 `;
 
 const ViewContainerContent = styled.div`
