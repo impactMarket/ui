@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 export const AppContainer = styled.div`
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: auto;
     width: 100vw;
 
     ${mq.tabletLandscape(css`

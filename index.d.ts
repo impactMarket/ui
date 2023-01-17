@@ -2001,6 +2001,7 @@ declare type SizeType = number | number[];
 declare type IconProps = {
     icon: string;
     size?: SizeType;
+    onClick?: (event: any) => void;
 } & GeneratedPropTypes;
 declare const Icon: React.FC<IconProps>;
 
