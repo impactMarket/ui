@@ -2724,6 +2724,7 @@ declare const Typing: React.FC<GeneratedPropTypes>;
 declare const ViewContainerWrapper: styled_components.StyledComponent<"div", any, {}, never>;
 declare const ViewContainer: React.FC<{
     isLoading?: boolean;
+    style?: Object;
 }>;
 
 declare type AccordionItemProps = {
