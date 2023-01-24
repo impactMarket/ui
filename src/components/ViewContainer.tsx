@@ -7,7 +7,6 @@ import styled, { css } from 'styled-components';
 
 export const ViewContainerWrapper = styled.div`
     background-color: ${colors.g50};
-    height: 100vh;
     overflow-y: auto;
     position: relative;
     width: 100%;
@@ -16,7 +15,8 @@ export const ViewContainerWrapper = styled.div`
     ${mq.upTo(
         'tabletLandscape',
         css`
-            padding-top: 65px;
+            min-height: 100vh;
+            padding-top: 4.1rem;
         `
     )};
 `;
@@ -42,11 +42,11 @@ const ViewContainerLoading = styled.div<{ isActive?: boolean }>`
     justify-content: center;
 `;
 
-export const ViewContainer: React.FC<{ isLoading?: boolean }> = props => {
-    const { children, isLoading, ...forwardProps } = props;
+export const ViewContainer: React.FC<{ isLoading?: boolean, style?: Object}> = props => {
+    const { children, isLoading, style, ...forwardProps } = props;
 
     return (
-        <ViewContainerWrapper className="view-container" {...forwardProps}>
+        <ViewContainerWrapper style={style} className="view-container" {...forwardProps}>
             {isLoading ? (
                 <ViewContainerLoading isActive={isLoading}>
                     <Spinner g400 isActive />
