@@ -5,7 +5,7 @@ import { SkeletonElement } from '../SkeletonElement';
 import { colors } from '../../theme/colors';
 import { mq } from 'styled-gen';
 import { position } from 'polished';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
 // #region ====== style ===
@@ -53,7 +53,6 @@ const SidebarMenu = styled.div<{ isActive?: boolean }>`
     flex-direction: column;
     height: 100%;
     padding: 0.5rem 1rem 1rem;
-    overflow-y: hidden;
 
     ${mq.upTo(
         'tabletLandscape',
@@ -78,6 +77,7 @@ const SidebarMenuContent = styled.div`
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow-y: scroll;
     padding-bottom: 1rem;
 
     ${mq.tabletLandscape(css`
@@ -158,6 +158,10 @@ export const Sidebar: React.FC<SidebarProps> = props => {
     const { children, footer, isLoading, mobileActions, handleLogoClick } = props;
     const [isActive, setIsActive] = useState(false);
 
+    useEffect(() => {
+        document.getElementsByTagName('html')[0].style.overflow = isActive ? 'hidden' : ''; 
+    }, [isActive]);
+
     return (
         <SidebarWrapper>
             <SidebarMobileContext.Provider value={{ isActive, setIsActive }}>
@@ -173,11 +177,13 @@ export const Sidebar: React.FC<SidebarProps> = props => {
                         <SidebarMobileActions>
                                 <Box fLayout="center" flex>
                                     <>
-                                        <Box mr={1}>
+                                        <Box mr={.5}>
                                             {mobileActions}
                                         </Box>
                                         <a onClick={() => setIsActive(!isActive)}>
-                                            <Icon g500 icon={isActive ? 'close' : 'menu'} size={1.125} />
+                                            <Box padding="1rem" mr="-1rem">
+                                                <Icon g500 icon={isActive ? 'close' : 'menu'} size={1.125} />
+                                            </Box>
                                         </a>
                                     </>
                                 </Box>                 
