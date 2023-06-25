@@ -6,6 +6,7 @@ import applyMqProps from '../utils/applyMqProps';
 import styled, { css } from 'styled-components';
 
 export type RowProps = {
+    children?: React.ReactNode;
     colSpan?: MqProp<number | number[]>;
     colProps?: GeneratedPropTypes;
     cols?: MqProp<number>;

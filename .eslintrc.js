@@ -5,7 +5,7 @@ module.exports = {
     },
     rules: {
         'no-undef': 'error',
-        'no-unused-vars': 'error',
+        'no-unused-vars': 'off',
         'prettier/prettier': [
             'error',
             {

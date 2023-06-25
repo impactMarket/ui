@@ -44,7 +44,8 @@ export type ComposedCardProps = {
 } & GeneratedPropTypes;
 
 export const ComposedCard: React.FC<ComposedCardProps> = props => {
-    const { badgeProps, content, children, heading, image, imageBackgroundColor, label, onClick, ...forwardProps } = props;
+    const { badgeProps, content, children, heading, image, imageBackgroundColor, label, onClick, ...forwardProps } =
+        props;
 
     return (
         <ClickableCard padding={0.75} {...forwardProps} onClick={onClick}>

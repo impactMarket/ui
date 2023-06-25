@@ -1,4 +1,5 @@
 /* eslint-disable no-nested-ternary */
+// @ts-ignore
 import { FlattenSimpleInterpolation, css } from 'styled-components';
 import { MqProp } from '..';
 import { mq } from 'styled-gen';

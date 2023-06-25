@@ -20,9 +20,11 @@ const Template: ComponentStory<any> = args => {
         ...getGeneratedPropArgs(args)
     }) as TabsProps;
 
+    const { buttonStyle } = args;
+
     return (
         <BaseTabs {...props}>
-            <TabList>
+            <TabList buttonStyle={buttonStyle}>
                 <Tab number={3} title="Tab 1" />
                 <Tab title="Tab 2" />
                 <Tab number={50} onClick={() => alert('You clicked Tab 3!')} title="Tab 3" />
@@ -35,3 +37,6 @@ const Template: ComponentStory<any> = args => {
 };
 
 export const Tabs = Template.bind({});
+Tabs.args = {
+    buttonStyle: false
+};

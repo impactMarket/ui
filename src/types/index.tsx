@@ -13,8 +13,8 @@ type Truthy = boolean | 'true' | 'false';
 export type BoolPropsFromArray<propsArray extends ReadonlyArray<string>> = Partial<Record<propsArray[number], Truthy>>;
 export type BoolProps<T extends Object> = Partial<Record<keyof T, Truthy>>;
 export type StringProps<T extends Object> = Partial<Record<keyof T, string>>;
-export type MqProp<T> = Partial<Record<typeof breakpoints[number], T>> | T;
-export type Breakpoint = typeof breakpoints[number];
+export type MqProp<T> = Partial<Record<(typeof breakpoints)[number], T>> | T;
+export type Breakpoint = (typeof breakpoints)[number];
 
 /**
  * GeneratedPropsTypes
@@ -48,7 +48,7 @@ type NamedPropsWithPrefixFromList<PropList extends ReadonlyArray<any>> = {
 
 type NamedProps = NamedPropsFromList<typeof generator.namedProps> &
     NamedPropsWithPrefixFromList<typeof generator.namedProps>;
-type SpaceProps = Partial<Record<typeof spaceNames[number], MqProp<number | string>>>;
+type SpaceProps = Partial<Record<(typeof spaceNames)[number], MqProp<number | string>>>;
 type VariableProps = PropsFromList<typeof generator.variableProps>;
 
 type HelperFnsProps = {

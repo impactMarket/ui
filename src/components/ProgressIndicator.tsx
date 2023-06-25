@@ -8,7 +8,7 @@ import React, { useCallback } from 'react';
 import styled, { css } from 'styled-components';
 
 const StepCircle = styled.div<{ isActive: boolean; isCompleted: boolean }>`
-    ${size('1.5rem')};
+    ${css(size('1.5rem'))};
 
     align-items: center;
     background-color: ${({ isActive, isCompleted }) => (isActive || isCompleted ? colors.p50 : 'transparent')};
