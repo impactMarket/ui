@@ -2,7 +2,7 @@
 import { terser } from 'rollup-plugin-terser';
 import bundleSize from 'rollup-plugin-bundle-size';
 import commonjs from '@rollup/plugin-commonjs';
-import dts from 'rollup-plugin-dts';
+// import dts from 'rollup-plugin-dts';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import resolve from '@rollup/plugin-node-resolve';
@@ -30,7 +30,7 @@ export default [
             peerDepsExternal(),
             resolve(),
             commonjs(),
-            typescript({ tsconfig: './tsconfig.json' }),
+            typescript({ tsconfig: './tsconfig.json', declaration: true, declarationDir: 'dist/types' }),
             terser(),
             bundleSize(),
             postcss({
@@ -38,11 +38,12 @@ export default [
             }),
             svg()
         ],
-        external: ['react', 'react-dom', 'styled-components']
-    },
-    {
-        input: 'dist/esm/types/index.d.ts',
-        output: [{ file: 'index.d.ts', format: 'esm' }],
-        plugins: [dts()]
+        external: ['react', 'react-dom', 'styled-components'],
+        context: 'this'
     }
+    // {
+    //     input: 'dist/esm/types/index.d.ts',
+    //     output: [{ file: 'index.d.ts', format: 'esm' }],
+    //     plugins: [dts()]
+    // }
 ];

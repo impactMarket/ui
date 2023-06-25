@@ -14,15 +14,19 @@ const renderPaths = (icon: { paths: any }) =>
 type IconProps = {
     icon: string;
     size?: SizeType;
-    onClick?: (event: any) => void;
+    onClick?: () => void;
 } & GeneratedPropTypes;
+
+type IconSvgProps = {
+    size?: SizeType;
+};
 
 const IconSvg = styled.svg<any>`
     fill: currentColor;
     flex-shrink: 0;
     vertical-align: middle;
 
-    ${({ size }) => !!size && setSize(size)};
+    ${({ size }: IconSvgProps) => !!size && setSize(size)};
     ${generateProps};
 `;
 

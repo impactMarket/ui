@@ -4,7 +4,7 @@ import { css } from 'styled-components';
 
 export const stateTypes = ['error', 'info', 'success', 'warning', 'system'] as const;
 
-export type StateTypes = typeof stateTypes[number];
+export type StateTypes = (typeof stateTypes)[number];
 
 type Color = keyof typeof colors;
 

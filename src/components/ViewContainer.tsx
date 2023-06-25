@@ -42,11 +42,11 @@ const ViewContainerLoading = styled.div<{ isActive?: boolean }>`
     justify-content: center;
 `;
 
-export const ViewContainer: React.FC<{ isLoading?: boolean, style?: Object}> = props => {
+export const ViewContainer: React.FC<{ isLoading?: boolean; style?: Object; children?: React.ReactNode }> = props => {
     const { children, isLoading, style, ...forwardProps } = props;
 
     return (
-        <ViewContainerWrapper style={style} className="view-container" {...forwardProps}>
+        <ViewContainerWrapper className="view-container" style={style} {...forwardProps}>
             {isLoading ? (
                 <ViewContainerLoading isActive={isLoading}>
                     <Spinner g400 isActive />

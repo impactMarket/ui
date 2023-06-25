@@ -1,3 +1,4 @@
+// @ts-ignore
 import { FlattenSimpleInterpolation, css } from 'styled-components';
 
 const prepend: any = (type?: string) => {
@@ -18,7 +19,7 @@ const prepend: any = (type?: string) => {
 
 const propShorts = ['center', 'start', 'end', 'around', 'between', 'evenly', 'stretch', 'unset'] as const;
 
-type FlexPropsShort = typeof propShorts[number];
+type FlexPropsShort = (typeof propShorts)[number];
 
 export type FlexLayoutType =
     | 'null center'

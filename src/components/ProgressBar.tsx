@@ -4,7 +4,7 @@ import { applyProgressBarStateColor, stateTypes } from '../helpers/applyStateCol
 import { colors } from '../theme/colors';
 import { ease, generateProps, transitions, variations } from 'styled-gen';
 import { position } from 'polished';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const alertColorVariations = stateTypes.reduce(
     (results, type) => ({ ...results, [type === 'info' ? 'default' : type]: applyProgressBarStateColor(type) }),
@@ -24,7 +24,7 @@ export const ProgressBar = styled.div<ProgressBarProps>`
     position: relative;
 
     &::before {
-        ${position('absolute', 0, null, 0, 0)};
+        ${css(position('absolute', 0, null, 0, 0))};
         ${transitions('width', 250, ease.inOutCirc)};
         ${variations(alertColorVariations)};
 

@@ -9,10 +9,14 @@ import {
 import { Text } from './Typography';
 import { colors } from '../theme';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+type TabTitleContainerWrapperProps = {
+    buttonStyle?: boolean;
+};
 
 // #region ====== style ===
-const TabTitleContainerWrapper = styled.div`
+const TabTitleContainerWrapper = styled.div<TabTitleContainerWrapperProps>`
     & .react-tabs__tab-list {
         border-bottom: 1px solid ${colors.g200};
 
@@ -53,6 +57,57 @@ const TabTitleContainerWrapper = styled.div`
             }
         }
     }
+
+    ${({ buttonStyle }) =>
+        buttonStyle &&
+        css`
+            & .react-tabs__tab-list {
+                border-bottom: 0;
+                box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+                width: fit-content;
+
+                & .react-tabs__tab {
+                    border: 1px solid ${colors.g300};
+                    border-radius: 0;
+                    padding: 0.625rem 1rem;
+                    margin: 0;
+                    background-color: #fff;
+
+                    &:first-child {
+                        border-radius: 8px 0 0 8px;
+                    }
+
+                    &:last-child {
+                        border-radius: 0 8px 8px 0;
+                    }
+
+                    &:only-child {
+                        border-radius: 8px;
+                    }
+
+                    &.react-tabs__tab--selected {
+                        background-color: ${colors.g50};
+                        border: 1px solid ${colors.g300};
+
+                        &:after {
+                            display: none;
+                        }
+
+                        p {
+                            color: ${colors.g800};
+                        }
+                    }
+
+                    p {
+                        color: ${colors.g700};
+                    }
+
+                    + li {
+                        margin-left: -1px;
+                    }
+                }
+            }
+        `}
 `;
 
 const TabTitleWrapper = styled.div`
@@ -79,17 +134,22 @@ const TabContentWrapper = styled.div`
 export type TabListProps = {
     children: any;
     tabsRole?: string;
+    buttonStyle?: boolean;
 };
 
-export const TabList = ({ children, ...forwardProps }: TabListProps) => {
+export const TabList = ({ buttonStyle, children, ...forwardProps }: TabListProps) => {
     return (
-        <TabTitleContainerWrapper {...forwardProps}>
+        <TabTitleContainerWrapper buttonStyle={buttonStyle} {...forwardProps}>
             <TabTitleContainer>{children}</TabTitleContainer>
         </TabTitleContainerWrapper>
     );
 };
 
 TabList.tabsRole = 'TabList';
+TabList.defaultProps = {
+    buttonStyle: false
+};
+
 // #endregion === TabList ===
 
 // #region ====== Tab ===
