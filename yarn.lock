@@ -5566,9 +5566,10 @@ escodegen@^2.0.0:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-impact-market@impactMarket/eslint-config-impact-market:
+eslint-config-impact-market@2.2.0:
   version "2.2.0"
-  resolved "https://codeload.github.com/impactMarket/eslint-config-impact-market/tar.gz/10d71e25de51d25e10a81ac699d15b2757eca1bb"
+  resolved "https://registry.yarnpkg.com/eslint-config-impact-market/-/eslint-config-impact-market-2.2.0.tgz#999b32a822149848a41d5fdda6839680553eaa6a"
+  integrity sha512-x90nNzK3LvLP10UElolhhuTRKI/IEpGSywumgqsuqFQ/V6Cqr2Y/kYag/cEy4djlzpQRBKsJ1WpbYHBTg/9APg==
   dependencies:
     "@babel/eslint-parser" "^7.21.8"
     "@babel/eslint-plugin" "^7.19.1"
