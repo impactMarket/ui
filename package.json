@@ -50,7 +50,7 @@
         "autoprefixer": "10.4.14",
         "babel-loader": "8.2.3",
         "eslint": "8.40.0",
-        "eslint-config-impact-market": "impactMarket/eslint-config-impact-market",
+        "eslint-config-impact-market": "2.2.0",
         "eslint-plugin-storybook": "0.6.11",
         "lodash": "4.17.21",
         "paths.macro": "3.0.1",
