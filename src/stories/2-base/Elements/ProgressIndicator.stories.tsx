@@ -26,7 +26,7 @@ const Template: ComponentStory<any> = args => {
 
     return (
         <Box padding={3}>
-            <Box w={40}>
+            <Box>
                 <BaseProgressIndicator {...props} />
             </Box>
         </Box>
@@ -36,8 +36,17 @@ const Template: ComponentStory<any> = args => {
 export const ProgressIndicator = Template.bind({});
 ProgressIndicator.storyName = 'ProgressIndicator';
 ProgressIndicator.args = {
-    steps: 3,
+    steps: 7,
     // eslint-disable-next-line no-alert
     onStepClick: step => alert(`Clicked in step ${step}`),
-    currentStep: 2
+    currentStep: 2,
+    stepsTitles: [
+        "Start",
+        "Personal & Contact Info.",
+        "Business Info.",
+        "Financial Info",
+        "Documents",
+        "References",
+        "Consent and Submission"
+    ]
 };

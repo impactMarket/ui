@@ -4632,6 +4632,7 @@ declare type ProgressIndicatorProps = {
     steps: number;
     onStepClick?: Function;
     currentStep?: number;
+    stepsTitles: Array<string>;
 } & GeneratedPropTypes;
 declare const ProgressIndicator: React.FC<ProgressIndicatorProps>;
 
