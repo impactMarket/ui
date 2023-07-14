@@ -1,7 +1,7 @@
 import { DropzoneOptions } from 'react-dropzone';
 import { GeneratedPropTypes } from '../types';
 import React from 'react';
-export declare type InputUploadProps = {
+export declare type EnhancedInputUploadProps = {
     children?: any;
     disabled?: boolean;
     handleFiles: Function;
@@ -11,4 +11,4 @@ export declare type InputUploadProps = {
     withError?: boolean;
     wrapperProps?: GeneratedPropTypes;
 } & DropzoneOptions;
-export declare const EnhancedInputUpload: React.FC<InputUploadProps>;
+export declare const EnhancedInputUpload: React.FC<EnhancedInputUploadProps>;
