@@ -9,7 +9,7 @@ import { inputWrapperStyle } from '../theme/fx';
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
-export type InputUploadProps = {
+export type EnhancedInputUploadProps = {
     children?: any;
     disabled?: boolean;
     handleFiles: Function;
@@ -48,7 +48,7 @@ const ClickableElement = styled(Box)<{ disabled?: boolean }>`
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')} !important;
 `;
 
-export const EnhancedInputUpload: React.FC<InputUploadProps> = props => {
+export const EnhancedInputUpload: React.FC<EnhancedInputUploadProps> = props => {
     const { children, disabled, handleFiles, hint, name, uploadText, withError, wrapperProps, ...dropzoneOptions } =
         props;
 
