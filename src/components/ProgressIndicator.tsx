@@ -4,6 +4,7 @@ import { colors } from '../theme/colors';
 import { GeneratedPropTypes } from '../types';
 import { generateProps } from 'styled-gen';
 import { Icon } from './Icon';
+import { mq } from 'styled-gen';
 import { size } from 'polished';
 import { Text } from '../components/Typography';
 import React, { useCallback } from 'react';
@@ -63,6 +64,14 @@ const Wrapper = styled.div`
     ${generateProps}
 `;
 
+const Indicator = styled(Box)`
+    .title {
+        ${mq.phone(css`
+          display: none;
+      `)};
+    }
+`;
+
 export type ProgressIndicatorProps = {
     steps: number;
     onStepClick?: Function;
@@ -93,7 +102,7 @@ export const ProgressIndicator: React.FC<ProgressIndicatorProps> = props => {
                 <StepDivider />
                 {stepItems.map((_, index) => (
                     <React.Fragment key={index}>
-                        <Box
+                        <Indicator
                             style={{ position: 'relative', width: '100%' }}
                             flex
                             fDirection="column"
@@ -108,12 +117,12 @@ export const ProgressIndicator: React.FC<ProgressIndicatorProps> = props => {
                             >
                                 {isCompleted(index) && <Icon icon="tick" />}
                             </StepCircle>
-                            <Box pr=".5rem">
+                            <Box className="title" pr=".5rem">
                                 <Text medium g500 flex fWrap="wrap" mt=".5rem">
                                     {stepsTitles[index]}
                                 </Text>
                             </Box>
-                        </Box>
+                        </Indicator>
                     </React.Fragment>
                 ))}
             </Box>
