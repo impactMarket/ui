@@ -2724,6 +2724,18 @@ declare const Input: React.ForwardRefExoticComponent<
         React.RefAttributes<unknown>
 >;
 
+declare type EnhancedInputUploadProps = {
+    children?: any;
+    disabled?: boolean;
+    handleFiles: Function;
+    hint?: string;
+    name?: string;
+    uploadText?: string;
+    withError?: boolean;
+    wrapperProps?: GeneratedPropTypes;
+} & DropzoneOptions;
+declare const EnhancedInputUpload: React.FC<EnhancedInputUploadProps>;
+
 declare type InputUploadProps = {
     children?: any;
     disabled?: boolean;
@@ -5535,6 +5547,8 @@ export {
     DotProps,
     DropdownMenu,
     DropdownMenuProps,
+    EnhancedInputUpload,
+    EnhancedInputUploadProps,
     GeneratedPropTypes,
     Grid,
     Icon,
