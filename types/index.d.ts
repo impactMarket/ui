@@ -10,6 +10,7 @@ export * from './components/Grid';
 export * from './components/Typography';
 export * from './components/Input';
 export * from './components/InputUpload';
+export * from './components/EnhancedInputUpload';
 export * from './components/Select';
 export * from './components/Toggle';
 export * from './components/AppContainer';
