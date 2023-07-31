@@ -65,6 +65,12 @@ const Wrapper = styled.div`
 `;
 
 const Indicator = styled(Box)`
+    flex: 1;
+
+    .title:not(:first-of-type):not(:last-of-type) {
+        text-align: center;
+      }
+
     .title {
         ${mq.phone(css`
           display: none;
@@ -103,7 +109,6 @@ export const ProgressIndicator: React.FC<ProgressIndicatorProps> = props => {
                 {stepItems.map((_, index) => (
                     <React.Fragment key={index}>
                         <Indicator
-                            style={{ position: 'relative', width: '100%' }}
                             flex
                             fDirection="column"
                             fLayout={pos(index)}
@@ -117,7 +122,7 @@ export const ProgressIndicator: React.FC<ProgressIndicatorProps> = props => {
                             >
                                 {isCompleted(index) && <Icon icon="tick" />}
                             </StepCircle>
-                            <Box className="title" pr=".5rem">
+                            <Box className="title" tAlign={index === stepItems.length - 1 ? "end" : "center"}>
                                 <Text medium g500 flex fWrap="wrap" mt=".5rem">
                                     {stepsTitles[index]}
                                 </Text>

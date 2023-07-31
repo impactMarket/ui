@@ -13,7 +13,9 @@ export default {
 const Template: ComponentStory<any> = args => {
     const { wrapperProps, ...otherProps } = args;
 
-    const handleFiles = files => console.log(files);
+    const handleFiles = files => setTimeout(() => {
+        console.log(files);
+    }, 2000);
 
     return <BaseInputUpload handleFiles={handleFiles} wrapperProps={wrapperProps} {...otherProps} />;
 };
