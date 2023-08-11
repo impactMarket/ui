@@ -7,7 +7,8 @@ import { colors } from '../theme/colors';
 import { generateProps } from 'styled-gen';
 import { inputWrapperStyle } from '../theme/fx';
 import { mq } from 'styled-gen';
-import React, { useEffect, useState } from 'react';
+import { TextLink } from '../components/TextLink';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 export type EnhancedInputUploadProps = {
@@ -15,12 +16,13 @@ export type EnhancedInputUploadProps = {
     children?: any;
     disabled?: boolean;
     handleFiles: Function;
-    removeFiles: Function;
     hint?: string;
     name?: string;
-    uploadText?: string;
+    removeFiles: Function;
+    uploadedAction: Function;
     uploadedText?: string;
     uploadingText?: string;
+    uploadText?: string;
     withError?: boolean;
     wrapperProps?: GeneratedPropTypes;
 } & DropzoneOptions;
@@ -79,7 +81,7 @@ const ActionsWrapper = styled(Box)`
 
 const LoadedText = styled(Text)`
     ${mq.phone(css`
-          display: none;
+        display: none;
     `)};
 `;
 
@@ -106,6 +108,7 @@ export const EnhancedInputUpload: React.FC<EnhancedInputUploadProps> = props => 
         hint,
         name,
         uploadText,
+        uploadedAction,
         uploadedText,
         uploadingText,
         withError,
@@ -152,12 +155,15 @@ export const EnhancedInputUpload: React.FC<EnhancedInputUploadProps> = props => 
                         </Box>
                         {!!children && (
                             <ActionsWrapper>
-                                <LoadedText sColor={colors.g700} medium>
+                                <TextLink onClick={(e: any) => uploadedAction(e)} medium p500>
                                     {uploadedText}
-                                </LoadedText>
-                                <Box onClick={(e: any) => removeFiles(e)}>
-                                    <Icon icon="trash" />
-                                </Box>
+                                </TextLink>
+
+                                {!disabled && (
+                                    <Box onClick={(e: any) => removeFiles(e)}>
+                                        <Icon icon="trash" />
+                                    </Box>
+                                )}
                             </ActionsWrapper>
                         )}
                         {isUploading && (
@@ -191,7 +197,7 @@ export const EnhancedInputUpload: React.FC<EnhancedInputUploadProps> = props => 
                         )}
                     </Box>
                 )}
-                {!!children && (
+                {!!children && !disabled && (
                     <Box flex fLayout="center start">
                         <ClickableElement flex fLayout="center" onClick={(e: any) => removeFiles(e)}>
                             <Text sColor={colors.p500} mt=".5rem" medium>

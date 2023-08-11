@@ -10,8 +10,8 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 
 // #region ====== style ===
-const DropdownMenuWrapper = styled.div<GeneratedPropTypes & { asButton?: boolean }>`
-    cursor: pointer;
+const DropdownMenuWrapper = styled.div<GeneratedPropTypes & { asButton?: boolean } & { disabled?: boolean }>`
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
     display: inline-block;
     position: relative;
     width: auto;
@@ -44,8 +44,9 @@ const DropdownMenuWrapper = styled.div<GeneratedPropTypes & { asButton?: boolean
     ${generateProps}
 `;
 
-const LinkWrapper = styled.div<GeneratedPropTypes & { asButton?: boolean }>`
+const LinkWrapper = styled.div<GeneratedPropTypes & { asButton?: boolean } & { disabled?: boolean }>`
     align-items: center;
+    background: ${({ disabled }) => (disabled ? `${colors.g100}` : '')};
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -122,6 +123,7 @@ export type DropdownMenuProps = {
     title?: string | React.ReactNode;
     icon?: string | undefined;
     items: React.ReactNode[];
+    disabled?: boolean;
     asButton?: boolean;
     rtl?: boolean;
     wrapperProps?: GeneratedPropTypes;
@@ -130,7 +132,8 @@ export type DropdownMenuProps = {
 };
 
 export const DropdownMenu: React.FC<DropdownMenuProps> = props => {
-    const { icon, items, title, asButton, rtl, wrapperProps, headerProps, titleColor, ...forwardProps } = props;
+    const { icon, items, disabled, title, asButton, rtl, wrapperProps, headerProps, titleColor, ...forwardProps } =
+        props;
     const [showContent, toggleContent] = useState(false);
 
     const contentRef = useRef<any>();
@@ -148,10 +151,17 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = props => {
     useClickOutside(containerRef?.current, closeDropdownMenu);
 
     return (
-        <DropdownMenuWrapper asButton={asButton} ref={containerRef} {...wrapperProps} {...forwardProps}>
+        <DropdownMenuWrapper
+            asButton={asButton}
+            disabled={disabled}
+            ref={containerRef}
+            {...wrapperProps}
+            {...forwardProps}
+        >
             <LinkWrapper
                 asButton={asButton}
-                onClick={() => toggleContent(!showContent)}
+                disabled={disabled}
+                onClick={() => !disabled && toggleContent(!showContent)}
                 ref={contentRef}
                 {...headerProps}
             >
